@@ -1,28 +1,41 @@
-// Copyright (c) Microsoft Corporation
-// The Microsoft Corporation licenses this file to you under the MIT license.
-// See the LICENSE file in the project root for more information.
+// ------------------------------------------------------------
+// 
+// Copyright (c) Jiří Polášek. All rights reserved.
+// 
+// ------------------------------------------------------------
 
+using JPSoftworks.UnitConverterExtension.Helpers;
+using JPSoftworks.UnitConverterExtension.Pages;
 using Microsoft.CommandPalette.Extensions;
 using Microsoft.CommandPalette.Extensions.Toolkit;
 
-namespace UnitConverterExtension;
+namespace JPSoftworks.UnitConverterExtension;
 
-public partial class UnitConverterExtensionCommandsProvider : CommandProvider
+internal sealed partial class UnitConverterExtensionCommandsProvider : CommandProvider
 {
     private readonly ICommandItem[] _commands;
+    private readonly SettingsManager _settingsManager = new();
 
     public UnitConverterExtensionCommandsProvider()
     {
-        DisplayName = "Unit Converter for Command Palette";
-        Icon = IconHelpers.FromRelativePath("Assets\\StoreLogo.png");
-        _commands = [
-            new CommandItem(new UnitConverterExtensionPage()) { Title = DisplayName },
+        this.DisplayName = "Unit Converter for Command Palette";
+        this.Icon = Icons.AppLogoVector;
+        this.Settings = this._settingsManager.Settings;
+        this._commands =
+        [
+            new CommandItem(new UnitConverterExtensionPage(this._settingsManager))
+            {
+                Title = "Convert units",
+                Subtitle = "Convert common units of length, volume, temperature, weight, time or speed",
+                MoreCommands = [
+                    new CommandContextItem(this._settingsManager.Settings.SettingsPage)
+                    ]
+            }
         ];
     }
 
     public override ICommandItem[] TopLevelCommands()
     {
-        return _commands;
+        return this._commands;
     }
-
 }

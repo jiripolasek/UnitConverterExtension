@@ -1,12 +1,12 @@
-// Copyright (c) Microsoft Corporation
-// The Microsoft Corporation licenses this file to you under the MIT license.
-// See the LICENSE file in the project root for more information.
+// ------------------------------------------------------------
+// 
+// Copyright (c) Jiří Polášek. All rights reserved.
+// 
+// ------------------------------------------------------------
 
-using System;
-using System.Threading.Tasks;
 using JPSoftworks.CommandPalette.Extensions.Toolkit;
 
-namespace UnitConverterExtension;
+namespace JPSoftworks.UnitConverterExtension;
 
 public static class Program
 {
@@ -23,7 +23,8 @@ public static class Program
                 IsDebug = true,
 #endif
                 EnableEfficiencyMode = true,
-                ExtensionFactories = [
+                ExtensionFactories =
+                [
                     new DelegateExtensionFactory(manualResetEvent => new UnitConverterExtension(manualResetEvent))
                 ]
             });

@@ -1,10 +1,25 @@
 <Project>
-  <PropertyGroup>
-    <Platforms>x64;ARM64</Platforms>
-    <EnableNETAnalyzers>true</EnableNETAnalyzers>
-    <AnalysisMode>Recommended</AnalysisMode>
-    <_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
-    <NuGetAuditMode>direct</NuGetAuditMode>
-    <PlatformTarget>$(Platform)</PlatformTarget>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Platforms>x64;ARM64</Platforms>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<AnalysisMode>Recommended</AnalysisMode>
+		<_SkipUpgradeNetAnalyzersNuGetWarning>true</_SkipUpgradeNetAnalyzersNuGetWarning>
+		<NuGetAuditMode>direct</NuGetAuditMode>
+		<PlatformTarget>$(Platform)</PlatformTarget>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<WarningsAsErrors>
+			$(WarningsAsErrors);
+			<!-- Class %s implements WinRT interfaces but it or a parent type isn't marked partial. Type and any parent types should be marked partial for trimming and AOT compatibility if passed across the WinRT ABI. (https://github.com/microsoft/CsWinRT/tree/master/src/Authoring/WinRT.SourceGenerator/AnalyzerReleases.Shipped.md) -->
+			CsWinRT1028
+		</WarningsAsErrors>
+	</PropertyGroup>
 </Project>

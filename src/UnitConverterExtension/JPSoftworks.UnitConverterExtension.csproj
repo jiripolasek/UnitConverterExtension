@@ -1,10 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>UnitConverterExtension</RootNamespace>
+    <RootNamespace>JPSoftworks.UnitConverterExtension</RootNamespace>
+    <AssemblyName>JPSoftworks.UnitConverterExtension</AssemblyName>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AppxManifest>$(ProjectDir)Package.appxmanifest</AppxManifest>
 
-    <WindowsSdkPackageVersion>10.0.22621.57</WindowsSdkPackageVersion>
+    <WindowsSdkPackageVersion>10.0.26100.57</WindowsSdkPackageVersion>
     <TargetFramework>net9.0-windows10.0.22621.0</TargetFramework>
     <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
     <SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
@@ -13,16 +15,20 @@
     <PublishProfile>win-$(Platform).pubxml</PublishProfile>
     <EnableMsixTooling>true</EnableMsixTooling>
     <Nullable>enable</Nullable>
+    <DebugType>embedded</DebugType>
+    <LangVersion>preview</LangVersion>
+
+    <Company>Jiri Polasek</Company>
+    <Copyright>(c) Jiri Polasek</Copyright>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Product>Unit Converter for Command Palette</Product>
+    <AssemblyTitle>Unit Converter for Command Palette</AssemblyTitle>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>Resources\App.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="Assets\SplashScreen.scale-200.png" />
-    <Content Include="Assets\LockScreenLogo.scale-200.png" />
-    <Content Include="Assets\Square150x150Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.scale-200.png" />
-    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
-    <Content Include="Assets\StoreLogo.png" />
-    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\**\*.*" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,14 +43,21 @@
   <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
     <ProjectCapability Include="Msix" />
   </ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="JPSoftworks.CommandPalette.Extensions.Toolkit" />
     <PackageReference Include="Microsoft.CommandPalette.Extensions" />
     <PackageReference Include="Microsoft.Windows.CsWinRT" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" />
     <PackageReference Include="System.Text.Json" />
     <PackageReference Include="Shmuelie.WinRTServer" />
-    <PackageReference Include="UnitsNet" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UnitConverterCore\JPSoftworks.UnitConverter.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TrimmerRootAssembly Include="Serilog" />
   </ItemGroup>
 
   <!--
@@ -67,7 +80,8 @@
 
     <!-- When publishing trimmed, make sure to treat trimming warnings as build errors -->
     <ILLinkTreatWarningsAsErrors>true</ILLinkTreatWarningsAsErrors>
-
+    <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
+    <AppxPackageDir>X:\source\CmdPal\UnitConverterExtension\artifacts</AppxPackageDir>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Debug'">
@@ -75,7 +89,7 @@
          AOT warnings are enabled. This gives debug builds a tighter inner loop,
          while at least warning about future trim violations -->
     <PublishTrimmed>false</PublishTrimmed>
-    
+
     <EnableTrimAnalyzer>true</EnableTrimAnalyzer>
     <EnableSingleFileAnalyzer>true</EnableSingleFileAnalyzer>
     <EnableAotAnalyzer>true</EnableAotAnalyzer>
@@ -85,7 +99,31 @@
     <!-- In Release builds, trimming is enabled by default. 
          feel free to disable this if needed -->
     <PublishTrimmed>true</PublishTrimmed>
+    <TrimMode>full</TrimMode>
+
+    <ILLinkTreatWarningsAsErrors>false</ILLinkTreatWarningsAsErrors>
+    <WarningsNotAsErrors>$(WarningsNotAsErrors);IL2104</WarningsNotAsErrors>
   </PropertyGroup>
 
+  <Target Name="UpdateVersionFromManifest" BeforeTargets="BeforeBuild">
+    <XmlPeek XmlInputPath="$(AppxManifest)" Query="/appx:Package/appx:Identity/@Version" Namespaces="&lt;Namespace Prefix='appx' Uri='http://schemas.microsoft.com/appx/manifest/foundation/windows10'/&gt;">
+      <Output TaskParameter="Result" PropertyName="appxManifestVersion" />
+    </XmlPeek>
+
+    <Message Importance="High" Text="Set project version to match Appx manifest: $(appxManifestVersion)" />
+
+    <PropertyGroup>
+      <Version>$(appxManifestVersion)</Version>
+    </PropertyGroup>
+  </Target>
+
+
+  <Target Name="KillRunningExecutable" BeforeTargets="Build;Deploy;Publish">
+    <PropertyGroup>
+      <ExecutableName>$(AssemblyName).exe</ExecutableName>
+    </PropertyGroup>
+
+    <Exec Command="taskkill /F /IM $(ExecutableName)" ContinueOnError="true" IgnoreExitCode="true" />
+  </Target>
 
 </Project>
