@@ -308,7 +308,9 @@ public class ModuleVerificationTests
 
         Assert.NotNull(moduleType);
 
-        var module = Activator.CreateInstance(moduleType) as IConversionModule;
+        var module = moduleType == typeof(UnitsNetVolumeModule)
+            ? Activator.CreateInstance(moduleType, new object?[] { null }) as IConversionModule
+            : Activator.CreateInstance(moduleType) as IConversionModule;
         Assert.NotNull(module);
 
         // Test basic properties

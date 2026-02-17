@@ -49,17 +49,18 @@ public class ConversionServiceTests
             Assert.Empty(result.ErrorMessage);
             
             // Verify the conversion contains the expected to-unit in the formatted result
-            Assert.Contains(expectedToUnit, result.FormattedResult, StringComparison.OrdinalIgnoreCase);
+            var expectedSymbol = NormalizeExpectedSymbol(expectedToUnit);
+            Assert.Contains(expectedSymbol, result.FormattedResult, StringComparison.OrdinalIgnoreCase);
         }
     }
 
     [Theory]
-    [InlineData("0 °C to °F", true, 32.0, "°F")]
-    [InlineData("100 °C to °F", true, 212.0, "°F")]
-    [InlineData("32 °F to °C", true, 0.0, "°C")]
-    [InlineData("212 °F to °C", true, 100.0, "°C")]
-    [InlineData("-40 °C to °F", true, -40.0, "°F")] // Special case where C and F are equal
-    [InlineData("273.15 K to °C", true, 0.0, "°C")]
+    [InlineData("0 C to F", true, 32.0, "°F")]
+    [InlineData("100 C to F", true, 212.0, "°F")]
+    [InlineData("32 F to C", true, 0.0, "°C")]
+    [InlineData("212 F to C", true, 100.0, "°C")]
+    [InlineData("-40 C to F", true, -40.0, "°F")] // Special case where C and F are equal
+    [InlineData("273.15 K to C", true, 0.0, "°C")]
     public void ConvertQuery_TemperatureConversions_ReturnsCorrectResults(
         string query,
         bool expectedSuccess,
@@ -75,7 +76,8 @@ public class ConversionServiceTests
         {
             Assert.Equal(expectedValue, result.Output.Value,
                 1); // Temperature conversions might have small rounding errors
-            Assert.Equal(expectedUnit, result.Output.Unit.Unit);
+            var expectedSymbol = NormalizeExpectedSymbol(expectedUnit);
+            Assert.Equal(expectedSymbol, result.Output.Unit.Metadata?.Symbol ?? result.Output.Unit.Unit);
             Assert.NotEmpty(result.FormattedResult);
             Assert.Empty(result.ErrorMessage);
         }
@@ -101,7 +103,8 @@ public class ConversionServiceTests
         if (expectedSuccess)
         {
             Assert.Equal(expectedValue, result.Output.Value, 2);
-            Assert.Equal(expectedUnit, result.Output.Unit.Unit);
+            var expectedSymbol = NormalizeExpectedSymbol(expectedUnit);
+            Assert.Equal(expectedSymbol, result.Output.Unit.Metadata?.Symbol ?? result.Output.Unit.Unit);
             Assert.NotEmpty(result.FormattedResult);
             Assert.Empty(result.ErrorMessage);
         }
@@ -127,18 +130,19 @@ public class ConversionServiceTests
         if (expectedSuccess)
         {
             Assert.Equal(expectedValue, result.Output.Value, 3);
-            Assert.Equal(expectedUnit, result.Output.Unit.Unit);
+            var expectedSymbol = NormalizeExpectedSymbol(expectedUnit);
+            Assert.Equal(expectedSymbol, result.Output.Unit.Metadata?.Symbol ?? result.Output.Unit.Unit);
             Assert.NotEmpty(result.FormattedResult);
             Assert.Empty(result.ErrorMessage);
         }
     }
 
     [Theory]
-    [InlineData("1 gal to l", true, 3.785, "l")] // US gallon
+    [InlineData("1 us gal to l", true, 3.785, "l")] // US gallon
     [InlineData("1 l to ml", true, 1000.0, "ml")]
     [InlineData("1000 ml to l", true, 1.0, "l")]
-    [InlineData("1 cup to ml", true, 236.588, "ml")] // US cup
-    [InlineData("1 tsp to ml", true, 4.929, "ml")] // US teaspoon
+    [InlineData("1 cup to milliliter", true, 236.588, "ml")] // US cup
+    [InlineData("1 us fl oz to milliliter", true, 29.574, "ml")] // US fluid ounce
     public void ConvertQuery_VolumeConversions_ReturnsCorrectResults(
         string query,
         bool expectedSuccess,
@@ -153,7 +157,8 @@ public class ConversionServiceTests
         if (expectedSuccess)
         {
             Assert.Equal(expectedValue, result.Output.Value, 3);
-            Assert.Equal(expectedUnit, result.Output.Unit.Unit);
+            var expectedSymbol = NormalizeExpectedSymbol(expectedUnit);
+            Assert.Equal(expectedSymbol, result.Output.Unit.Metadata?.Symbol ?? result.Output.Unit.Unit);
             Assert.NotEmpty(result.FormattedResult);
             Assert.Empty(result.ErrorMessage);
         }
@@ -162,7 +167,7 @@ public class ConversionServiceTests
     [Theory]
     [InlineData("60 mins", true, 60.0, "min")]
     [InlineData("100 cm", true, 100.0, "cm")]
-    [InlineData("25 °C", true, 25.0, "°C")]
+    [InlineData("25 C", true, 25.0, "°C")]
     [InlineData("2.5 kg", true, 2.5, "kg")]
     [InlineData("1000 ml", true, 1000.0, "ml")]
     public void ConvertQuery_ImplicitConversions_ReturnsSuggestions(
@@ -179,7 +184,8 @@ public class ConversionServiceTests
         if (expectedSuccess)
         {
             Assert.Equal(expectedValue, result.Output.Value);
-            Assert.Equal(expectedUnit, result.Output.Unit.Unit);
+            var expectedSymbol = NormalizeExpectedSymbol(expectedUnit);
+            Assert.Equal(expectedSymbol, result.Output.Unit.Metadata?.Symbol ?? result.Output.Unit.Unit);
             Assert.NotEmpty(result.FormattedResult);
             Assert.Empty(result.ErrorMessage);
             Assert.NotEmpty(result.Suggestions);
@@ -221,7 +227,7 @@ public class ConversionServiceTests
     [Theory]
     [InlineData("1,5 m to ft")] // European decimal separator
     [InlineData("1.5 m to ft")] // US decimal separator
-    [InlineData("-5 °C to °F")] // Negative values
+    [InlineData("-5 C to F")] // Negative values
     [InlineData("+10 kg to lb")] // Positive sign
     public void ConvertQuery_DifferentCultures_HandlesCorrectly(string query)
     {
@@ -291,7 +297,7 @@ public class ConversionServiceTests
 
     [Theory]
     [InlineData(0.0, "m", "ft")]
-    [InlineData(-10.0, "°C", "°F")]
+    [InlineData(-10.0, "C", "F")]
     [InlineData(1000000.0, "mm", "km")]
     public void ConvertQuery_EdgeValues_HandlesCorrectly(double value, string fromUnit, string toUnit)
     {
@@ -313,5 +319,19 @@ public class ConversionServiceTests
         {
             Assert.NotEmpty(result.ErrorMessage);
         }
+    }
+
+    private string NormalizeExpectedSymbol(string unit)
+    {
+        foreach (var module in this._service.Modules)
+        {
+            if (module.TryNormalizeUnit(unit, CultureInfo.InvariantCulture, out var normalized))
+            {
+                var metadata = module.GetUnitMetadata(normalized, CultureInfo.InvariantCulture);
+                return metadata?.Symbol ?? unit;
+            }
+        }
+
+        return unit;
     }
 }

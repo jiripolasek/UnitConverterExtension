@@ -1,7 +1,7 @@
 // ------------------------------------------------------------
-// 
+//
 // Copyright (c) Jiří Polášek. All rights reserved.
-// 
+//
 // ------------------------------------------------------------
 
 using System.Globalization;
@@ -55,7 +55,7 @@ public class UnitsNetLengthModuleTests
     [InlineData("yards", "yd")]
     [InlineData("nmi", "nmi")]
     [InlineData("nautical mile", "nmi")]
-    [InlineData("nm", "nmi")]
+    [InlineData("nanometer", "nm")]
     public void TryNormalizeUnit_ValidUnits_ReturnsCorrectNormalizedUnit(string input, string expected)
     {
         // Act

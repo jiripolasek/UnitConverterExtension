@@ -13,7 +13,7 @@ namespace JPSoftworks.UnitConverterExtension.UnitTest;
 public class UnitDescriptorTests
 {
     [Fact]
-    public void SpeedModule_WithDescriptors_WorksCorrectly()
+    public void SpeedModule_WithIdDescriptors_WorksCorrectly()
     {
         // Arrange
         var module = new UnitsNetSpeedModule();
@@ -31,7 +31,7 @@ public class UnitDescriptorTests
         Assert.Equal("Metric", metadata.System);
 
         // Act
-        var normalizeResult = module.TryNormalizeUnit("kilometers per hour", CultureInfo.InvariantCulture, out var normalized);
+        var normalizeResult = module.TryNormalizeUnit("km/h", CultureInfo.InvariantCulture, out var normalized);
         
         // Assert
         Assert.True(normalizeResult);
@@ -53,7 +53,24 @@ public class UnitDescriptorTests
     }
 
     [Fact]
-    public void PowerModule_WithDescriptors_WorksCorrectly()
+    public void SpeedModule_WithSymbolAndAlias_NormalizesToId()
+    {
+        // Arrange
+        var module = new UnitsNetSpeedModule();
+
+        // Act
+        var symbolNormalized = module.TryNormalizeUnit("km/h", CultureInfo.InvariantCulture, out var symbolId);
+        var aliasNormalized = module.TryNormalizeUnit("kilometers per hour", CultureInfo.InvariantCulture, out var aliasId);
+
+        // Assert
+        Assert.True(symbolNormalized);
+        Assert.True(aliasNormalized);
+        Assert.Equal("km/h", symbolId);
+        Assert.Equal("km/h", aliasId);
+    }
+
+    [Fact]
+    public void PowerModule_WithIdDescriptors_WorksCorrectly()
     {
         // Arrange
         var module = new UnitsNetPowerModule();
@@ -82,6 +99,20 @@ public class UnitDescriptorTests
         Assert.Equal(1.341, result, 3); // 1 kW ≈ 1.341 hp
     }
 
+    [Fact]
+    public void PowerModule_WithSymbol_NormalizesToId()
+    {
+        // Arrange
+        var module = new UnitsNetPowerModule();
+
+        // Act
+        var symbolNormalized = module.TryNormalizeUnit("kW", CultureInfo.InvariantCulture, out var symbolId);
+
+        // Assert
+        Assert.True(symbolNormalized);
+        Assert.Equal("kW", symbolId);
+    }
+
     [Theory]
     [InlineData("Length", "m")] 
     [InlineData("Temperature", "°C")] 
@@ -104,5 +135,42 @@ public class UnitDescriptorTests
         Assert.True(allUnits.ContainsKey(category), $"Missing category: {category}");
         var categoryUnits = allUnits[category];
         Assert.True(categoryUnits.ContainsKey(unitId), $"Category {category} should contain unit {unitId}");
+    }
+
+    [Theory]
+    [InlineData("m", "m")]
+    [InlineData("°C", "°C")]
+    [InlineData("km/h", "km/h")]
+    [InlineData("kW", "kW")]
+    [InlineData("J", "J")]
+    [InlineData("kg", "kg")]
+    [InlineData("l", "l")]
+    [InlineData("Pa", "Pa")]
+    [InlineData("deg", "deg")]
+    [InlineData("B", "B")]
+    [InlineData("s", "s")]
+    public void AllModules_WithSymbolsAndAliases_NormalizeToIds(string input, string expectedId)
+    {
+        // Arrange
+        var service = new ConversionService();
+
+        // Act
+        var normalized = NormalizeUnit(service.Modules, input);
+
+        // Assert
+        Assert.Equal(expectedId, normalized);
+    }
+
+    private static string NormalizeUnit(IEnumerable<IConversionModule> modules, string unit)
+    {
+        foreach (var module in modules)
+        {
+            if (module.TryNormalizeUnit(unit, CultureInfo.InvariantCulture, out var normalized))
+            {
+                return normalized;
+            }
+        }
+
+        return string.Empty;
     }
 }

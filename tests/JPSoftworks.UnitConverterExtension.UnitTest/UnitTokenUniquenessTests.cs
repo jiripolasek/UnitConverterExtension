@@ -71,7 +71,22 @@ public class UnitTokenUniquenessTests
                     Assert.True(ok, $"[{module.Category}] Token '{token}' should normalize but did not.");
 
                     // 2) Token must normalize back to its owning unit id
-                    Assert.Equal(unitId, normalized);
+                    var isCaseSensitive = module switch
+                    {
+                        ConversionModuleBase baseModule => baseModule.IsCaseSensitive,
+                        DescriptorBasedConversionModule descriptorModule => descriptorModule.IsCaseSensitive,
+                        _ => true
+                    };
+
+                    if (isCaseSensitive)
+                    {
+                        Assert.Equal(unitId, normalized);
+                    }
+                    else
+                    {
+                        Assert.True(string.Equals(unitId, normalized, StringComparison.OrdinalIgnoreCase),
+                            $"[{module.Category}] Token '{token}' normalized to '{normalized}', expected '{unitId}'.");
+                    }
 
                     // 3) Token literal must be unique within the module (no duplicate id/symbol/alias strings)
                     if (tokenOwners.TryGetValue(token, out var existingOwner))

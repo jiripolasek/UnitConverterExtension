@@ -1,7 +1,7 @@
 // ------------------------------------------------------------
-// 
+//
 // Copyright (c) Jiří Polášek. All rights reserved.
-// 
+//
 // ------------------------------------------------------------
 
 namespace JPSoftworks.UnitConverter.Core.Modules;
@@ -15,6 +15,7 @@ public class UnitsNetLengthModule : DescriptorBasedConversionModule
     {
     }
 
+    public override bool IsCaseSensitive => true;
     public override string Category => "Length";
     public override bool SupportsSquaredUnits => true;
     public override bool SupportsCubicUnits => true;
@@ -191,7 +192,7 @@ public class UnitsNetLengthModule : DescriptorBasedConversionModule
                 Symbol = "nmi",
                 System = "Nautical",
                 IsCommon = false,
-                Aliases = ["nautical mile", "nautical miles", "nm"],
+                Aliases = ["nautical mile", "nautical miles"],
                 CommonTargets = ["km", "mi"],
                 SuggestionPriority = 80,
                 Tags = ["nautical", "maritime", "aviation"],
