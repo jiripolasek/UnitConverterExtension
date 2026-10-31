@@ -18,7 +18,7 @@ public class DataModuleScenarioTests
     [InlineData(5000, "kb", "MiB", 0.596046)]
     [InlineData(1, "Mb", "kb", 1000.0)]
     [InlineData(1024, "Kib", "Mib", 1.0)]
-    public void Data_CoreScenarios(double value, string from, string to, double expected)
+    public void DataCoreScenarios(double value, string from, string to, double expected)
     {
         var ok = _module.TryConvert(value, from, to, out var result);
         Assert.True(ok);

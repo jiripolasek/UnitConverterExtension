@@ -33,7 +33,7 @@ public class MassModuleTests
     [InlineData("lb", "pound")]
     [InlineData("stone", "stones")]
     [InlineData("short tn", "short ton")]
-    public void TryNormalizeUnit_AllSupportedUnits_ReturnsTrue(string unitId, string alias)
+    public void TryNormalizeUnitAllSupportedUnitsReturnsTrue(string unitId, string alias)
     {
         // Act
         var result1 = _module.TryNormalizeUnit(unitId, CultureInfo.InvariantCulture, out var normalized1);
@@ -72,7 +72,7 @@ public class MassModuleTests
     [InlineData(1, "ct", "g", 0.2)]            // 1 carat = 0.2 g
     [InlineData(5, "ct", "g", 1)]              // 5 carats = 1 g
     [InlineData(1, "g", "ct", 5)]              // 1 g = 5 carats
-    public void TryConvert_CommonConversions_ReturnsCorrectResults(
+    public void TryConvertCommonConversionsReturnsCorrectResults(
         double inputValue, 
         string fromUnit, 
         string toUnit, 
@@ -100,7 +100,7 @@ public class MassModuleTests
     [InlineData("lb", "Pound", "lb", "Imperial")]
     [InlineData("stone", "Stone", "st", "Imperial")]
     [InlineData("short tn", "Short Ton", "short tn", "US")]
-    public void GetUnitMetadata_AllUnits_ReturnsCorrectMetadata(
+    public void GetUnitMetadataAllUnitsReturnsCorrectMetadata(
         string unitId, 
         string expectedDisplayName, 
         string expectedSymbol, 
@@ -132,7 +132,7 @@ public class MassModuleTests
     [InlineData("dag", false)]  // Less common
     [InlineData("hg", false)]   // Less common
     [InlineData("stone", false)] // Regional (UK)
-    public void GetUnitMetadata_CommonalityFlags_AreCorrect(string unitId, bool expectedIsCommon)
+    public void GetUnitMetadataCommonalityFlagsAreCorrect(string unitId, bool expectedIsCommon)
     {
         // Act
         var metadata = _module.GetUnitMetadata(unitId);
@@ -149,7 +149,7 @@ public class MassModuleTests
     [InlineData(10, "stone")] // Should suggest kg, lb
     [InlineData(5, "ct")]     // Should suggest g, mg
     [InlineData(1, "t")]      // Should suggest kg, short tn
-    public void GetCommonConversions_ValidInput_ReturnsSuggestions(double value, string unit)
+    public void GetCommonConversionsValidInputReturnsSuggestions(double value, string unit)
     {
         // Act
         var suggestions = _module.GetCommonConversions(value, unit).ToArray();
@@ -170,7 +170,7 @@ public class MassModuleTests
     [InlineData("")]
     [InlineData("   ")]
     [InlineData("xyz")]
-    public void TryNormalizeUnit_InvalidUnits_ReturnsFalse(string invalidUnit)
+    public void TryNormalizeUnitInvalidUnitsReturnsFalse(string invalidUnit)
     {
         // Act
         var result = _module.TryNormalizeUnit(invalidUnit, CultureInfo.InvariantCulture, out var normalized);
@@ -183,7 +183,7 @@ public class MassModuleTests
     [Theory]
     [InlineData(1, "kg", "invalid_unit")]
     [InlineData(1, "invalid_unit", "kg")]
-    public void TryConvert_InvalidUnits_ReturnsFalse(double value, string fromUnit, string toUnit)
+    public void TryConvertInvalidUnitsReturnsFalse(double value, string fromUnit, string toUnit)
     {
         // Act
         var result = _module.TryConvert(value, fromUnit, toUnit, out var convertedValue);
@@ -194,7 +194,7 @@ public class MassModuleTests
     }
 
     [Fact]
-    public void GetAllUnitMetadata_ReturnsAllSupportedUnits()
+    public void GetAllUnitMetadataReturnsAllSupportedUnits()
     {
         // Act
         var allMetadata = _module.GetAllUnitMetadata();
@@ -213,7 +213,7 @@ public class MassModuleTests
     }
 
     [Fact]
-    public void ModuleProperties_AreCorrect()
+    public void ModulePropertiesAreCorrect()
     {
         // Assert
         Assert.Equal("Mass", _module.Category);
@@ -256,7 +256,7 @@ public class MassModuleTests
     [InlineData("US tons", "short tn")]
     [InlineData("ton", "short tn")]
     [InlineData("tons", "short tn")]
-    public void TryNormalizeUnit_AllAliases_WorkCorrectly(string alias, string expectedUnitId)
+    public void TryNormalizeUnitAllAliasesWorkCorrectly(string alias, string expectedUnitId)
     {
         // Act
         var result = _module.TryNormalizeUnit(alias, CultureInfo.InvariantCulture, out var normalized);
@@ -271,7 +271,7 @@ public class MassModuleTests
     [InlineData(-1.0)]    // Negative value (should still convert mathematically)
     [InlineData(0.001)]   // Very small value
     [InlineData(1000000)] // Very large value
-    public void TryConvert_EdgeCases_HandlesCorrectly(double edgeValue)
+    public void TryConvertEdgeCasesHandlesCorrectly(double edgeValue)
     {
         // Act
         var result = _module.TryConvert(edgeValue, "kg", "g", out var convertedValue);

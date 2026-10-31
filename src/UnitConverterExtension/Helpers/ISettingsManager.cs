@@ -14,6 +14,8 @@ public interface ISettingsManager
 
     PreferredCulture ParsingCulture { get; }
 
+    ConversionWordLanguage ConversionWordLanguage { get; }
+
     AccuracyLevel Accuracy { get; }
 }
 

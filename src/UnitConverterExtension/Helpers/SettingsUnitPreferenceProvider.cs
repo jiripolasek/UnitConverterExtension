@@ -38,5 +38,7 @@ internal sealed class FallbackSettingsManager : ISettingsManager
 
     public PreferredCulture ParsingCulture => PreferredCulture.Default;
 
+    public ConversionWordLanguage ConversionWordLanguage => ConversionWordLanguage.Default;
+
     public AccuracyLevel Accuracy => AccuracyLevel.CommonUse;
 }

@@ -128,17 +128,18 @@ public record UnitDescriptor
 }
 
 /// <summary>
-///     Collection of unit descriptors for a conversion module with helper methods
+///     Catalog of unit descriptors for a conversion module with helper methods
 /// </summary>
-public class UnitDescriptorCollection
+public class UnitDescriptorCatalog
 {
     // Case-sensitive for Ids and Symbols to distinguish "kb" vs "kB".
     private readonly Dictionary<string, UnitDescriptor> _units;
     private readonly Dictionary<string, UnitDescriptor> _symbolLookup;
     // Case-insensitive for aliases like words ("kilobyte", "megabit").
     private readonly Dictionary<string, UnitDescriptor> _aliasLookup;
+    private readonly IReadOnlyDictionary<string, string[]> _supportedUnits;
 
-    public UnitDescriptorCollection(IEnumerable<UnitDescriptor> units)
+    public UnitDescriptorCatalog(IEnumerable<UnitDescriptor> units)
     {
         _units = new Dictionary<string, UnitDescriptor>(StringComparer.Ordinal);
         _symbolLookup = new Dictionary<string, UnitDescriptor>(StringComparer.Ordinal);
@@ -162,6 +163,7 @@ public class UnitDescriptorCollection
                 _symbolLookup[unit.Symbol] = unit;
             }
         }
+        _supportedUnits = _units.ToDictionary(unit => unit.Key, unit => unit.Value.Aliases, StringComparer.Ordinal).AsReadOnly();
     }
 
     /// <summary>
@@ -252,11 +254,7 @@ public class UnitDescriptorCollection
     /// </summary>
     public IReadOnlyDictionary<string, string[]> GetSupportedUnits()
     {
-        return _units.ToDictionary(
-            kvp => kvp.Key,
-            kvp => kvp.Value.Aliases,
-            StringComparer.Ordinal
-        ).AsReadOnly();
+        return _supportedUnits;
     }
 
     /// <summary>

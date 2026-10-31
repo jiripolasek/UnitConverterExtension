@@ -17,7 +17,10 @@ public record ParsedConversionQuery
     public string FromUnit { get; init; } = string.Empty;
     public string ToUnit { get; init; } = string.Empty;
     public UnitDimension Dimension { get; init; } = UnitDimension.Linear;
-    public bool IsImplicitConversion { get; init; } = false;
+    public UnitDimension FromDimension { get; init; } = UnitDimension.Linear;
+    public UnitDimension ToDimension { get; init; } = UnitDimension.Linear;
+    public Quantity[] Components { get; init; } = [];
+    public bool IsImplicitConversion { get; init; }
     public string OriginalQuery { get; init; } = string.Empty;
 }
 
@@ -48,7 +51,18 @@ public enum UnitType
     Energy,
     Data,
     Pressure,
-    Angle
+    Angle,
+    DataRate,
+    FuelEconomy,
+    TemperatureDelta,
+    Frequency,
+    Force,
+    Torque,
+    Acceleration,
+    Density,
+    Voltage,
+    Current,
+    Resistance
 }
 
 /// <summary>
@@ -137,12 +151,22 @@ public record Quantity
 public record ConversionResult
 {
     public bool Success { get; init; }
+    public bool IsIncomplete { get; init; }
+    public QueryCompletion[] Completions { get; init; } = [];
+    public QueryCompletion[] OtherInterpretations { get; init; } = [];
 
     public Quantity Output { get; init; } = new(0, new UnitToken());
+
+    public Quantity[] OutputComponents { get; init; } = [];
 
     public string FormattedResult { get; init; } = string.Empty;
 
     public string ErrorMessage { get; init; } = string.Empty;
 
     public ConversionSuggestion[] Suggestions { get; init; } = [];
+}
+
+public record QueryCompletion(string Query, UnitToken Unit)
+{
+    public string FormattedResult { get; init; } = string.Empty;
 }

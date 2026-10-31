@@ -7,7 +7,7 @@
 namespace JPSoftworks.UnitConverter.Core.Modules;
 
 /// <summary>
-///     Speed conversion module powered by Units.NET using the UnitDescriptor system
+///     Speed and pace conversion module powered by Units.NET using the UnitDescriptor system
 /// </summary>
 internal class UnitsNetSpeedModule : DescriptorBasedConversionModule
 {
@@ -21,20 +21,38 @@ internal class UnitsNetSpeedModule : DescriptorBasedConversionModule
 
     protected override UnitType GetUnitType() => UnitType.Speed;
 
+    public override bool TryNormalizeUnit(string unit, CultureInfo culture, out string normalizedUnit)
+    {
+        // Keep the SI symbol kN (kilonewton) distinct from kn (knot).
+        if (unit.Trim() == "kN")
+        {
+            normalizedUnit = string.Empty;
+            return false;
+        }
+
+        return base.TryNormalizeUnit(unit, culture, out normalizedUnit);
+    }
+
+    internal static bool IsPaceUnit(string unit) => unit is "min/km" or "min/mi" or "s/km" or "s/mi";
+
     public override bool TryConvert(double value, string fromUnit, string toUnit, out double result)
     {
         result = 0;
         try
         {
-            if (!TryNormalizeUnit(fromUnit, CultureInfo.InvariantCulture, out var from) ||
+            if (!double.IsFinite(value) || !TryNormalizeUnit(fromUnit, CultureInfo.InvariantCulture, out var from) ||
                 !TryNormalizeUnit(toUnit, CultureInfo.InvariantCulture, out var to))
             {
                 return false;
             }
 
+            var involvesPace = IsPaceUnit(from) || IsPaceUnit(to);
+            if (involvesPace && value <= 0)
+                return false;
+
             var speed = CreateSpeed(value, from);
             var converted = ConvertToUnit(speed, to);
-            if (converted.HasValue)
+            if (converted.HasValue && double.IsFinite(converted.Value) && (!involvesPace || converted.Value > 0))
             {
                 result = converted.Value;
                 return true;
@@ -71,7 +89,7 @@ internal class UnitsNetSpeedModule : DescriptorBasedConversionModule
                 System = "Metric",
                 IsCommon = true,
                 Aliases = ["meter per second", "meters per second", "metre per second", "metres per second", "mps"],
-                CommonTargets = ["km/h", "mph", "ft/s"],
+                CommonTargets = ["km/h", "mph", "ft/s", "min/km", "min/mi"],
                 SuggestionPriority = 10,
                 Tags = ["metric", "SI", "base"]
             },
@@ -83,7 +101,7 @@ internal class UnitsNetSpeedModule : DescriptorBasedConversionModule
                 System = "Metric",
                 IsCommon = true,
                 Aliases = ["kilometers per hour", "kilometres per hour", "kph", "kmh"],
-                CommonTargets = ["m/s", "mph"],
+                CommonTargets = ["m/s", "mph", "min/km", "min/mi"],
                 SuggestionPriority = 5,
                 Tags = ["metric", "common", "automotive"]
             },
@@ -107,9 +125,33 @@ internal class UnitsNetSpeedModule : DescriptorBasedConversionModule
                 System = "Imperial",
                 IsCommon = true,
                 Aliases = ["miles per hour"],
-                CommonTargets = ["km/h", "m/s"],
+                CommonTargets = ["km/h", "m/s", "min/mi", "min/km"],
                 SuggestionPriority = 5,
                 Tags = ["imperial", "common", "automotive"]
+            },
+            new UnitDescriptor
+            {
+                Id = "min/km", DisplayName = "Minute per kilometer", Symbol = "min/km", System = "Metric",
+                Aliases = ["minute per kilometer", "minutes per kilometer", "minute per kilometre", "minutes per kilometre"],
+                CommonTargets = ["min/mi", "km/h", "mph", "s/km"], SuggestionPriority = 20
+            },
+            new UnitDescriptor
+            {
+                Id = "min/mi", DisplayName = "Minute per mile", Symbol = "min/mi", System = "Imperial",
+                Aliases = ["min/mile", "minute per mile", "minutes per mile"],
+                CommonTargets = ["min/km", "mph", "km/h", "s/mi"], SuggestionPriority = 20
+            },
+            new UnitDescriptor
+            {
+                Id = "s/km", DisplayName = "Second per kilometer", Symbol = "s/km", System = "Metric",
+                Aliases = ["sec/km", "second per kilometer", "seconds per kilometer", "second per kilometre", "seconds per kilometre"],
+                CommonTargets = ["min/km", "min/mi", "km/h", "s/mi"], SuggestionPriority = 40
+            },
+            new UnitDescriptor
+            {
+                Id = "s/mi", DisplayName = "Second per mile", Symbol = "s/mi", System = "Imperial",
+                Aliases = ["s/mile", "sec/mi", "second per mile", "seconds per mile"],
+                CommonTargets = ["min/mi", "min/km", "mph", "s/km"], SuggestionPriority = 40
             },
             new UnitDescriptor
             {
@@ -145,6 +187,10 @@ internal class UnitsNetSpeedModule : DescriptorBasedConversionModule
         "km/h" => Speed.FromKilometersPerHour(value),
         "ft/s" => Speed.FromFeetPerSecond(value),
         "mph" => Speed.FromMilesPerHour(value),
+        "min/km" => Speed.FromKilometersPerHour(60 / value),
+        "min/mi" => Speed.FromMilesPerHour(60 / value),
+        "s/km" => Speed.FromKilometersPerHour(3600 / value),
+        "s/mi" => Speed.FromMilesPerHour(3600 / value),
         "kn" => Speed.FromKnots(value),
         "Mach" => Speed.FromMach(value),
         _ => throw new ArgumentOutOfRangeException(nameof(unit))
@@ -157,6 +203,10 @@ internal class UnitsNetSpeedModule : DescriptorBasedConversionModule
         "km/h" => s.KilometersPerHour,
         "ft/s" => s.FeetPerSecond,
         "mph" => s.MilesPerHour,
+        "min/km" => 60 / s.KilometersPerHour,
+        "min/mi" => 60 / s.MilesPerHour,
+        "s/km" => 3600 / s.KilometersPerHour,
+        "s/mi" => 3600 / s.MilesPerHour,
         "kn" => s.Knots,
         "Mach" => s.Mach,
         _ => null

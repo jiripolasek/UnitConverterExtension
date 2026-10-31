@@ -4,6 +4,8 @@
 //
 // ------------------------------------------------------------
 
+using System.Collections.Concurrent;
+
 namespace JPSoftworks.UnitConverter.Core.Modules;
 
 /// <summary>
@@ -11,8 +13,22 @@ namespace JPSoftworks.UnitConverter.Core.Modules;
 /// </summary>
 public class UnitsNetLengthModule : DescriptorBasedConversionModule
 {
-    public UnitsNetLengthModule() : base(CreateUnitDescriptors())
+    private readonly UnitsNetDescriptorOptions _descriptorOptions;
+    private readonly IReadOnlyCollection<UnitDescriptor> _customDescriptors;
+    private readonly ConcurrentDictionary<string, UnitDescriptorCatalog> _localizedCollections =
+        new(StringComparer.OrdinalIgnoreCase);
+
+    public UnitsNetLengthModule() : this(null, null)
     {
+    }
+
+    public UnitsNetLengthModule(
+        UnitsNetDescriptorOptions? descriptorOptions = null,
+        IEnumerable<UnitDescriptor>? customDescriptors = null)
+        : base(CreateUnitDescriptors(descriptorOptions, customDescriptors))
+    {
+        _descriptorOptions = CreateDescriptorOptions(descriptorOptions);
+        _customDescriptors = (customDescriptors ?? CreateCustomUnitDescriptors()).ToArray();
     }
 
     public override bool IsCaseSensitive => true;
@@ -40,16 +56,7 @@ public class UnitsNetLengthModule : DescriptorBasedConversionModule
                 return false;
             }
 
-            Length length;
-            try
-            {
-                length = Length.Parse($"{value} {from}");
-            }
-            catch
-            {
-                length = CreateLengthDirectly(value, from);
-            }
-
+            var length = CreateLengthDirectly(value, from);
             var converted = ConvertToUnit(length, to);
             if (converted.HasValue)
             {
@@ -64,535 +71,356 @@ public class UnitsNetLengthModule : DescriptorBasedConversionModule
         return false;
     }
 
-    private static UnitDescriptor[] CreateUnitDescriptors()
+    private static UnitDescriptor[] CreateUnitDescriptors(
+        UnitsNetDescriptorOptions? descriptorOptions,
+        IEnumerable<UnitDescriptor>? customDescriptors)
+    {
+        var options = CreateDescriptorOptions(descriptorOptions);
+        var custom = customDescriptors ?? CreateCustomUnitDescriptors();
+        return UnitsNetDescriptorProvider.CreateDescriptors(UnitType.Length, CultureInfo.InvariantCulture, options, custom).ToArray();
+    }
+
+    private static UnitsNetDescriptorOptions CreateDescriptorOptions(UnitsNetDescriptorOptions? options)
+    {
+        var defaultOverrides = CreateUnitsNetOverrides();
+        var defaultAbbreviationOverrides = CreateAbbreviationOverrides();
+
+        return new UnitsNetDescriptorOptions
+        {
+            IdStrategy = options?.IdStrategy ?? UnitsNetIdStrategy.Abbreviation,
+            CommonUnitIds = options?.CommonUnitIds ?? [],
+            GlobalOverrides = MergeOverrides(defaultOverrides, options?.GlobalOverrides),
+            CultureOverrides = MergeCultureOverrides(options?.CultureOverrides),
+            AbbreviationOverrides = MergeAbbreviationOverrides(defaultAbbreviationOverrides, options?.AbbreviationOverrides)
+        };
+    }
+
+    private static IReadOnlyCollection<UnitDescriptor> MergeOverrides(
+        IReadOnlyCollection<UnitDescriptor> defaults,
+        IReadOnlyCollection<UnitDescriptor>? overrides)
+    {
+        if (overrides == null || overrides.Count == 0)
+            return defaults;
+
+        return defaults.Concat(overrides).ToArray();
+    }
+
+    private static Dictionary<string, IReadOnlyCollection<UnitDescriptor>> MergeCultureOverrides(
+        IReadOnlyDictionary<string, IReadOnlyCollection<UnitDescriptor>>? overrides)
+    {
+        if (overrides == null || overrides.Count == 0)
+            return new Dictionary<string, IReadOnlyCollection<UnitDescriptor>>(StringComparer.OrdinalIgnoreCase);
+
+        return new Dictionary<string, IReadOnlyCollection<UnitDescriptor>>(overrides, StringComparer.OrdinalIgnoreCase);
+    }
+
+    private static IReadOnlyDictionary<string, string> MergeAbbreviationOverrides(
+        IReadOnlyDictionary<string, string> defaults,
+        IReadOnlyDictionary<string, string>? overrides)
+    {
+        if (overrides == null || overrides.Count == 0)
+            return defaults;
+
+        var merged = new Dictionary<string, string>(defaults, StringComparer.OrdinalIgnoreCase);
+        foreach (var entry in overrides)
+        {
+            merged[entry.Key] = entry.Value;
+        }
+        return merged;
+    }
+
+    private static Dictionary<string, string> CreateAbbreviationOverrides()
+    {
+        return new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase)
+        {
+            ["Angstrom"] = "angstrom",
+            ["DataMile"] = "dmi",
+            ["DtpPica"] = "dtp pica",
+            ["DtpPoint"] = "dtp pt",
+            ["Hand"] = "hand",
+            ["Microinch"] = "microinch",
+            ["Micrometer"] = "um",
+            ["NauticalMile"] = "nmi",
+            ["PrinterPica"] = "printer pica",
+            ["PrinterPoint"] = "printer pt",
+            ["UsSurveyFoot"] = "us survey ft"
+        };
+    }
+
+    /// <summary>
+    ///     Preserves existing aliases, suggestion targets, and disambiguated symbols
+    ///     while using Units.NET for the base catalog.
+    /// </summary>
+    private static IReadOnlyCollection<UnitDescriptor> CreateUnitsNetOverrides()
+    {
+        return
+        [
+            // --- Metric SI ---
+            Override("mm", isCommon: true, system: "Metric", priority: 20,
+                aliases: ["millimetre", "millimetres", "millimeters"],
+                targets: ["cm", "m", "in"],
+                tags: ["SI", "metric", "small", "precision"]),
+
+            Override("cm", isCommon: true, system: "Metric", priority: 15,
+                aliases: ["centimetre", "centimetres", "centimeters"],
+                targets: ["mm", "m", "in", "ft"],
+                tags: ["SI", "metric", "common"]),
+
+            Override("m", isCommon: true, system: "Metric", priority: 5,
+                aliases: ["metre", "metres", "meters"],
+                targets: ["cm", "ft", "yd", "km"],
+                tags: ["SI", "base", "metric", "common"]),
+
+            Override("km", isCommon: true, system: "Metric", priority: 25,
+                aliases: ["kilometre", "kilometres", "kilometers", "klick", "klicks", "click", "clicks"],
+                targets: ["m", "mi"],
+                tags: ["SI", "metric", "distance"]),
+
+            Override("nm", isCommon: true, system: "Metric", priority: 40,
+                aliases: ["nanometre", "nanometres", "nanometers"],
+                targets: ["um", "m", "angstrom"],
+                tags: ["SI", "science"]),
+
+            Override("um", isCommon: true, system: "Metric", priority: 45,
+                aliases: ["micrometre", "micrometres", "micrometers", "um"],
+                targets: ["mm", "nm", "m"],
+                tags: ["SI", "science"], symbol: "µm"),
+
+            // --- Imperial / US ---
+            Override("in", isCommon: true, system: "Imperial", priority: 10,
+                aliases: ["inch", "inches"],
+                targets: ["cm", "mm", "ft"],
+                tags: ["imperial", "common", "US"]),
+
+            Override("ft", isCommon: true, system: "Imperial", priority: 8,
+                aliases: ["foot", "feet"],
+                targets: ["m", "cm", "in", "yd"],
+                tags: ["imperial", "common", "US"]),
+
+            Override("yd", isCommon: true, system: "Imperial", priority: 30,
+                aliases: ["yard", "yards"],
+                targets: ["m", "ft"],
+                tags: ["imperial", "US"]),
+
+            Override("mi", isCommon: true, system: "Imperial", priority: 35,
+                aliases: ["mile", "miles"],
+                targets: ["km", "m"],
+                tags: ["imperial", "distance", "US"]),
+
+            // --- Nautical ---
+            Override("nmi", isCommon: false, system: "Nautical", priority: 80,
+                aliases: ["nautical mile", "nautical miles"],
+                targets: ["km", "mi"],
+                tags: ["nautical", "maritime", "aviation"]),
+
+            Override("us survey ft", isCommon: false, system: "Imperial", priority: 82,
+                aliases: ["us survey foot", "us survey feet", "us ft (survey)", "survey foot", "survey feet"],
+                targets: ["ft", "m"],
+                tags: ["imperial", "US", "survey"], symbol: "US ft (survey)"),
+
+            Override("ch", isCommon: false, system: "Imperial", priority: 85,
+                aliases: ["chain", "chains"],
+                targets: ["m", "ft", "yd"],
+                tags: ["imperial", "survey"]),
+
+            Override("fathom", isCommon: false, system: "Imperial", priority: 86,
+                aliases: ["fathom", "fathoms"],
+                targets: ["m", "ft", "yd"],
+                tags: ["imperial", "nautical"], symbol: "ftm"),
+
+            Override("hand", isCommon: false, system: "Imperial", priority: 87,
+                aliases: ["hand", "hands"],
+                targets: ["in", "ft", "cm"],
+                tags: ["imperial", "equine"]),
+
+            Override("mil", isCommon: false, system: "Imperial", priority: 88,
+                aliases: ["mil", "thou"],
+                targets: ["in", "mm"],
+                tags: ["imperial", "manufacturing"]),
+
+            Override("microinch", isCommon: false, system: "Imperial", priority: 89,
+                aliases: ["microinch", "microinches", "µin", "uin"],
+                targets: ["mil", "in", "mm"],
+                tags: ["imperial", "precision"], symbol: "µin"),
+
+            Override("kft", isCommon: false, system: "Imperial", priority: 91,
+                aliases: ["kilofeet", "kilofoot"],
+                targets: ["ft", "mi"],
+                tags: ["imperial"]),
+
+            Override("kyd", isCommon: false, system: "Imperial", priority: 91,
+                aliases: ["kiloyard", "kiloyards"],
+                targets: ["yd", "mi"],
+                tags: ["imperial"]),
+
+            Override("dmi", isCommon: false, system: "Customary", priority: 93,
+                aliases: ["data mile", "data miles"],
+                targets: ["mi", "km"],
+                tags: ["telecom"]),
+
+            Override("shackle", isCommon: false, system: "Nautical", priority: 93,
+                aliases: ["shackle", "shackles"],
+                targets: ["ft", "m", "nmi"],
+                tags: ["nautical"]),
+
+            Override("dtp pica", isCommon: false, system: "Typographic", priority: 84,
+                aliases: ["dtp pica", "dtp picas", "pica", "picas", "pica DTP", "css pc", "pc (CSS)"],
+                targets: ["dtp pt", "px", "in", "mm"],
+                tags: ["typography", "CSS"], symbol: "pica (DTP)") with
+                { DisplayName = "DTP Pica", Description = "1/6 inch; 12 DTP points (CSS pica)" },
+
+            Override("dtp pt", isCommon: false, system: "Typographic", priority: 83,
+                aliases: ["dtp point", "dtp points", "dtp pt", "point", "points", "pt DTP", "css pt", "pt (CSS)"],
+                targets: ["px", "dtp pica", "in", "mm"],
+                tags: ["typography", "CSS"], symbol: "pt (DTP)") with
+                { DisplayName = "DTP Point", Description = "1/72 inch (CSS point)" },
+
+            Override("printer pica", isCommon: false, system: "Typographic", priority: 84,
+                aliases: ["printer pica", "printer picas"],
+                targets: ["printer pt", "in", "mm"],
+                tags: ["typography", "traditional"], symbol: "pica (printer)") with
+                { Description = "12 printer points; 400/2409 inch (TeX pica)" },
+
+            Override("printer pt", isCommon: false, system: "Typographic", priority: 83,
+                aliases: ["printer point", "printer points", "pt printer"],
+                targets: ["printer pica", "in", "mm"],
+                tags: ["typography", "traditional"], symbol: "pt (printer)") with
+                { Description = "1/72.27 inch (TeX point)" },
+
+            Override("twip", isCommon: false, system: "Typographic", priority: 85,
+                aliases: ["twips"], targets: ["dtp pt", "px", "in"], tags: ["typography"]) with
+                { Description = "1/20 DTP point; 1/1440 inch" },
+
+            Override("au", isCommon: false, system: "Astronomical", priority: 95,
+                aliases: ["astronomical unit", "astronomical units"],
+                targets: ["km", "m", "ly", "pc"],
+                tags: ["astronomical", "space"], symbol: "AU"),
+
+            Override("ly", isCommon: false, system: "Astronomical", priority: 98,
+                aliases: ["light year", "light years", "lightyear", "lightyears"],
+                targets: ["km", "m", "pc", "au", "kly", "Mly"],
+                tags: ["astronomical", "space"]),
+
+            Override("kly", isCommon: false, system: "Astronomical", priority: 99,
+                aliases: ["kilolightyear", "kilolightyears", "kilo light year", "kilo light years"],
+                targets: ["ly", "Mly", "pc"],
+                tags: ["astronomical", "space"]),
+
+            Override("Mly", isCommon: false, system: "Astronomical", priority: 100,
+                aliases: ["megalightyear", "megalightyears", "mega light year", "mega light years"],
+                targets: ["kly", "ly", "Mpc"],
+                tags: ["astronomical", "space"]),
+
+            Override("pc", isCommon: false, system: "Astronomical", priority: 100,
+                aliases: ["parsec", "parsecs"],
+                targets: ["ly", "au", "km", "kpc", "Mpc"],
+                tags: ["astronomical", "space"]),
+
+            Override("kpc", isCommon: false, system: "Astronomical", priority: 101,
+                aliases: ["kiloparsec", "kiloparsecs"],
+                targets: ["pc", "Mpc"],
+                tags: ["astronomical", "space"]),
+
+            Override("Mpc", isCommon: false, system: "Astronomical", priority: 102,
+                aliases: ["megaparsec", "megaparsecs"],
+                targets: ["kpc", "pc"],
+                tags: ["astronomical", "space"]),
+
+            Override("angstrom", isCommon: false, system: "Non-SI", priority: 85,
+                aliases: ["angstrom", "angstroms", "å"],
+                targets: ["nm", "pm", "m"],
+                tags: ["atomic", "physics"], symbol: "Å"),
+
+            Override("fm", isCommon: false, system: "SI", priority: 90,
+                aliases: ["femtometer", "femtometre", "femtometers", "femtometres", "fermi"],
+                targets: ["pm", "nm", "m"],
+                tags: ["SI", "atomic"]),
+
+            Override("pm", isCommon: false, system: "SI", priority: 88,
+                aliases: ["picometer", "picometre", "picometers", "picometres"],
+                targets: ["nm", "angstrom", "m"],
+                tags: ["SI", "atomic"]),
+
+            Override("dm", isCommon: false, system: "SI", priority: 70,
+                aliases: ["decimeter", "decimetre", "decimeters", "decimetres"],
+                targets: ["cm", "m"],
+                tags: ["SI"]),
+
+            Override("dam", isCommon: false, system: "SI", priority: 75,
+                aliases: ["decameter", "decametre", "dekameter", "dekametre", "decameters", "decametres"],
+                targets: ["m", "hm"],
+                tags: ["SI"]),
+
+            Override("hm", isCommon: false, system: "SI", priority: 78,
+                aliases: ["hectometer", "hectometre", "hectometers", "hectometres"],
+                targets: ["dam", "km", "m"],
+                tags: ["SI"]),
+
+            Override("Mm", isCommon: false, system: "SI", priority: 92,
+                aliases: ["megameter", "megametre", "megameters", "megametres"],
+                targets: ["km", "Gm", "m"],
+                tags: ["SI", "large"]),
+
+            Override("Gm", isCommon: false, system: "SI", priority: 94,
+                aliases: ["gigameter", "gigametre", "gigameters", "gigametres"],
+                targets: ["Mm", "au", "m"],
+                tags: ["SI", "large"]),
+        ];
+    }
+
+    private static UnitDescriptor Override(
+        string id,
+        bool isCommon,
+        string system,
+        int priority,
+        string[] aliases,
+        string[] targets,
+        string[] tags,
+        string symbol = "")
+    {
+        return new UnitDescriptor
+        {
+            Id = id,
+            Symbol = symbol,
+            IsCommon = isCommon,
+            System = system,
+            SuggestionPriority = priority,
+            Aliases = aliases,
+            CommonTargets = targets,
+            Tags = tags
+        };
+    }
+
+    private static IReadOnlyCollection<UnitDescriptor> CreateCustomUnitDescriptors()
     {
         return
         [
             new UnitDescriptor
             {
-                Id = "mm",
-                DisplayName = "Millimeter",
-                Symbol = "mm",
-                System = "Metric",
-                IsCommon = true,
-                Aliases = ["millimeter", "millimetre", "millimeters", "millimetres"],
-                CommonTargets = ["cm", "m", "in"],
-                SuggestionPriority = 20,
-                Tags = ["SI", "metric", "small", "precision"],
-                Description = "One thousandth of a meter"
-            },
-            new UnitDescriptor
-            {
-                Id = "cm",
-                DisplayName = "Centimeter",
-                Symbol = "cm",
-                System = "Metric",
-                IsCommon = true,
-                Aliases = ["centimeter", "centimetre", "centimeters", "centimetres"],
-                CommonTargets = ["mm", "m", "in", "ft"],
-                SuggestionPriority = 15,
-                Tags = ["SI", "metric", "common"],
-                Description = "One hundredth of a meter"
-            },
-            new UnitDescriptor
-            {
-                Id = "m",
-                DisplayName = "Meter",
-                Symbol = "m",
-                System = "Metric",
-                IsCommon = true,
-                Aliases = ["meter", "metre", "meters", "metres"],
-                CommonTargets = ["cm", "ft", "yd", "km"],
-                SuggestionPriority = 5,
-                Tags = ["SI", "base", "metric", "common"],
-                Description = "SI base unit of length"
-            },
-            new UnitDescriptor
-            {
-                Id = "km",
-                DisplayName = "Kilometer",
-                Symbol = "km",
-                System = "Metric",
-                IsCommon = true,
-                Aliases = ["kilometer", "kilometre", "kilometers", "kilometres", "klick", "klicks", "click", "clicks"],
-                CommonTargets = ["m", "mi"],
-                SuggestionPriority = 25,
-                Tags = ["SI", "metric", "distance"],
-                Description = "One thousand meters"
-            },
-            new UnitDescriptor
-            {
-                Id = "in",
-                DisplayName = "Inch",
-                Symbol = "in",
-                System = "Imperial",
-                IsCommon = true,
-                Aliases = ["inch", "inches", "\""],
-                CommonTargets = ["cm", "mm", "ft"],
-                SuggestionPriority = 10,
-                Tags = ["imperial", "common", "US"],
-                Description = "1/12 of a foot"
-            },
-            new UnitDescriptor
-            {
-                Id = "ft",
-                DisplayName = "Foot",
-                Symbol = "ft",
-                System = "Imperial",
-                IsCommon = true,
-                Aliases = ["foot", "feet", "'"],
-                CommonTargets = ["m", "cm", "in", "yd"],
-                SuggestionPriority = 8,
-                Tags = ["imperial", "common", "US"],
-                Description = "12 inches"
-            },
-            new UnitDescriptor
-            {
-                Id = "us survey ft",
-                DisplayName = "US Survey Foot",
-                Symbol = "US ft (survey)",
-                System = "Imperial",
+                Id = "px",
+                DisplayName = "CSS Pixel",
+                Symbol = "px",
+                System = "Typographic",
                 IsCommon = false,
-                Aliases = ["us survey foot", "us survey feet", "us ft (survey)", "survey foot", "survey feet"],
-                CommonTargets = ["ft", "m"],
+                Aliases = ["pixel", "pixels", "css pixel", "css pixels"],
+                CommonTargets = ["dtp pt", "dtp pica", "mm", "in"],
                 SuggestionPriority = 82,
-                Tags = ["imperial", "US", "survey"],
-                Description = "US survey foot"
+                Tags = ["typography", "CSS"],
+                Description = "1/96 inch (CSS reference pixel, independent of device pixel density)"
             },
             new UnitDescriptor
             {
-                Id = "yd",
-                DisplayName = "Yard",
-                Symbol = "yd",
-                System = "Imperial",
-                IsCommon = true,
-                Aliases = ["yard", "yards"],
-                CommonTargets = ["m", "ft"],
-                SuggestionPriority = 30,
-                Tags = ["imperial", "US"],
-                Description = "3 feet"
-            },
-            new UnitDescriptor
-            {
-                Id = "mi",
-                DisplayName = "Mile",
-                Symbol = "mi",
-                System = "Imperial",
-                IsCommon = true,
-                Aliases = ["mile", "miles"],
-                CommonTargets = ["km", "m"],
-                SuggestionPriority = 35,
-                Tags = ["imperial", "distance", "US"],
-                Description = "5,280 feet"
-            },
-            new UnitDescriptor
-            {
-                Id = "nmi",
-                DisplayName = "Nautical Mile",
-                Symbol = "nmi",
-                System = "Nautical",
+                Id = "Q",
+                DisplayName = "Quarter-millimeter",
+                Symbol = "Q",
+                System = "Typographic",
                 IsCommon = false,
-                Aliases = ["nautical mile", "nautical miles"],
-                CommonTargets = ["km", "mi"],
-                SuggestionPriority = 80,
-                Tags = ["nautical", "maritime", "aviation"],
-                Description = "1,852 meters (international)"
-            },
-            // Other customary units
-            new UnitDescriptor
-            {
-                Id = "ch",
-                DisplayName = "Chain",
-                Symbol = "ch",
-                System = "Imperial",
-                IsCommon = false,
-                Aliases = ["chain", "chains"],
-                CommonTargets = ["m", "ft", "yd"],
+                Aliases = ["q", "quarter-millimeter", "quarter-millimeters", "quarter-millimetre", "quarter-millimetres"],
+                CommonTargets = ["mm", "px", "dtp pt"],
                 SuggestionPriority = 85,
-                Tags = ["imperial", "survey"],
-                Description = "66 feet"
+                Tags = ["typography", "CSS"],
+                Description = "1/4 millimeter (CSS quarter-millimeter)"
             },
-            new UnitDescriptor
-            {
-                Id = "fathom",
-                DisplayName = "Fathom",
-                Symbol = "ftm",
-                System = "Imperial",
-                IsCommon = false,
-                Aliases = ["fathom", "fathoms"],
-                CommonTargets = ["m", "ft", "yd"],
-                SuggestionPriority = 86,
-                Tags = ["imperial", "nautical"],
-                Description = "6 feet"
-            },
-            new UnitDescriptor
-            {
-                Id = "hand",
-                DisplayName = "Hand",
-                Symbol = "hand",
-                System = "Imperial",
-                IsCommon = false,
-                Aliases = ["hand", "hands"],
-                CommonTargets = ["in", "ft", "cm"],
-                SuggestionPriority = 87,
-                Tags = ["imperial", "equine"],
-                Description = "4 inches"
-            },
-            new UnitDescriptor
-            {
-                Id = "mil",
-                DisplayName = "Mil",
-                Symbol = "mil",
-                System = "Imperial",
-                IsCommon = false,
-                Aliases = ["mil", "thou"],
-                CommonTargets = ["in", "mm"],
-                SuggestionPriority = 88,
-                Tags = ["imperial", "manufacturing"],
-                Description = "0.001 inch"
-            },
-            new UnitDescriptor
-            {
-                Id = "microinch",
-                DisplayName = "Microinch",
-                Symbol = "µin",
-                System = "Imperial",
-                IsCommon = false,
-                Aliases = ["microinch", "microinches", "µin", "uin"],
-                CommonTargets = ["mil", "in", "mm"],
-                SuggestionPriority = 89,
-                Tags = ["imperial", "precision"],
-                Description = "1e-6 inches"
-            },
-            new UnitDescriptor
-            {
-                Id = "kft",
-                DisplayName = "Kilofeet",
-                Symbol = "kft",
-                System = "Imperial",
-                IsCommon = false,
-                Aliases = ["kilofeet", "kilofoot"],
-                CommonTargets = ["ft", "mi"],
-                SuggestionPriority = 91,
-                Tags = ["imperial"],
-                Description = "1000 feet"
-            },
-            new UnitDescriptor
-            {
-                Id = "kyd",
-                DisplayName = "Kiloyard",
-                Symbol = "kyd",
-                System = "Imperial",
-                IsCommon = false,
-                Aliases = ["kiloyard", "kiloyards"],
-                CommonTargets = ["yd", "mi"],
-                SuggestionPriority = 91,
-                Tags = ["imperial"],
-                Description = "1000 yards"
-            },
-            new UnitDescriptor
-            {
-                Id = "dmi",
-                DisplayName = "Data Mile",
-                Symbol = "dmi",
-                System = "Customary",
-                IsCommon = false,
-                Aliases = ["data mile", "data miles"],
-                CommonTargets = ["mi", "km"],
-                SuggestionPriority = 93,
-                Tags = ["telecom"],
-                Description = "6000 feet"
-            },
-            new UnitDescriptor
-            {
-                Id = "shackle",
-                DisplayName = "Shackle",
-                Symbol = "shackle",
-                System = "Nautical",
-                IsCommon = false,
-                Aliases = ["shackle", "shackles"],
-                CommonTargets = ["ft", "m", "nmi"],
-                SuggestionPriority = 93,
-                Tags = ["nautical"],
-                Description = "15 fathoms (90 feet)"
-            },
-            // Typographic units
-            new UnitDescriptor
-            {
-                Id = "dtp pica",
-                DisplayName = "DTP Pica",
-                Symbol = "pica (DTP)",
-                System = "Typographic",
-                IsCommon = false,
-                Aliases = ["dtp pica", "pica"],
-                CommonTargets = ["dtp pt", "in", "mm"],
-                SuggestionPriority = 84,
-                Tags = ["typography"],
-                Description = "1/6 of an inch (PostScript)"
-            },
-            new UnitDescriptor
-            {
-                Id = "dtp pt",
-                DisplayName = "DTP Point",
-                Symbol = "pt (DTP)",
-                System = "Typographic",
-                IsCommon = false,
-                Aliases = ["dtp point", "dtp pt", "point"],
-                CommonTargets = ["dtp pica", "in", "mm"],
-                SuggestionPriority = 83,
-                Tags = ["typography"],
-                Description = "1/72 of an inch (PostScript)"
-            },
-            new UnitDescriptor
-            {
-                Id = "printer pica",
-                DisplayName = "Printer Pica",
-                Symbol = "pica (printer)",
-                System = "Typographic",
-                IsCommon = false,
-                Aliases = ["printer pica"],
-                CommonTargets = ["printer pt", "in", "mm"],
-                SuggestionPriority = 84,
-                Tags = ["typography", "traditional"],
-                Description = "Traditional printer's pica"
-            },
-            new UnitDescriptor
-            {
-                Id = "printer pt",
-                DisplayName = "Printer Point",
-                Symbol = "pt (printer)",
-                System = "Typographic",
-                IsCommon = false,
-                Aliases = ["printer point"],
-                CommonTargets = ["printer pica", "in", "mm"],
-                SuggestionPriority = 83,
-                Tags = ["typography", "traditional"],
-                Description = "Traditional printer's point"
-            },
-            // Astronomical units (built-in and scaled)
-            new UnitDescriptor
-            {
-                Id = "au",
-                DisplayName = "Astronomical Unit",
-                Symbol = "AU",
-                System = "Astronomical",
-                IsCommon = false,
-                Aliases = ["astronomical unit", "astronomical units"],
-                CommonTargets = ["km", "m", "ly", "pc"],
-                SuggestionPriority = 95,
-                Tags = ["astronomical", "space"],
-                Description = "Average Earth–Sun distance (~149,597,870.7 km)"
-            },
-            new UnitDescriptor
-            {
-                Id = "ly",
-                DisplayName = "Light-year",
-                Symbol = "ly",
-                System = "Astronomical",
-                IsCommon = false,
-                Aliases = ["light year", "light years", "lightyear", "lightyears"],
-                CommonTargets = ["km", "m", "pc", "au", "kly", "Mly"],
-                SuggestionPriority = 98,
-                Tags = ["astronomical", "space"],
-                Description = "Distance light travels in one Julian year"
-            },
-            new UnitDescriptor
-            {
-                Id = "kly",
-                DisplayName = "Kilolight-year",
-                Symbol = "kly",
-                System = "Astronomical",
-                IsCommon = false,
-                Aliases = ["kilolightyear", "kilolightyears", "kilo light year", "kilo light years"],
-                CommonTargets = ["ly", "Mly", "pc"],
-                SuggestionPriority = 99,
-                Tags = ["astronomical", "space"],
-                Description = "1,000 light-years"
-            },
-            new UnitDescriptor
-            {
-                Id = "Mly",
-                DisplayName = "Megalight-year",
-                Symbol = "Mly",
-                System = "Astronomical",
-                IsCommon = false,
-                Aliases = ["megalightyear", "megalightyears", "mega light year", "mega light years"],
-                CommonTargets = ["kly", "ly", "Mpc"],
-                SuggestionPriority = 100,
-                Tags = ["astronomical", "space"],
-                Description = "1,000,000 light-years"
-            },
-            new UnitDescriptor
-            {
-                Id = "pc",
-                DisplayName = "Parsec",
-                Symbol = "pc",
-                System = "Astronomical",
-                IsCommon = false,
-                Aliases = ["parsec", "parsecs"],
-                CommonTargets = ["ly", "au", "km", "kpc", "Mpc"],
-                SuggestionPriority = 100,
-                Tags = ["astronomical", "space"],
-                Description = "Approximately 3.26 light-years"
-            },
-            new UnitDescriptor
-            {
-                Id = "kpc",
-                DisplayName = "Kiloparsec",
-                Symbol = "kpc",
-                System = "Astronomical",
-                IsCommon = false,
-                Aliases = ["kiloparsec", "kiloparsecs"],
-                CommonTargets = ["pc", "Mpc"],
-                SuggestionPriority = 101,
-                Tags = ["astronomical", "space"],
-                Description = "1,000 parsecs"
-            },
-            new UnitDescriptor
-            {
-                Id = "Mpc",
-                DisplayName = "Megaparsec",
-                Symbol = "Mpc",
-                System = "Astronomical",
-                IsCommon = false,
-                Aliases = ["megaparsec", "megaparsecs"],
-                CommonTargets = ["kpc", "pc"],
-                SuggestionPriority = 102,
-                Tags = ["astronomical", "space"],
-                Description = "1,000,000 parsecs"
-            },
-            // Small-scale SI and atomic scale
-            new UnitDescriptor
-            {
-                Id = "angstrom",
-                DisplayName = "Angstrom",
-                Symbol = "Å",
-                System = "Non-SI",
-                IsCommon = false,
-                Aliases = ["angstrom", "angstroms", "å"],
-                CommonTargets = ["nm", "pm", "m"],
-                SuggestionPriority = 85,
-                Tags = ["atomic", "physics"],
-                Description = "1 Å = 1e-10 m"
-            },
-            new UnitDescriptor
-            {
-                Id = "fm",
-                DisplayName = "Femtometer",
-                Symbol = "fm",
-                System = "SI",
-                IsCommon = false,
-                Aliases = ["femtometer", "femtometre", "femtometers", "femtometres", "fermi"],
-                CommonTargets = ["pm", "nm", "m"],
-                SuggestionPriority = 90,
-                Tags = ["SI", "atomic"],
-                Description = "1e-15 meters"
-            },
-            new UnitDescriptor
-            {
-                Id = "pm",
-                DisplayName = "Picometer",
-                Symbol = "pm",
-                System = "SI",
-                IsCommon = false,
-                Aliases = ["picometer", "picometre", "picometers", "picometres"],
-                CommonTargets = ["nm", "angstrom", "m"],
-                SuggestionPriority = 88,
-                Tags = ["SI", "atomic"],
-                Description = "1e-12 meters"
-            },
-            new UnitDescriptor
-            {
-                Id = "nm",
-                DisplayName = "Nanometer",
-                Symbol = "nm",
-                System = "SI",
-                IsCommon = true,
-                Aliases = ["nanometer", "nanometre", "nanometers", "nanometres"],
-                CommonTargets = ["um", "m", "angstrom"],
-                SuggestionPriority = 40,
-                Tags = ["SI", "science"],
-                Description = "1e-9 meters"
-            },
-            new UnitDescriptor
-            {
-                Id = "um",
-                DisplayName = "Micrometer",
-                Symbol = "µm",
-                System = "SI",
-                IsCommon = true,
-                Aliases = ["micrometer", "micrometre", "micrometers", "micrometres", "um", "µm"],
-                CommonTargets = ["mm", "nm", "m"],
-                SuggestionPriority = 45,
-                Tags = ["SI", "science"],
-                Description = "1e-6 meters"
-            },
-            new UnitDescriptor
-            {
-                Id = "dm",
-                DisplayName = "Decimeter",
-                Symbol = "dm",
-                System = "SI",
-                IsCommon = false,
-                Aliases = ["decimeter", "decimetre", "decimeters", "decimetres"],
-                CommonTargets = ["cm", "m"],
-                SuggestionPriority = 70,
-                Tags = ["SI"],
-                Description = "0.1 meters"
-            },
-            new UnitDescriptor
-            {
-                Id = "dam",
-                DisplayName = "Decameter",
-                Symbol = "dam",
-                System = "SI",
-                IsCommon = false,
-                Aliases = ["decameter", "decametre", "dekameter", "dekametre", "decameters", "decametres"],
-                CommonTargets = ["m", "hm"],
-                SuggestionPriority = 75,
-                Tags = ["SI"],
-                Description = "10 meters"
-            },
-            new UnitDescriptor
-            {
-                Id = "hm",
-                DisplayName = "Hectometer",
-                Symbol = "hm",
-                System = "SI",
-                IsCommon = false,
-                Aliases = ["hectometer", "hectometre", "hectometers", "hectometres"],
-                CommonTargets = ["dam", "km", "m"],
-                SuggestionPriority = 78,
-                Tags = ["SI"],
-                Description = "100 meters"
-            },
-            new UnitDescriptor
-            {
-                Id = "Mm",
-                DisplayName = "Megameter",
-                Symbol = "Mm",
-                System = "SI",
-                IsCommon = false,
-                Aliases = ["megameter", "megametre", "megameters", "megametres"],
-                CommonTargets = ["km", "Gm", "m"],
-                SuggestionPriority = 92,
-                Tags = ["SI", "large"],
-                Description = "1e6 meters"
-            },
-            new UnitDescriptor
-            {
-                Id = "Gm",
-                DisplayName = "Gigameter",
-                Symbol = "Gm",
-                System = "SI",
-                IsCommon = false,
-                Aliases = ["gigameter", "gigametre", "gigameters", "gigametres"],
-                CommonTargets = ["Mm", "au", "m"],
-                SuggestionPriority = 94,
-                Tags = ["SI", "large"],
-                Description = "1e9 meters"
-            },
-            // Light-based (custom) units
             new UnitDescriptor
             {
                 Id = "ls",
@@ -661,9 +489,56 @@ public class UnitsNetLengthModule : DescriptorBasedConversionModule
         ];
     }
 
+    public override bool TryNormalizeUnit(string unit, CultureInfo culture, out string normalizedUnit)
+    {
+        unit = ConverterText.NormalizeUnit(Category, unit, culture);
+        if (TryGetAmbiguity(unit, out _, out _))
+        {
+            normalizedUnit = string.Empty;
+            return false;
+        }
+
+        var collection = GetUnits(culture);
+        return IsCaseSensitive
+            ? collection.TryNormalize(unit, out normalizedUnit, out _)
+            : collection.TryNormalizeCaseInsensitive(unit, out normalizedUnit, out _);
+    }
+
+    public override UnitMetadata? GetUnitMetadata(string unit, CultureInfo? culture = null)
+    {
+        var lookupCulture = culture ?? CultureInfo.CurrentUICulture;
+        var collection = GetUnits(lookupCulture);
+        if (!TryNormalizeUnit(unit, lookupCulture, out var normalized))
+            return null;
+
+        return ConverterText.Localize(Category, normalized, collection.GetById(normalized)?.ToMetadata(), lookupCulture);
+    }
+
+    public override IReadOnlyDictionary<string, UnitMetadata> GetAllUnitMetadata(CultureInfo? culture = null)
+    {
+        var lookupCulture = culture ?? CultureInfo.CurrentUICulture;
+        var collection = GetUnits(lookupCulture);
+        return collection.GetAll().ToDictionary(unit => unit.Id,
+            unit => ConverterText.Localize(Category, unit.Id, unit.ToMetadata(), lookupCulture)!, StringComparer.Ordinal);
+    }
+
+    private UnitDescriptorCatalog GetUnits(CultureInfo? culture)
+    {
+        var lookupCulture = culture ?? CultureInfo.InvariantCulture;
+        var key = lookupCulture.Name.Length == 0 ? CultureInfo.InvariantCulture.Name : lookupCulture.Name;
+
+        if (_localizedCollections.TryGetValue(key, out var collection))
+            return collection;
+
+        var descriptors = UnitsNetDescriptorProvider.CreateDescriptors(UnitType.Length, lookupCulture, _descriptorOptions, _customDescriptors);
+        collection = new UnitDescriptorCatalog(descriptors);
+        _localizedCollections[key] = collection;
+        return collection;
+    }
+
     private static Length CreateLengthDirectly(double value, string unit)
     {
-        return unit.ToLowerInvariant() switch
+        return unit switch
         {
             "m" => Length.FromMeters(value),
             "cm" => Length.FromCentimeters(value),
@@ -689,8 +564,12 @@ public class UnitsNetLengthModule : DescriptorBasedConversionModule
             // Typographic
             "dtp pica" => Length.FromDtpPicas(value),
             "dtp pt" => Length.FromDtpPoints(value),
-            "printer pica" => Length.FromPrinterPicas(value),
+            // Avoid the rounded printer-pica factor in Units.NET 5.x.
+            "printer pica" => Length.FromPrinterPoints(value * 12),
             "printer pt" => Length.FromPrinterPoints(value),
+            "twip" => Length.FromTwips(value),
+            "px" => Length.FromInches(value / 96),
+            "Q" => Length.FromMillimeters(value / 4),
             // Astronomical (built-in and scaled)
             "au" => Length.FromAstronomicalUnits(value),
             "ly" => Length.FromLightYears(value),
@@ -699,6 +578,7 @@ public class UnitsNetLengthModule : DescriptorBasedConversionModule
             "pc" => Length.FromParsecs(value),
             "kpc" => Length.FromKiloparsecs(value),
             "Mpc" => Length.FromMegaparsecs(value),
+            "R⊙" => Length.FromSolarRadiuses(value),
             // Small-scale SI and atomic scale
             "angstrom" => Length.FromAngstroms(value),
             "fm" => Length.FromFemtometers(value),
@@ -722,7 +602,7 @@ public class UnitsNetLengthModule : DescriptorBasedConversionModule
 
     private static double? ConvertToUnit(Length length, string unit)
     {
-        return unit.ToLowerInvariant() switch
+        return unit switch
         {
             "m" => length.Meters,
             "cm" => length.Centimeters,
@@ -748,8 +628,11 @@ public class UnitsNetLengthModule : DescriptorBasedConversionModule
             // Typographic
             "dtp pica" => length.DtpPicas,
             "dtp pt" => length.DtpPoints,
-            "printer pica" => length.PrinterPicas,
+            "printer pica" => length.PrinterPoints / 12,
             "printer pt" => length.PrinterPoints,
+            "twip" => length.Twips,
+            "px" => length.Inches * 96,
+            "Q" => length.Millimeters * 4,
             // Astronomical (built-in and scaled)
             "au" => length.AstronomicalUnits,
             "ly" => length.LightYears,
@@ -758,6 +641,7 @@ public class UnitsNetLengthModule : DescriptorBasedConversionModule
             "pc" => length.Parsecs,
             "kpc" => length.Kiloparsecs,
             "Mpc" => length.Megaparsecs,
+            "R⊙" => length.SolarRadiuses,
             // Small-scale SI and atomic scale
             "angstrom" => length.Angstroms,
             "fm" => length.Femtometers,

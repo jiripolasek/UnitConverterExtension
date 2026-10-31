@@ -14,25 +14,11 @@ public class UnitTokenUniquenessTests
 {
     private static IEnumerable<IConversionModule> GetAllModules()
     {
-        // Keep in sync with ConversionService module list
-        return new IConversionModule[]
-        {
-            new UnitsNetLengthModule(),
-            new UnitsNetTemperatureModule(),
-            new UnitsNetTimeModule(),
-            new UnitsNetVolumeModule(),
-            new UnitsNetMassModule(),
-            new UnitsNetSpeedModule(),
-            new UnitsNetPowerModule(),
-            new UnitsNetEnergyModule(),
-            new UnitsNetPressureModule(),
-            new UnitsNetAngleModule(),
-            new UnitsNetDataModule()
-        };
+        return new ConversionService().Modules;
     }
 
     [Fact]
-    public void AllModules_TokensAreUniqueAndRoundTripToOwner()
+    public void AllModulesTokensAreUniqueAndRoundTripToOwner()
     {
         foreach (var module in GetAllModules())
         {
@@ -104,16 +90,20 @@ public class UnitTokenUniquenessTests
     }
 
     [Fact]
-    public void AllModules_AmbiguousTokens_AreNotUsedAsIdsOrAliases()
+    public void AllModulesAmbiguousTokensAreNotUsedAsIdsOrAliases()
     {
         foreach (var module in GetAllModules())
         {
             if (module is not DescriptorBasedConversionModule desc)
+            {
                 continue;
+            }
 
             var ambiguous = new HashSet<string>(desc.GetAmbiguousTokens(), StringComparer.OrdinalIgnoreCase);
             if (ambiguous.Count == 0)
+            {
                 continue; // No ambiguity declared for this module
+            }
 
             var supported = module.GetSupportedUnits();
 
@@ -142,21 +132,23 @@ public class UnitTokenUniquenessTests
     }
 
     [Fact]
-    public void AllModules_Tokens_DoNotConflictCaseInsensitivelyAcrossUnits()
+    public void AllModulesTokensDoNotConflictUsingModuleCaseRules()
     {
         foreach (var module in GetAllModules())
         {
             var supported = module.GetSupportedUnits();
-            var aliasOwnersCI = new Dictionary<string, HashSet<string>>(StringComparer.OrdinalIgnoreCase);
-            var idOwnersCI = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            var comparer = module is DescriptorBasedConversionModule { IsCaseSensitive: true } or ConversionModuleBase { IsCaseSensitive: true }
+                ? StringComparer.Ordinal : StringComparer.OrdinalIgnoreCase;
+            var aliasOwners = new Dictionary<string, HashSet<string>>(comparer);
+            var idOwners = new Dictionary<string, string>(comparer);
 
-            // Collect unit ids (case-insensitive view) and aliases
+            // Collect tokens using the module's case rules, including Mbps versus MBps.
             foreach (var (unitId, aliases) in supported)
             {
-                // Track ids (case-insensitive map to the owning unit id)
-                if (!idOwnersCI.ContainsKey(unitId))
+                // Track ids mapped to their owner.
+                if (!idOwners.ContainsKey(unitId))
                 {
-                    idOwnersCI[unitId] = unitId;
+                    idOwners[unitId] = unitId;
                 }
 
                 // Track aliases and check conflicts only among aliases and alias vs id
@@ -165,38 +157,42 @@ public class UnitTokenUniquenessTests
                     foreach (var a in aliases)
                     {
                         if (string.IsNullOrWhiteSpace(a))
+                        {
                             continue;
+                        }
 
                         // Skip tokens explicitly marked ambiguous by the module
                         if (module is DescriptorBasedConversionModule desc && desc.TryGetAmbiguity(a, out _, out _))
+                        {
                             continue;
+                        }
 
-                        if (!aliasOwnersCI.TryGetValue(a, out var owners))
+                        if (!aliasOwners.TryGetValue(a, out var owners))
                         {
                             owners = new HashSet<string>(StringComparer.Ordinal);
-                            aliasOwnersCI[a] = owners;
+                            aliasOwners[a] = owners;
                         }
                         owners.Add(unitId);
                     }
                 }
             }
 
-            // 1) No alias (case-insensitively) should belong to multiple unit ids
-            foreach (var (alias, owners) in aliasOwnersCI)
+            // No alias should belong to multiple unit ids.
+            foreach (var (alias, owners) in aliasOwners)
             {
                 Assert.True(owners.Count <= 1,
-                    $"[{module.Category}] Alias '{alias}' (case-insensitive) is used by multiple units: {string.Join(", ", owners)}");
+                    $"[{module.Category}] Alias '{alias}' is used by multiple units: {string.Join(", ", owners)}");
             }
 
-            // 2) No alias (case-insensitively) should equal any unit id of a different unit
-            foreach (var (alias, owners) in aliasOwnersCI)
+            // No alias should equal the id of a different unit.
+            foreach (var (alias, owners) in aliasOwners)
             {
-                if (idOwnersCI.TryGetValue(alias, out var idOwner))
+                if (idOwners.TryGetValue(alias, out var idOwner))
                 {
                     // If alias belongs to a unit different from the id owner, that's a conflict (e.g., 'Cal' vs unit id 'cal')
                     var owner = owners.First();
                     Assert.True(string.Equals(owner, idOwner, StringComparison.Ordinal),
-                        $"[{module.Category}] Alias '{alias}' (case-insensitive) conflicts with unit id '{idOwner}'.");
+                        $"[{module.Category}] Alias '{alias}' conflicts with unit id '{idOwner}'.");
                 }
             }
         }

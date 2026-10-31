@@ -11,15 +11,14 @@ namespace JPSoftworks.UnitConverterExtension.UnitTest;
 
 public class ConversionQueryParserTests
 {
-    private readonly ConversionQueryParser _parser;
-
-    public ConversionQueryParserTests()
-    {
-        this._parser = new ConversionQueryParser();
-    }
-
     [Theory]
     [InlineData("1 m to ft", 1.0, "m", "ft", false, UnitDimension.Linear)]
+    [InlineData("10m in ft", 10.0, "m", "ft", false, UnitDimension.Linear)]
+    [InlineData("10 m IN ft", 10.0, "m", "ft", false, UnitDimension.Linear)]
+    [InlineData("10 m\tin\tft", 10.0, "m", "ft", false, UnitDimension.Linear)]
+    [InlineData("12 in in ft", 12.0, "in", "ft", false, UnitDimension.Linear)]
+    [InlineData("1 m in in", 1.0, "m", "in", false, UnitDimension.Linear)]
+    [InlineData("1 cm2 in in2", 1.0, "cm", "in", false, UnitDimension.Squared)]
     [InlineData("100 °C to °F", 100.0, "°C", "°F", false, UnitDimension.Linear)]
     [InlineData("60 mins to hours", 60.0, "mins", "hours", false, UnitDimension.Linear)]
     [InlineData("1.5 kg to lb", 1.5, "kg", "lb", false, UnitDimension.Linear)]
@@ -27,7 +26,7 @@ public class ConversionQueryParserTests
     [InlineData("1000 ml to l", 1000.0, "ml", "l", false, UnitDimension.Linear)]
     [InlineData("5.5 ft -> in", 5.5, "ft", "in", false, UnitDimension.Linear)]
     [InlineData("25 mph as kph", 25.0, "mph", "kph", false, UnitDimension.Linear)]
-    public void TryParseQuery_ExplicitConversions_ParsesCorrectly(
+    public void TryParseQueryExplicitConversionsParsesCorrectly(
         string query,
         double expectedValue,
         string expectedFromUnit,
@@ -36,7 +35,7 @@ public class ConversionQueryParserTests
         UnitDimension expectedDimension)
     {
         // Act
-        var result = this._parser.TryParseQuery(query, CultureInfo.InvariantCulture);
+        var result = ConversionQueryParser.TryParseQuery(query, CultureInfo.InvariantCulture);
 
         // Assert
         Assert.NotNull(result);
@@ -50,6 +49,7 @@ public class ConversionQueryParserTests
 
     [Theory]
     [InlineData("60 mins", 60.0, "mins", "", true, UnitDimension.Linear)]
+    [InlineData("10 in", 10.0, "in", "", true, UnitDimension.Linear)]
     [InlineData("100 cm", 100.0, "cm", "", true, UnitDimension.Linear)]
     [InlineData("25 °C", 25.0, "°C", "", true, UnitDimension.Linear)]
     [InlineData("2.5 kg", 2.5, "kg", "", true, UnitDimension.Linear)]
@@ -57,7 +57,7 @@ public class ConversionQueryParserTests
     [InlineData("1000 cm³", 1000.0, "cm", "", true, UnitDimension.Cubic)]
     [InlineData("15 square meters", 15.0, "meters", "", true, UnitDimension.Squared)]
     [InlineData("5 cubic feet", 5.0, "feet", "", true, UnitDimension.Cubic)]
-    public void TryParseQuery_ImplicitConversions_ParsesCorrectly(
+    public void TryParseQueryImplicitConversionsParsesCorrectly(
         string query,
         double expectedValue,
         string expectedFromUnit,
@@ -66,7 +66,7 @@ public class ConversionQueryParserTests
         UnitDimension expectedDimension)
     {
         // Act
-        var result = this._parser.TryParseQuery(query, CultureInfo.InvariantCulture);
+        var result = ConversionQueryParser.TryParseQuery(query, CultureInfo.InvariantCulture);
 
         // Assert
         Assert.NotNull(result);
@@ -86,10 +86,10 @@ public class ConversionQueryParserTests
     [InlineData("1 to")]
     [InlineData("meters to")]
     [InlineData("abc def")]
-    public void TryParseQuery_InvalidQueries_ReturnsNull(string query)
+    public void TryParseQueryInvalidQueriesReturnsNull(string query)
     {
         // Act
-        var result = this._parser.TryParseQuery(query, CultureInfo.InvariantCulture);
+        var result = ConversionQueryParser.TryParseQuery(query, CultureInfo.InvariantCulture);
 
         // Assert
         Assert.Null(result);
@@ -101,7 +101,7 @@ public class ConversionQueryParserTests
     [InlineData("-5 C to F", -5.0)] // Negative values
     [InlineData("+10 kg to lb", 10.0)] // Positive sign
     [InlineData("1 000 m to km", 1000.0)] // Space as thousands separator (some cultures)
-    public void TryParseQuery_DifferentNumberFormats_ParsesCorrectly(string query, double expectedValue)
+    public void TryParseQueryDifferentNumberFormatsParsesCorrectly(string query, double expectedValue)
     {
         // Test with different cultures
         var cultures = new[]
@@ -115,7 +115,7 @@ public class ConversionQueryParserTests
         foreach (var culture in cultures)
         {
             // Act
-            var result = this._parser.TryParseQuery(query, culture);
+            var result = ConversionQueryParser.TryParseQuery(query, culture);
 
             // Assert - at least one culture should parse it correctly
             if (result != null && Math.Abs(result.Value - expectedValue) < 0.01)
@@ -125,7 +125,7 @@ public class ConversionQueryParserTests
         }
 
         // If no culture could parse it, that's unexpected for these test cases
-        Assert.True(false, $"No culture could parse: {query}");
+        Assert.Fail($"No culture could parse: {query}");
     }
 
     [Theory]
@@ -137,10 +137,10 @@ public class ConversionQueryParserTests
     [InlineData("1 cubic meter to cubic feet", UnitDimension.Cubic)]
     [InlineData("1 cm2 to m2", UnitDimension.Squared)]
     [InlineData("1 cm3 to m3", UnitDimension.Cubic)]
-    public void TryParseQuery_DimensionalUnits_ParsesDimensionCorrectly(string query, UnitDimension expectedDimension)
+    public void TryParseQueryDimensionalUnitsParsesDimensionCorrectly(string query, UnitDimension expectedDimension)
     {
         // Act
-        var result = this._parser.TryParseQuery(query, CultureInfo.InvariantCulture);
+        var result = ConversionQueryParser.TryParseQuery(query, CultureInfo.InvariantCulture);
 
         // Assert
         Assert.NotNull(result);
@@ -148,7 +148,7 @@ public class ConversionQueryParserTests
     }
 
     [Fact]
-    public void TryParseQuery_ProblematicUnitsWithToSubstring_ParsesCorrectly()
+    public void TryParseQueryProblematicUnitsWithToSubstringParsesCorrectly()
     {
         // Test units that contain "to" substring but should not be split
         var testCases = new[]
@@ -165,7 +165,7 @@ public class ConversionQueryParserTests
         foreach (var (query, expectedUnit) in testCases)
         {
             // Act
-            var result = _parser.TryParseQuery(query, CultureInfo.InvariantCulture);
+            var result = ConversionQueryParser.TryParseQuery(query, CultureInfo.InvariantCulture);
 
             // Assert
             Assert.NotNull(result);

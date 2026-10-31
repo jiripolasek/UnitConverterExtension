@@ -30,6 +30,11 @@ public static class UnitMetadataProvider
         {
             foreach (var module in modules)
             {
+                if (module.GetSupportedUnits().ContainsKey(unit) && module.GetUnitMetadata(unit, culture) is { } metadata)
+                    return metadata;
+            }
+            foreach (var module in modules)
+            {
                 var metadata = module.GetUnitMetadata(unit, culture);
                 if (metadata != null)
                     return metadata;

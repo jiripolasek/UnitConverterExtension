@@ -3,30 +3,44 @@
     <Platform Name="ARM64" />
     <Platform Name="x64" />
   </Configurations>
+  <Folder Name="/Apps/">
+    <Project Path="src/JPSoftworks.UnitConverter.PrintUnits/JPSoftworks.UnitConverter.PrintUnits.csproj" Id="a184c986-b8dc-456f-9167-a070dfa1bcd4">
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+    </Project>
+    <Project Path="src/UnitConverterExtension/JPSoftworks.UnitConverterExtension.csproj">
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+    </Project>
+  </Folder>
+  <Folder Name="/Libs/">
+    <Project Path="src/UnitConverterCore/JPSoftworks.UnitConverter.Core.csproj">
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+    </Project>
+  </Folder>
+  <Folder Name="/Publishing/">
+    <Project Path="src/UnitConverterExtension.Package/JPSoftworks.UnitConverterExtension.Package.wapproj" Type="c7167f0d-bc9f-4e6e-afe1-012c56b48db5">
+      <Deploy />
+    </Project>
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path=".editorconfig" />
     <File Path="Directory.Build.props" />
     <File Path="Directory.Packages.props" />
+    <File Path="eng/CmdPal.Extension.props" />
     <File Path="NOTICE.md" />
     <File Path="nuget.config" />
     <File Path="readme.md" />
   </Folder>
-  <Project Path="src/JPSoftworks.UnitConverter.PrintUnits/JPSoftworks.UnitConverter.PrintUnits.csproj" Id="a184c986-b8dc-456f-9167-a070dfa1bcd4">
-    <Platform Solution="*|ARM64" Project="ARM64" />
-    <Platform Solution="*|x64" Project="x64" />
-  </Project>
-  <Project Path="src/UnitConverterCore/JPSoftworks.UnitConverter.Core.csproj">
-    <Platform Solution="*|ARM64" Project="ARM64" />
-    <Platform Solution="*|x64" Project="x64" />
-  </Project>
-  <Project Path="src/UnitConverterExtension/JPSoftworks.UnitConverterExtension.csproj">
-    <Platform Solution="*|ARM64" Project="ARM64" />
-    <Platform Solution="*|x64" Project="x64" />
-    <Deploy Solution="*|ARM64" />
-    <Deploy Solution="Release|x64" />
-  </Project>
-  <Project Path="tests/JPSoftworks.UnitConverterExtension.UnitTest/JPSoftworks.UnitConverterExtension.UnitTest.csproj">
-    <Platform Solution="*|ARM64" Project="ARM64" />
-    <Platform Solution="*|x64" Project="x64" />
-  </Project>
+  <Folder Name="/Tests/">
+    <Project Path="tests/JPSoftworks.UnitConverterExtension.AppTests/JPSoftworks.UnitConverterExtension.AppTests.csproj">
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+    </Project>
+    <Project Path="tests/JPSoftworks.UnitConverterExtension.UnitTest/JPSoftworks.UnitConverterExtension.UnitTest.csproj">
+      <Platform Solution="*|ARM64" Project="ARM64" />
+      <Platform Solution="*|x64" Project="x64" />
+    </Project>
+  </Folder>
 </Solution>

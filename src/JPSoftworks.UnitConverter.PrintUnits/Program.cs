@@ -4,21 +4,23 @@
 //
 // ------------------------------------------------------------
 
+using System.Globalization;
 using System.Text;
 using JPSoftworks.UnitConverter.Core;
 
-internal class Program
+internal sealed class Program
 {
     private static void Main(string[] args)
     {
         Console.OutputEncoding = Encoding.UTF8;
         var markdown = BuildSupportedUnitsMarkdown();
-        Console.WriteLine(markdown);
+        Console.Write(markdown);
     }
 
     private static string BuildSupportedUnitsMarkdown()
     {
         var service = new ConversionService();
+        var culture = CultureInfo.GetCultureInfo("en-US");
         var allUnits = service.GetAllSupportedUnits();
         var sb = new StringBuilder();
 
@@ -28,16 +30,46 @@ internal class Program
         // Build table of contents
         var orderedCategories = allUnits.OrderBy(kvp => kvp.Key).ToList();
         sb.AppendLine("## Table of Contents");
+        sb.AppendLine("- [CSS and typography](#css-and-typography)");
         foreach (var cat in orderedCategories)
         {
-            var anchor = ToAnchor(cat.Key);
-            sb.AppendLine($"- [{cat.Key}](#{anchor})");
+            var categoryName = ConverterText.Get(cat.Key, culture);
+            var anchor = ToAnchor(categoryName);
+            sb.AppendLine(culture, $"- [{categoryName}](#{anchor})");
         }
         sb.AppendLine();
 
+        sb.AppendLine("""
+            ## CSS and typography
+
+            CSS absolute lengths use `px`, `pt`, `pc`, `Q`, `in`, `cm`, and `mm`.
+            Use `dtp pt` or `css pt` for CSS points and `dtp pica` or `css pc` for CSS picas.
+            `pt (DTP)`, `pt DTP`, `pt (CSS)`, and `pc (CSS)` are also accepted.
+            DTP means desktop publishing.
+
+            Bare `1 pt` keeps the preferred pint and offers `1 dtp pt` under Other interpretations.
+            Bare `1 pc` keeps parsec and offers `1 dtp pica` under Other interpretations.
+            For explicit CSS conversions, use the qualified spellings below.
+
+            | Input | Result |
+            |:--|:--|
+            | `16 px to dtp pt` | `12 pt (DTP)` |
+            | `12 css pt to px` | `16 px` |
+            | `1 css pc to px` | `16 px` |
+            | `4 Q to mm` | `1 mm` |
+            | `1 in to px` | `96 px` |
+            | `2.54 cm to px` | `96 px` |
+            | `25.4 mm to px` | `96 px` |
+
+            A CSS pixel is 1/96 inch; these conversions follow the [CSS absolute length definitions](https://www.w3.org/TR/css-values-4/#absolute-lengths) and do not depend on monitor DPI.
+            Printer points and picas use the traditional TeX sizes, which differ from DTP/CSS sizes.
+            Relative units such as `em`, `rem`, `%`, and viewport units require font or viewport context and are not supported.
+
+            """);
+
         foreach (var category in orderedCategories)
         {
-            sb.AppendLine($"## {category.Key}");
+            sb.AppendLine(culture, $"## {ConverterText.Get(category.Key, culture)}");
             sb.AppendLine();
 
             // Build a table header for this category
@@ -45,19 +77,14 @@ internal class Program
             sb.AppendLine(":--|:--|:--|:--|:-:|:--|:--");
 
             // Find modules for this category to get richer metadata
-            var modules = typeof(ConversionService).Assembly
-                .GetTypes()
-                .Where(t => !t.IsAbstract && typeof(IConversionModule).IsAssignableFrom(t))
-                .Select(t => Activator.CreateInstance(t) as IConversionModule)
-                .Where(m => m != null && m.Category == category.Key)
-                .ToList();
+            var modules = service.Modules.Where(module => module.Category == category.Key);
 
             var categoryMetadata = new Dictionary<string, UnitMetadata>();
             foreach (var module in modules)
             {
                 try
                 {
-                    var moduleMetadata = module.GetAllUnitMetadata();
+                    var moduleMetadata = module.GetAllUnitMetadata(culture);
                     foreach (var kvp in moduleMetadata)
                     {
                         categoryMetadata[kvp.Key] = kvp.Value;
@@ -90,7 +117,7 @@ internal class Program
                 var aliases = unit.Value.Length > 0 ? Escape(string.Join(", ", unit.Value)) : string.Empty;
                 var description = Escape(metadata?.Description ?? string.Empty);
 
-                sb.AppendLine($"{unitId} | {symbol} | {name} | {system} | {common} | {aliases} | {description}");
+                sb.AppendLine($"{unitId} | {symbol} | {name} | {system} | {common} | {aliases} | {description}".TrimEnd());
             }
 
             sb.AppendLine();
@@ -102,7 +129,6 @@ internal class Program
         sb.AppendLine("- ⭐ = Commonly used unit");
         sb.AppendLine("- System = Unit system (Metric, Imperial, etc.)");
         sb.AppendLine("- Symbol = Display symbol if different from ID");
-        sb.AppendLine();
 
         return sb.ToString();
 

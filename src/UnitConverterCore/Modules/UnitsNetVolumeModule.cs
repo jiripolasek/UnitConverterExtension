@@ -37,7 +37,7 @@ internal class UnitsNetVolumeModule : DescriptorBasedConversionModule
         if (string.IsNullOrWhiteSpace(unit))
             return false;
 
-        var u = unit.Trim();
+        var u = ConverterText.NormalizeUnit(Category, unit.Trim(), culture);
         var uLower = u.ToLowerInvariant();
 
         // Fast explicit case-insensitive mapping for known ids/symbols/phrases
@@ -368,6 +368,8 @@ internal class UnitsNetVolumeModule : DescriptorBasedConversionModule
         "l" => Volume.FromLiters(value),
         // US
         "us fl oz" => Volume.FromUsOunces(value),
+        "tsp" => Volume.FromUsTeaspoons(value),
+        "tbsp" => Volume.FromUsTablespoons(value),
         "cup" => Volume.FromUsOunces(value * 8), // 1 cup = 8 US fl oz
         "us pt" => Volume.FromUsPints(value),
         "us qt" => Volume.FromUsQuarts(value),
@@ -387,6 +389,8 @@ internal class UnitsNetVolumeModule : DescriptorBasedConversionModule
         "l" => volume.Liters,
         // US
         "us fl oz" => volume.UsOunces,
+        "tsp" => volume.UsTeaspoons,
+        "tbsp" => volume.UsTablespoons,
         "cup" => volume.UsOunces / 8, // 1 cup = 8 US fl oz
         "us pt" => volume.UsPints,
         "us qt" => volume.UsQuarts,

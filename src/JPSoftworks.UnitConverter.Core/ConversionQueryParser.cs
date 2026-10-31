@@ -146,7 +146,9 @@ public sealed class ConversionQueryParser
             return false;
 
         if (expDim != UnitDimension.Linear)
+        {
             dimension = expDim;
+        }
 
         return !string.IsNullOrWhiteSpace(fromUnit);
     }
@@ -187,7 +189,9 @@ public sealed class ConversionQueryParser
             return false;
 
         if (expDim != UnitDimension.Linear)
+        {
             dimension = expDim;
+        }
 
         // Reject connector being parsed as unit on the right
         if (IsConnector(toUnit))

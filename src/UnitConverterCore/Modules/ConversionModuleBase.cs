@@ -87,7 +87,7 @@ public abstract class ConversionModuleBase : IConversionModule
 /// </summary>
 public abstract class DescriptorBasedConversionModule : IConversionModule
 {
-    protected readonly UnitDescriptorCollection Units;
+    protected UnitDescriptorCatalog Units { get; }
 
     // Optional ambiguity provider for this module
     protected virtual IAmbiguityProvider? AmbiguityProvider => null;
@@ -115,7 +115,7 @@ public abstract class DescriptorBasedConversionModule : IConversionModule
 
     protected DescriptorBasedConversionModule(IEnumerable<UnitDescriptor> unitDescriptors)
     {
-        Units = new UnitDescriptorCollection(unitDescriptors);
+        Units = new UnitDescriptorCatalog(unitDescriptors);
     }
 
     public abstract string Category { get; }
@@ -129,6 +129,7 @@ public abstract class DescriptorBasedConversionModule : IConversionModule
 
     public virtual bool TryNormalizeUnit(string unit, CultureInfo culture, out string normalizedUnit)
     {
+        unit = ConverterText.NormalizeUnit(Category, unit, culture);
         // Disallow known ambiguous aliases for this module
         if (TryGetAmbiguity(unit, out var _, out var _))
         {
@@ -144,17 +145,23 @@ public abstract class DescriptorBasedConversionModule : IConversionModule
         return Units.TryNormalizeCaseInsensitive(unit, out normalizedUnit, out _);
     }
 
+    // Recognize casing candidates without accepting them as the selected conversion meaning.
+    internal bool HasUnitSpelling(string unit, CultureInfo culture) =>
+        IsCaseSensitive && (Units.TryNormalizeCaseInsensitive(ConverterText.NormalizeUnit(Category, unit, culture), out _, out _) ||
+            GetSupportedUnits().Values.Any(aliases => aliases.Contains(unit.Trim(), StringComparer.OrdinalIgnoreCase)));
+
     public virtual UnitMetadata? GetUnitMetadata(string unit, CultureInfo? culture = null)
     {
-        if (!TryNormalizeUnit(unit, culture ?? CultureInfo.InvariantCulture, out var normalizedUnit))
+        if (!TryNormalizeUnit(unit, culture ?? CultureInfo.CurrentUICulture, out var normalizedUnit))
             return null;
 
-        return Units.GetMetadata(normalizedUnit);
+        return ConverterText.Localize(Category, normalizedUnit, Units.GetMetadata(normalizedUnit), culture);
     }
 
     public virtual IReadOnlyDictionary<string, UnitMetadata> GetAllUnitMetadata(CultureInfo? culture = null)
     {
-        return Units.GetAllMetadata();
+        return Units.GetAll().ToDictionary(unit => unit.Id,
+            unit => ConverterText.Localize(Category, unit.Id, unit.ToMetadata(), culture)!, StringComparer.Ordinal);
     }
 
     public abstract bool TryConvert(double value, string fromUnit, string toUnit, out double result);
@@ -162,11 +169,15 @@ public abstract class DescriptorBasedConversionModule : IConversionModule
     public virtual IEnumerable<ConversionSuggestion> GetCommonConversions(double value, string unit)
     {
         if (!TryNormalizeUnit(unit, CultureInfo.InvariantCulture, out var normalizedUnit))
+        {
             yield break;
+        }
 
         var unitDescriptor = Units.GetById(normalizedUnit);
         if (unitDescriptor == null)
+        {
             yield break;
+        }
 
         var suggestions = new List<ConversionSuggestion>();
         var targets = unitDescriptor.GetRelevantTargets(value);
@@ -218,7 +229,7 @@ public abstract class DescriptorBasedConversionModule : IConversionModule
     /// </summary>
     protected virtual string FormatValue(double value, string unit)
     {
-        var precision = value switch
+        var precision = Math.Abs(value) switch
         {
             < 0.01 => 4,
             < 0.1 => 3,
@@ -255,7 +266,7 @@ public abstract class DescriptorBasedConversionModule : IConversionModule
     /// </summary>
     protected virtual bool IsReasonableValue(double value)
     {
-        return value > 0.001 && value < 1_000_000 && !double.IsInfinity(value) && !double.IsNaN(value);
+        return double.IsFinite(value);
     }
 
     /// <summary>
@@ -266,7 +277,7 @@ public abstract class DescriptorBasedConversionModule : IConversionModule
         var unitDescriptor = Units.GetById(unit);
         
         // Base score on value range (prefer values between 0.1 and 1000)
-        var valueScore = value switch
+        var valueScore = Math.Abs(value) switch
         {
             >= 0.1 and <= 1000 => 0,
             > 0.01 and < 0.1 => 1,

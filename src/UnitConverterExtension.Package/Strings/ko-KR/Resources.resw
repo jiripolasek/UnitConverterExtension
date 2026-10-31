@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="AppDisplayName" xml:space="preserve"><value>Command Palette용 단위 변환기</value></data>
+  <data name="AppDescription" xml:space="preserve"><value>길이, 부피, 온도, 질량, 시간, 속도 등의 일반적인 단위 변환</value></data>
+</root>

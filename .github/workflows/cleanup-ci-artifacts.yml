@@ -1,0 +1,36 @@
+name: Clean CI artifacts
+
+on:
+  workflow_run:
+    workflows: [CI, Release]
+    types: [completed]
+
+permissions:
+  actions: write
+
+concurrency:
+  group: ci-artifact-cleanup
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Keep packages from the latest three CI builds
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $response = gh api --paginate --slurp "repos/$env:GITHUB_REPOSITORY/actions/artifacts?per_page=100"
+          if ($LASTEXITCODE -ne 0) { throw 'Unable to list CI artifacts.' }
+          $pages = $response | ConvertFrom-Json
+          $packages = @($pages.artifacts | Where-Object { $_.name -like 'ci-store-packages-*' -and -not $_.expired })
+          $builds = @($packages | Group-Object { $_.workflow_run.id } | Sort-Object { [long] $_.Name } -Descending)
+          $obsolete = @($builds | Select-Object -Skip 3 | ForEach-Object Group)
+          foreach ($artifact in $obsolete) {
+            gh api --method DELETE "repos/$env:GITHUB_REPOSITORY/actions/artifacts/$($artifact.id)"
+            if ($LASTEXITCODE -ne 0) { throw "Unable to delete CI artifact $($artifact.id)." }
+            Write-Host "Deleted CI artifact $($artifact.id): $($artifact.name)"
+          }

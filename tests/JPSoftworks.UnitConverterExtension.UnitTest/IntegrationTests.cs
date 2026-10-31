@@ -43,7 +43,7 @@ public class IntegrationTests
     [InlineData("8 kb to B", true, 1000.0, "B")]        // 8 kilobits = 1000 bytes
     [InlineData("8 kB to kb", true, 64.0, "kb")]        // 8 kilobytes = 64 kilobits
     [InlineData("1 Mb to kb", true, 1000.0, "kb")]      // 1 megabit = 1000 kilobits
-    public void EndToEndConversions_CommonCases_WorkCorrectly(
+    public void EndToEndConversionsCommonCasesWorkCorrectly(
         string query,
         bool expectedSuccess,
         double expectedValue,
@@ -68,7 +68,41 @@ public class IntegrationTests
     }
 
     [Theory]
+    [InlineData("10m in ft", "10m to ft")]
+    [InlineData("10 m IN ft", "10 m to ft")]
+    [InlineData("10 m\tin\tft", "10 m to ft")]
+    [InlineData("12 in in ft", "12 in to ft")]
+    [InlineData("1 m in in", "1 m to in")]
+    [InlineData("1 cm2 in in2", "1 cm2 to in2")]
+    [InlineData("1 ft 2 in in cm", "1 ft 2 in to cm")]
+    [InlineData("1 ft (1 + 2) in in cm", "1 ft (1 + 2) in to cm")]
+    [InlineData("5'11\" in cm", "5'11\" to cm")]
+    [InlineData("5ft11in in cm", "5ft11in to cm")]
+    [InlineData("180 cm in ft in", "180 cm to ft in")]
+    [InlineData("1 Pa in in Hg", "1 Pa to in Hg")]
+    [InlineData("1 in Hg in Pa", "1 in Hg to Pa")]
+    [InlineData("1 lbf in in Nm", "1 lbf in to Nm")]
+    [InlineData("1 Nm in lbf in", "1 Nm to lbf in")]
+    [InlineData("1 lbf·in in Nm", "1 lbf·in to Nm")]
+    public void InConnectorMatchesToConnector(string query, string canonical)
+    {
+        var expected = this._service.ConvertQuery(canonical, CultureInfo.InvariantCulture);
+        var actual = this._service.ConvertQuery(query, CultureInfo.InvariantCulture);
+        Assert.True(expected.Success, expected.ErrorMessage);
+        Assert.True(actual.Success, actual.ErrorMessage);
+        Assert.Equal(expected.Output.Value, actual.Output.Value, 8);
+        Assert.Equal(expected.Output.Unit.Unit, actual.Output.Unit.Unit);
+        Assert.Equal(expected.FormattedResult, actual.FormattedResult);
+    }
+
+    [Theory]
     [InlineData("60 mins")]
+    [InlineData("10 in")]
+    [InlineData("1 ft 2 in")]
+    [InlineData("1 ft 2 in 3 ft")]
+    [InlineData("1 in Hg")]
+    [InlineData("1 lbf in")]
+    [InlineData("1 lbf in 2 lbf in")]
     [InlineData("100 cm")]
     [InlineData("25 °C")]
     [InlineData("2.5 kg")]
@@ -77,7 +111,7 @@ public class IntegrationTests
     [InlineData("5 stones")]     // Plural stone
     [InlineData("1 metric ton")] // Multi-word unit
     [InlineData("3 short tons")] // Multi-word plural unit
-    public void ImplicitConversions_ReturnSuggestions(string query)
+    public void ImplicitConversionsReturnSuggestions(string query)
     {
         // Act
         var result = this._service.ConvertQuery(query, CultureInfo.InvariantCulture);
@@ -96,8 +130,13 @@ public class IntegrationTests
     [Theory]
     [InlineData("invalid query")]
     [InlineData("1 m to kg")] // Different categories
+    [InlineData("1 m in kg")]
+    [InlineData("1 lbf in kg")]
+    [InlineData("1 unknown_unit in m")]
+    [InlineData("1 ft 2 in cm")]
+    [InlineData("1 ft 3 in cm")]
     [InlineData("1 unknown_unit to m")]
-    public void InvalidQueries_ReturnFailureWithMessage(string query)
+    public void InvalidQueriesReturnFailureWithMessage(string query)
     {
         // Act
         var result = this._service.ConvertQuery(query, CultureInfo.InvariantCulture);
@@ -109,7 +148,7 @@ public class IntegrationTests
     }
 
     [Fact]
-    public void AllModules_HaveExpectedCategories()
+    public void AllModulesHaveExpectedCategories()
     {
         // Act
         var supportedUnits = this._service.GetAllSupportedUnits();
@@ -128,7 +167,7 @@ public class IntegrationTests
     [InlineData("1.5 m to ft")] // US decimal
     [InlineData("-5 °C to °F")] // Negative
     [InlineData("0 m to ft")] // Zero
-    public void DifferentInputFormats_HandleCorrectly(string query)
+    public void DifferentInputFormatsHandleCorrectly(string query)
     {
         // Test with multiple cultures
         var cultures = new[] { CultureInfo.InvariantCulture, new CultureInfo("en-US"), new CultureInfo("de-DE") };
@@ -152,7 +191,7 @@ public class IntegrationTests
     [InlineData("1 m² to cm²")] // Area
     [InlineData("1 ft² to m²")] // Area
     [InlineData("1 m³ to l")] // Volume
-    public void DimensionalUnits_ConvertCorrectly(string query)
+    public void DimensionalUnitsConvertCorrectly(string query)
     {
         // Act
         var result = this._service.ConvertQuery(query, CultureInfo.InvariantCulture);
@@ -170,7 +209,7 @@ public class IntegrationTests
 public class ModuleVerificationTests
 {
     [Fact]
-    public void LengthModule_WorksCorrectly()
+    public void LengthModuleWorksCorrectly()
     {
         // Arrange
         var module = new UnitsNetLengthModule();
@@ -191,7 +230,7 @@ public class ModuleVerificationTests
     }
 
     [Fact]
-    public void TemperatureModule_WorksCorrectly()
+    public void TemperatureModuleWorksCorrectly()
     {
         // Arrange
         var module = new UnitsNetTemperatureModule();
@@ -210,7 +249,7 @@ public class ModuleVerificationTests
     }
 
     [Fact]
-    public void TimeModule_WorksCorrectly()
+    public void TimeModuleWorksCorrectly()
     {
         // Arrange
         var module = new UnitsNetTimeModule();
@@ -229,7 +268,7 @@ public class ModuleVerificationTests
     }
 
     [Fact]
-    public void VolumeModule_WorksCorrectly()
+    public void VolumeModuleWorksCorrectly()
     {
         // Arrange
         var module = new UnitsNetVolumeModule();
@@ -248,7 +287,7 @@ public class ModuleVerificationTests
     }
 
     [Fact]
-    public void MassModule_WorksCorrectly()
+    public void MassModuleWorksCorrectly()
     {
         // Arrange
         var module = new UnitsNetMassModule();
@@ -300,7 +339,7 @@ public class ModuleVerificationTests
     [InlineData("UnitsNetTimeModule")]
     [InlineData("UnitsNetVolumeModule")]
     [InlineData("UnitsNetMassModule")]
-    public void AllModules_HaveBasicProperties(string moduleTypeName)
+    public void AllModulesHaveBasicProperties(string moduleTypeName)
     {
         // Get module type and create instance
         var moduleType = typeof(UnitsNetLengthModule).Assembly.GetTypes()

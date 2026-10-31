@@ -13,7 +13,7 @@ namespace JPSoftworks.UnitConverterExtension.UnitTest;
 public class UnitDescriptorTests
 {
     [Fact]
-    public void SpeedModule_WithIdDescriptors_WorksCorrectly()
+    public void SpeedModuleWithIdDescriptorsWorksCorrectly()
     {
         // Arrange
         var module = new UnitsNetSpeedModule();
@@ -53,7 +53,7 @@ public class UnitDescriptorTests
     }
 
     [Fact]
-    public void SpeedModule_WithSymbolAndAlias_NormalizesToId()
+    public void SpeedModuleWithSymbolAndAliasNormalizesToId()
     {
         // Arrange
         var module = new UnitsNetSpeedModule();
@@ -70,7 +70,7 @@ public class UnitDescriptorTests
     }
 
     [Fact]
-    public void PowerModule_WithIdDescriptors_WorksCorrectly()
+    public void PowerModuleWithIdDescriptorsWorksCorrectly()
     {
         // Arrange
         var module = new UnitsNetPowerModule();
@@ -100,7 +100,7 @@ public class UnitDescriptorTests
     }
 
     [Fact]
-    public void PowerModule_WithSymbol_NormalizesToId()
+    public void PowerModuleWithSymbolNormalizesToId()
     {
         // Arrange
         var module = new UnitsNetPowerModule();
@@ -125,7 +125,7 @@ public class UnitDescriptorTests
     [InlineData("Angle", "deg")] 
     [InlineData("Data", "B")] 
     [InlineData("Time", "s")] 
-    public void AllModules_WithDescriptors_ProvideRichMetadata(string category, string unitId)
+    public void AllModulesWithDescriptorsProvideRichMetadata(string category, string unitId)
     {
         // Arrange
         var service = new ConversionService();
@@ -149,7 +149,7 @@ public class UnitDescriptorTests
     [InlineData("deg", "deg")]
     [InlineData("B", "B")]
     [InlineData("s", "s")]
-    public void AllModules_WithSymbolsAndAliases_NormalizeToIds(string input, string expectedId)
+    public void AllModulesWithSymbolsAndAliasesNormalizeToIds(string input, string expectedId)
     {
         // Arrange
         var service = new ConversionService();

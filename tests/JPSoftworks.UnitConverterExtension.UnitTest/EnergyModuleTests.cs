@@ -19,7 +19,7 @@ public class EnergyModuleTests
     [InlineData("1 BTU to kJ", 1.05506, "kJ", 5)]
     [InlineData("1 eV to J", 1.602176634e-19, "J", 15)]
     [InlineData("10 ft·lb to J", 13.5581794833, "J", 6)]
-    public void Energy_Conversions(string query, double expectedValue, string expectedUnit, int precision)
+    public void EnergyConversions(string query, double expectedValue, string expectedUnit, int precision)
     {
         var result = this._service.ConvertQuery(query, CultureInfo.InvariantCulture);
         Assert.True(result.Success);

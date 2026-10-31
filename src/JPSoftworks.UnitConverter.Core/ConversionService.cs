@@ -146,13 +146,21 @@ public sealed class ConversionService
         // Convert volume -> cubic meters
         double cubicMeters;
         if (IsLiter(fromVolumeUnit))
+        {
             cubicMeters = value / 1000.0;
+        }
         else if (IsMilliLiter(fromVolumeUnit))
+        {
             cubicMeters = value / 1_000_000.0;
+        }
         else if (volumeModule.TryConvert(value, fromVolumeUnit, "m3", out var m3))
+        {
             cubicMeters = m3;
+        }
         else
+        {
             return false;
+        }
 
         // Now go from cubic meters to target length unit (linear), then apply exponent inverse:
         // cubicMeters = v * (factor_to_m)^3 => v = cubicMeters / (factor_to_m)^3

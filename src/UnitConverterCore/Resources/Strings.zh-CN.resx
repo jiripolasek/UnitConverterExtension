@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="UnitNames" xml:space="preserve"><value>Length|angstrom|埃
+Length|au|天文单位
+Length|cm|厘米
+Length|ch|冈特链
+Length|dmi|数据英里
+Length|dam|十米
+Length|dm|分米
+Length|dtp pica|DTP 派卡
+Length|dtp pt|DTP 点
+Length|fathom|英寻
+Length|ft|英尺
+Length|hand|掌幅
+Length|hm|百米
+Length|in|英寸
+Length|kly|千光年
+Length|km|千米
+Length|kpc|千秒差距
+Length|ly|光年
+Length|Mly|兆光年
+Length|Mpc|兆秒差距
+Length|m|米
+Length|microinch|微英寸
+Length|um|微米
+Length|mil|密耳
+Length|mi|陆英里
+Length|mm|毫米
+Length|nm|纳米
+Length|nmi|海里
+Length|pc|秒差距
+Length|printer pica|印刷派卡
+Length|printer pt|印刷点
+Length|shackle|锚链节
+Length|R⊙|太阳半径
+Length|twip|缇
+Length|px|CSS 像素
+Length|Q|四分之一毫米
+Length|us survey ft|美国测量英尺
+Length|yd|码
+Length|kyd|千码
+Length|Mm|兆米
+Length|pm|皮米
+Length|Gm|吉米
+Length|kft|千英尺
+Length|fm|飞米
+Length|ls|光秒
+Length|lmin|光分
+Length|lh|光时
+Length|ld|光日
+Length|lw|光周
+Temperature|°C|摄氏度
+Temperature|°F|华氏度
+Temperature|K|开尔文
+Temperature|°R|兰金度
+TemperatureDelta|Δ°C|摄氏度（温差）
+TemperatureDelta|Δ°F|华氏度（温差）
+TemperatureDelta|ΔK|开尔文（温差）
+TemperatureDelta|Δ°R|兰金度（温差）
+Frequency|Hz|赫兹
+Frequency|kHz|千赫兹
+Frequency|MHz|兆赫兹
+Frequency|GHz|吉赫兹
+Frequency|THz|太赫兹
+Frequency|mHz|毫赫兹
+Frequency|µHz|微赫兹
+Frequency|rpm|转每分钟
+Frequency|bpm|搏动每分钟
+Frequency|rad/s|弧度每秒
+Force|N|牛顿|牛
+Force|kN|千牛顿|千牛
+Force|MN|兆牛顿|兆牛
+Force|mN|毫牛顿|毫牛
+Force|µN|微牛顿|微牛
+Force|lbf|磅力
+Force|kgf|千克力
+Force|dyn|达因
+Torque|Nm|牛顿·米
+Torque|kNm|千牛顿·米
+Torque|Ncm|牛顿·厘米
+Torque|Nmm|牛顿·毫米
+Torque|lbf·ft|磅力·英尺
+Torque|lbf·in|磅力·英寸
+Torque|kgf·m|千克力·米
+Acceleration|m/s²|米每二次方秒
+Acceleration|cm/s²|厘米每二次方秒
+Acceleration|mm/s²|毫米每二次方秒
+Acceleration|ft/s²|英尺每二次方秒
+Acceleration|in/s²|英寸每二次方秒
+Acceleration|g0|标准重力加速度
+Density|kg/m³|千克/米³
+Density|g/cm³|克/厘米³
+Density|g/mL|克/毫升
+Density|kg/L|千克/升
+Density|lb/ft³|磅/英尺³
+Density|lb/in³|磅/英寸³
+Voltage|V|伏特|伏
+Voltage|mV|毫伏特|毫伏
+Voltage|µV|微伏特|微伏
+Voltage|kV|千伏特|千伏
+Voltage|MV|兆伏特|兆伏
+Current|A|安培|安
+Current|mA|毫安培|毫安
+Current|µA|微安培|微安
+Current|kA|千安培|千安
+Current|MA|兆安培|兆安
+Resistance|ohm|欧姆|欧
+Resistance|mohm|毫欧姆|毫欧
+Resistance|uohm|微欧姆|微欧
+Resistance|kohm|千欧姆|千欧
+Resistance|Mohm|兆欧姆|兆欧
+Time|ns|纳秒
+Time|μs|微秒
+Time|ms|毫秒
+Time|s|秒
+Time|min|分钟
+Time|h|小时
+Time|d|天
+Time|w|周
+Time|mo|月
+Time|y|年
+Volume|ml|毫升
+Volume|l|升
+Volume|tsp|美制茶匙
+Volume|tbsp|美制汤匙
+Volume|us fl oz|美制液量盎司
+Volume|us pt|美制品脱
+Volume|us qt|美制夸脱
+Volume|us gal|美制加仑
+Volume|cup|美制杯
+Volume|imp fl oz|英制液量盎司
+Volume|imp pt|英制品脱
+Volume|imp qt|英制夸脱
+Volume|imp gal|英制加仑
+Volume|pint|品脱
+Volume|fluid ounce|液量盎司
+Mass|ct|克拉
+Mass|mg|毫克
+Mass|cg|厘克
+Mass|dg|分克
+Mass|g|克
+Mass|dag|十克
+Mass|hg|百克
+Mass|kg|千克
+Mass|t|公吨
+Mass|oz|常衡盎司
+Mass|lb|磅
+Mass|stone|英石
+Mass|short tn|短吨
+Speed|cm/s|厘米每秒
+Speed|m/s|米每秒
+Speed|km/h|千米每小时
+Speed|ft/s|英尺每秒
+Speed|mph|陆英里每小时
+Speed|min/km|分钟每千米
+Speed|min/mi|分钟每英里
+Speed|s/km|秒每千米
+Speed|s/mi|秒每英里
+Speed|kn|节
+Speed|Mach|马赫数
+Power|W|瓦特|瓦
+Power|kW|千瓦特|千瓦
+Power|hp|机械马力
+Power|ft·lb/min|英尺·磅每分钟
+Power|BTU/min|英国热量单位每分钟
+Energy|eV|电子伏特
+Energy|J|焦耳|焦
+Energy|kJ|千焦耳|千焦
+Energy|cal|热化学卡路里
+Energy|kcal|千卡
+Energy|ft·lb|英尺·磅
+Energy|BTU|英国热量单位
+Energy|kWh|千瓦时
+Pressure|Pa|帕斯卡|帕
+Pressure|kPa|千帕斯卡|千帕
+Pressure|bar|巴
+Pressure|atm|标准大气压
+Pressure|psi|磅力/英寸²
+Pressure|mmHg|毫米汞柱
+Pressure|inHg|英寸汞柱
+Angle|deg|度
+Angle|rad|弧度
+Angle|grad|百分度
+Angle|turn|圈
+Data|b|比特|位
+Data|nibble|半字节
+Data|B|字节
+Data|kb|千比特|千位
+Data|Mb|兆比特|兆位
+Data|Gb|吉比特|吉位
+Data|Tb|太比特|太位
+Data|Pb|拍比特|拍位
+Data|Eb|艾比特|艾位
+Data|Zb|泽比特|泽位
+Data|Yb|尧比特|尧位
+Data|Kib|二进制千比特|二进制千位
+Data|Mib|二进制兆比特|二进制兆位
+Data|Gib|二进制吉比特|二进制吉位
+Data|Tib|二进制太比特|二进制太位
+Data|Pib|二进制拍比特|二进制拍位
+Data|Eib|二进制艾比特|二进制艾位
+Data|kB|千字节
+Data|MB|兆字节
+Data|GB|吉字节
+Data|TB|太字节
+Data|PB|拍字节
+Data|EB|艾字节
+Data|ZB|泽字节
+Data|YB|尧字节
+Data|KiB|二进制千字节
+Data|MiB|二进制兆字节
+Data|GiB|二进制吉字节
+Data|TiB|二进制太字节
+Data|PiB|二进制拍字节
+Data|EiB|二进制艾字节
+Data|ZiB|二进制泽字节
+Data|YiB|二进制尧字节
+DataRate|b/s|比特每秒|位每秒
+DataRate|B/s|字节每秒
+DataRate|kb/s|千比特每秒|千位每秒
+DataRate|kB/s|千字节每秒
+DataRate|Mb/s|兆比特每秒|兆位每秒
+DataRate|MB/s|兆字节每秒
+DataRate|Gb/s|吉比特每秒|吉位每秒
+DataRate|GB/s|吉字节每秒
+DataRate|Tb/s|太比特每秒|太位每秒
+DataRate|TB/s|太字节每秒
+DataRate|Kib/s|二进制千比特每秒|二进制千位每秒
+DataRate|KiB/s|二进制千字节每秒
+DataRate|Mib/s|二进制兆比特每秒|二进制兆位每秒
+DataRate|MiB/s|二进制兆字节每秒
+DataRate|Gib/s|二进制吉比特每秒|二进制吉位每秒
+DataRate|GiB/s|二进制吉字节每秒
+DataRate|Tib/s|二进制太比特每秒|二进制太位每秒
+DataRate|TiB/s|二进制太字节每秒
+FuelEconomy|L/100km|升/100千米
+FuelEconomy|km/L|千米每升
+FuelEconomy|mpg US|陆英里每美制加仑
+FuelEconomy|mpg UK|陆英里每英制加仑
+Area|mm2|平方毫米
+Area|cm2|平方厘米
+Area|m2|平方米
+Area|km2|平方千米
+Area|in2|平方英寸
+Area|ft2|平方英尺
+Area|yd2|平方码
+Area|mi2|平方陆英里
+Area|ha|公顷
+Area|acre|英亩
+Area|soccer field|足球场
+Area|manhattan block|曼哈顿街区</value></data>
+  <data name="ConversionConnectorWords" xml:space="preserve"><value>转|转换为|转换成|换算成|换算为|转为|转成|到</value></data>
+  <data name="Conversion words" xml:space="preserve"><value>查询语言</value></data>
+  <data name="Language of words such as to, in, or en" xml:space="preserve"><value>单位名称和“到”等连接词可使用的语言。输入格式为英语时，默认只接受英语。</value></data>
+  <data name="Input language only" xml:space="preserve"><value>仅输入语言</value></data>
+  <data name="Input language and English" xml:space="preserve"><value>输入语言和英语</value></data>
+  <data name="Unit Converter" xml:space="preserve"><value>单位转换器</value></data>
+  <data name="Convert units" xml:space="preserve"><value>转换单位</value></data>
+  <data name="Unit Converter for Command Palette" xml:space="preserve"><value>命令面板单位转换器</value></data>
+  <data name="Convert common units of length, volume, temperature, weight, time or speed" xml:space="preserve"><value>转换常见的长度、体积、温度、质量、时间或速度单位</value></data>
+  <data name="Enter conversion (e.g., '{0}', '{1}', '{2}')" xml:space="preserve"><value>输入换算（例如“{0}”“{1}”“{2}”）</value></data>
+  <data name="Show detailed help and examples" xml:space="preserve"><value>显示详细帮助和示例</value></data>
+  <data name="Help" xml:space="preserve"><value>帮助</value></data>
+  <data name="Overview of Supported Units" xml:space="preserve"><value>支持的单位一览</value></data>
+  <data name="Suggested conversions" xml:space="preserve"><value>建议的换算</value></data>
+  <data name="More conversions" xml:space="preserve"><value>更多换算</value></data>
+  <data name="Other interpretations" xml:space="preserve"><value>其他解释</value></data>
+  <data name="Choose a unit interpretation." xml:space="preserve"><value>请选择单位的含义。</value></data>
+  <data name="Everyday conversions" xml:space="preserve"><value>日常换算</value></data>
+  <data name="Science and engineering" xml:space="preserve"><value>科学与工程</value></data>
+  <data name="Data and computing" xml:space="preserve"><value>数据与信息处理</value></data>
+  <data name="Mixed units and expressions" xml:space="preserve"><value>混合单位与表达式</value></data>
+  <data name="Conversion Error" xml:space="preserve"><value>换算错误</value></data>
+  <data name="Unexpected Error" xml:space="preserve"><value>意外错误</value></data>
+  <data name="Try this conversion" xml:space="preserve"><value>试用此换算</value></data>
+  <data name="Mixed quantities" xml:space="preserve"><value>混合数量</value></data>
+  <data name="Calculations" xml:space="preserve"><value>计算</value></data>
+  <data name="Volume system preference" xml:space="preserve"><value>体积单位</value></data>
+  <data name="Auto" xml:space="preserve"><value>按输入地区</value></data>
+  <data name="US" xml:space="preserve"><value>美制</value></data>
+  <data name="Imperial" xml:space="preserve"><value>英制</value></data>
+  <data name="Processing input" xml:space="preserve"><value>输入格式</value></data>
+  <data name="Default" xml:space="preserve"><value>默认</value></data>
+  <data name="Use current culture" xml:space="preserve"><value>Windows 区域设置</value></data>
+  <data name="Use English" xml:space="preserve"><value>英语（美国）</value></data>
+  <data name="Accuracy" xml:space="preserve"><value>结果显示精度</value></data>
+  <data name="Display precision of results" xml:space="preserve"><value>选择结果中显示的数字位数。</value></data>
+  <data name="Default ({0})" xml:space="preserve"><value>默认（{0}）</value></data>
+  <data name="Common use" xml:space="preserve"><value>较少位数</value></data>
+  <data name="Enhanced" xml:space="preserve"><value>更多位数</value></data>
+  <data name="Extremely precise" xml:space="preserve"><value>最多位数</value></data>
+  <data name="Length" xml:space="preserve"><value>长度</value></data>
+  <data name="Temperature" xml:space="preserve"><value>温度</value></data>
+  <data name="TemperatureDelta" xml:space="preserve"><value>温差</value></data>
+  <data name="Frequency" xml:space="preserve"><value>频率</value></data>
+  <data name="Force" xml:space="preserve"><value>力</value></data>
+  <data name="Torque" xml:space="preserve"><value>扭矩</value></data>
+  <data name="Acceleration" xml:space="preserve"><value>加速度</value></data>
+  <data name="Density" xml:space="preserve"><value>密度</value></data>
+  <data name="Voltage" xml:space="preserve"><value>电压</value></data>
+  <data name="Current" xml:space="preserve"><value>电流</value></data>
+  <data name="Resistance" xml:space="preserve"><value>电阻</value></data>
+  <data name="Time" xml:space="preserve"><value>时间</value></data>
+  <data name="Volume" xml:space="preserve"><value>体积</value></data>
+  <data name="Mass" xml:space="preserve"><value>质量</value></data>
+  <data name="Speed" xml:space="preserve"><value>速度</value></data>
+  <data name="Power" xml:space="preserve"><value>功率</value></data>
+  <data name="Energy" xml:space="preserve"><value>能量</value></data>
+  <data name="Pressure" xml:space="preserve"><value>压力</value></data>
+  <data name="Angle" xml:space="preserve"><value>角度</value></data>
+  <data name="Data" xml:space="preserve"><value>数据</value></data>
+  <data name="DataRate" xml:space="preserve"><value>数据速率</value></data>
+  <data name="Area" xml:space="preserve"><value>面积</value></data>
+  <data name="Unknown" xml:space="preserve"><value>未知</value></data>
+  <data name="Metric" xml:space="preserve"><value>公制</value></data>
+  <data name="Astronomical" xml:space="preserve"><value>天文</value></data>
+  <data name="Contextual" xml:space="preserve"><value>情境相关</value></data>
+  <data name="Customary" xml:space="preserve"><value>传统</value></data>
+  <data name="Digital" xml:space="preserve"><value>数字</value></data>
+  <data name="Medical" xml:space="preserve"><value>医疗</value></data>
+  <data name="Nautical" xml:space="preserve"><value>航海</value></data>
+  <data name="Non-SI" xml:space="preserve"><value>非国际单位制</value></data>
+  <data name="Physics" xml:space="preserve"><value>物理</value></data>
+  <data name="Typographic" xml:space="preserve"><value>排版</value></data>
+  <data name="Universal" xml:space="preserve"><value>通用</value></data>
+  <data name="Could not parse the conversion query. Please use formats like '{0}' or '{1}'." xml:space="preserve"><value>无法解析换算。请使用“{0}”或“{1}”等格式。</value></data>
+  <data name="Failed to convert from {0} to {1}." xml:space="preserve"><value>无法从 {0} 转换为 {1}。</value></data>
+  <data name="Unknown unit: {0}" xml:space="preserve"><value>未知单位：{0}</value></data>
+  <data name="Cannot convert between {0} and {1} - they are different unit types." xml:space="preserve"><value>无法在 {0} 和 {1} 之间换算：它们属于不同类型的量。</value></data>
+  <data name="{0} does not support {1} units." xml:space="preserve"><value>{0} 不支持 {1} 单位。</value></data>
+  <data name="squared" xml:space="preserve"><value>平方</value></data>
+  <data name="cubic" xml:space="preserve"><value>立方</value></data>
+  <data name="{0} Please specify '{1}'." xml:space="preserve"><value>{0} 请指定“{1}”。</value></data>
+  <data name="or" xml:space="preserve"><value>或</value></data>
+  <data name="1,000,000 square meters" xml:space="preserve"><value>1 000 000 m²</value></data>
+  <data name="1/16 of a pound" xml:space="preserve"><value>1/16 lb</value></data>
+  <data name="1/20 imperial pint" xml:space="preserve"><value>1/20 pt (UK)</value></data>
+  <data name="1/3 tablespoon (US)" xml:space="preserve"><value>1/3 tbsp (US)</value></data>
+  <data name="1/360 of a full rotation" xml:space="preserve"><value>1/360 × 360°</value></data>
+  <data name="1/400 of a full rotation" xml:space="preserve"><value>1/400 × 360°</value></data>
+  <data name="1/8 US cup" xml:space="preserve"><value>1/8 cup (US)</value></data>
+  <data name="10,000 square meters" xml:space="preserve"><value>10 000 m²</value></data>
+  <data name="100,000 pascals" xml:space="preserve"><value>100 000 Pa</value></data>
+  <data name="1000 calories, commonly used for food energy" xml:space="preserve"><value>1000 卡路里，常用于表示食物能量</value></data>
+  <data name="1000 kilograms" xml:space="preserve"><value>1000 kg</value></data>
+  <data name="14 pounds (UK/Ireland)" xml:space="preserve"><value>14 lb (GB/IE)</value></data>
+  <data name="16 ounces" xml:space="preserve"><value>16 oz</value></data>
+  <data name="1e-4 square meters" xml:space="preserve"><value>10⁻⁴ m²</value></data>
+  <data name="1e-6 square meters" xml:space="preserve"><value>10⁻⁶ m²</value></data>
+  <data name="2 imperial pints" xml:space="preserve"><value>2 pt (UK)</value></data>
+  <data name="2 US cups" xml:space="preserve"><value>2 cup (US)</value></data>
+  <data name="2 US pints" xml:space="preserve"><value>2 pt (US)</value></data>
+  <data name="20 imperial fluid ounces" xml:space="preserve"><value>20 fl oz (UK)</value></data>
+  <data name="2000 pounds (US)" xml:space="preserve"><value>2000 lb (US)</value></data>
+  <data name="24 hours" xml:space="preserve"><value>24 h</value></data>
+  <data name="3 teaspoons (US)" xml:space="preserve"><value>3 tsp (US)</value></data>
+  <data name="365.25 days (Julian year)" xml:space="preserve"><value>365.25 d</value></data>
+  <data name="4 bits (half a byte)" xml:space="preserve"><value>4 b = 0.5 B</value></data>
+  <data name="4 imperial quarts" xml:space="preserve"><value>4 qt (UK)</value></data>
+  <data name="4 US quarts" xml:space="preserve"><value>4 qt (US)</value></data>
+  <data name="43,560 square feet (approx. 4046.8564224 m²)" xml:space="preserve"><value>43 560 ft² ≈ 4046.8564224 m²</value></data>
+  <data name="60 seconds" xml:space="preserve"><value>60 s</value></data>
+  <data name="7 days" xml:space="preserve"><value>7 d</value></data>
+  <data name="8 US fluid ounces" xml:space="preserve"><value>8 fl oz (US)</value></data>
+  <data name="Absolute temperature scale (SI base unit)" xml:space="preserve"><value>绝对温标（国际单位制基本单位）</value></data>
+  <data name="Absolute temperature scale based on Fahrenheit degrees" xml:space="preserve"><value>以华氏度为基础的绝对温标</value></data>
+  <data name="Approx. 264 ft × 900 ft = 237,600 ft² ≈ 22,076 m²" xml:space="preserve"><value>≈ 264 ft × 900 ft = 237 600 ft² ≈ 22 076 m²</value></data>
+  <data name="Approx. FIFA-recommended pitch 105 m × 68 m = 7,140 m²" xml:space="preserve"><value>FIFA: 105 m × 68 m = 7140 m²</value></data>
+  <data name="Approximately 30.44 days" xml:space="preserve"><value>≈ 30.44 d</value></data>
+  <data name="Area of a 1 ft by 1 ft square" xml:space="preserve"><value>1 ft × 1 ft</value></data>
+  <data name="Area of a 1 in by 1 in square" xml:space="preserve"><value>1 in × 1 in</value></data>
+  <data name="Area of a 1 mi by 1 mi square" xml:space="preserve"><value>1 mi × 1 mi</value></data>
+  <data name="Area of a 1 yd by 1 yd square" xml:space="preserve"><value>1 yd × 1 yd</value></data>
+  <data name="Base unit of mass in CGS system" xml:space="preserve"><value>厘米克秒制中的质量基本单位</value></data>
+  <data name="Basic metric unit of volume" xml:space="preserve"><value>基本公制体积单位</value></data>
+  <data name="Basic unit of information" xml:space="preserve"><value>基本信息单位</value></data>
+  <data name="Distance light travels in one day" xml:space="preserve"><value>光在 1 d 内传播的距离</value></data>
+  <data name="Distance light travels in one hour" xml:space="preserve"><value>光在 1 h 内传播的距离</value></data>
+  <data name="Distance light travels in one minute" xml:space="preserve"><value>光在 1 min 内传播的距离</value></data>
+  <data name="Distance light travels in one second" xml:space="preserve"><value>光在 1 s 内传播的距离</value></data>
+  <data name="Distance light travels in one week" xml:space="preserve"><value>光在 1 w 内传播的距离</value></data>
+  <data name="Elementary charge times one volt" xml:space="preserve"><value>基本电荷与一伏特的乘积</value></data>
+  <data name="Imperial unit of energy" xml:space="preserve"><value>英制能量单位</value></data>
+  <data name="Imperial unit of power" xml:space="preserve"><value>英制功率单位</value></data>
+  <data name="Mechanical horsepower (745.7 watts)" xml:space="preserve"><value>745.7 W</value></data>
+  <data name="One billionth of a second" xml:space="preserve"><value>10⁻⁹ s</value></data>
+  <data name="One complete rotation (360°)" xml:space="preserve"><value>360°</value></data>
+  <data name="One hundred grams" xml:space="preserve"><value>100 g</value></data>
+  <data name="One hundredth of a gram" xml:space="preserve"><value>0.01 g</value></data>
+  <data name="One millionth of a second" xml:space="preserve"><value>10⁻⁶ s</value></data>
+  <data name="One tenth of a gram" xml:space="preserve"><value>0.1 g</value></data>
+  <data name="One thousandth of a gram" xml:space="preserve"><value>0.001 g</value></data>
+  <data name="One thousandth of a liter" xml:space="preserve"><value>0.001 L</value></data>
+  <data name="One thousandth of a second" xml:space="preserve"><value>0.001 s</value></data>
+  <data name="Pressure equivalent to 1 inch of mercury" xml:space="preserve"><value>相当于一英寸汞柱的压力</value></data>
+  <data name="Pressure equivalent to 1mm of mercury" xml:space="preserve"><value>相当于一毫米汞柱的压力</value></data>
+  <data name="Pressure per square inch" xml:space="preserve"><value>1 lbf/in²</value></data>
+  <data name="SI base unit of area" xml:space="preserve"><value>国际单位制面积单位</value></data>
+  <data name="SI base unit of mass" xml:space="preserve"><value>国际单位制质量基本单位</value></data>
+  <data name="SI base unit of time" xml:space="preserve"><value>国际单位制时间基本单位</value></data>
+  <data name="SI unit of angular measure" xml:space="preserve"><value>国际单位制平面角单位</value></data>
+  <data name="SI unit of energy" xml:space="preserve"><value>国际单位制能量单位</value></data>
+  <data name="SI unit of power" xml:space="preserve"><value>国际单位制功率单位</value></data>
+  <data name="SI unit of pressure" xml:space="preserve"><value>国际单位制压力单位</value></data>
+  <data name="Standard atmospheric pressure" xml:space="preserve"><value>101 325 Pa</value></data>
+  <data name="Temperature scale based on water's freezing and boiling points" xml:space="preserve"><value>以水的凝固点和沸点为基础的温标</value></data>
+  <data name="Temperature scale commonly used in the United States" xml:space="preserve"><value>美国常用的温标</value></data>
+  <data name="Ten grams" xml:space="preserve"><value>10 g</value></data>
+  <data name="Thermal power unit" xml:space="preserve"><value>热功率单位</value></data>
+  <data name="Thermochemical calorie (4.184 J)" xml:space="preserve"><value>4.184 J</value></data>
+  <data name="Traditional unit of heat energy" xml:space="preserve"><value>传统热能单位</value></data>
+  <data name="Unit for measuring precious stones and pearls (200 mg)" xml:space="preserve"><value>200 mg</value></data>
+  <data name="Unit of electrical energy consumption" xml:space="preserve"><value>电能消耗单位</value></data>
+  <data name="1000 bits (decimal)" xml:space="preserve"><value>1000 b</value></data>
+  <data name="1000 bytes (decimal)" xml:space="preserve"><value>1000 B</value></data>
+  <data name="1000 kilobits (decimal)" xml:space="preserve"><value>1000 kb</value></data>
+  <data name="1000 kilobytes (decimal)" xml:space="preserve"><value>1000 kB</value></data>
+  <data name="1000 megabits (decimal)" xml:space="preserve"><value>1000 Mb</value></data>
+  <data name="1000 megabytes (decimal)" xml:space="preserve"><value>1000 MB</value></data>
+  <data name="1000 gigabits (decimal)" xml:space="preserve"><value>1000 Gb</value></data>
+  <data name="1000 gigabytes (decimal)" xml:space="preserve"><value>1000 GB</value></data>
+  <data name="1000 terabits (decimal)" xml:space="preserve"><value>1000 Tb</value></data>
+  <data name="1000 terabytes (decimal)" xml:space="preserve"><value>1000 TB</value></data>
+  <data name="1000 petabits (decimal)" xml:space="preserve"><value>1000 Pb</value></data>
+  <data name="1000 petabytes (decimal)" xml:space="preserve"><value>1000 PB</value></data>
+  <data name="1000 exabits (decimal)" xml:space="preserve"><value>1000 Eb</value></data>
+  <data name="1000 exabytes (decimal)" xml:space="preserve"><value>1000 EB</value></data>
+  <data name="1000 zettabits (decimal)" xml:space="preserve"><value>1000 Zb</value></data>
+  <data name="1000 zettabytes (decimal)" xml:space="preserve"><value>1000 ZB</value></data>
+  <data name="1024 bits (binary)" xml:space="preserve"><value>1024 b</value></data>
+  <data name="1024 bytes (binary)" xml:space="preserve"><value>1024 B</value></data>
+  <data name="1024 kibibits (binary)" xml:space="preserve"><value>1024 Kib</value></data>
+  <data name="1024 kibibytes (binary)" xml:space="preserve"><value>1024 KiB</value></data>
+  <data name="1024 mebibits (binary)" xml:space="preserve"><value>1024 Mib</value></data>
+  <data name="1024 mebibytes (binary)" xml:space="preserve"><value>1024 MiB</value></data>
+  <data name="1024 gibibits (binary)" xml:space="preserve"><value>1024 Gib</value></data>
+  <data name="1024 gibibytes (binary)" xml:space="preserve"><value>1024 GiB</value></data>
+  <data name="1024 tebibits (binary)" xml:space="preserve"><value>1024 Tib</value></data>
+  <data name="1024 tebibytes (binary)" xml:space="preserve"><value>1024 TiB</value></data>
+  <data name="1024 pebibits (binary)" xml:space="preserve"><value>1024 Pib</value></data>
+  <data name="1024 pebibytes (binary)" xml:space="preserve"><value>1024 PiB</value></data>
+  <data name="1024 exbibytes (binary)" xml:space="preserve"><value>1024 EiB</value></data>
+  <data name="1024 zebibytes (binary)" xml:space="preserve"><value>1024 ZiB</value></data>
+  <data name="Ambiguous unit token. It can mean kilocalorie (kcal) or calorie (cal)." xml:space="preserve"><value>单位含义不明确，可能表示千卡（kcal）或卡路里（cal）。</value></data>
+  <data name="Enter a value and a unit." xml:space="preserve"><value>请输入数值和单位。</value></data>
+  <data name="Complete the calculation, then enter a unit." xml:space="preserve"><value>请先完成计算，再输入单位。</value></data>
+  <data name="Choose a source unit." xml:space="preserve"><value>请选择原始单位。</value></data>
+  <data name="Choose a compatible target unit." xml:space="preserve"><value>请选择兼容的目标单位。</value></data>
+  <data name="Complete the conversion" xml:space="preserve"><value>完成换算</value></data>
+  <data name="Use this query" xml:space="preserve"><value>使用此查询</value></data>
+  <data name="Open in Unit Converter" xml:space="preserve"><value>在单位转换器中打开</value></data>
+  <data name="Copy result" xml:space="preserve"><value>复制结果</value></data>
+  <data name="Copy number" xml:space="preserve"><value>复制数值</value></data>
+  <data name="Copy full precision" xml:space="preserve"><value>复制完整精度</value></data>
+  <data name="The result is outside the supported numeric range." xml:space="preserve"><value>结果超出支持的数值范围。</value></data>
+  <data name="Copy number in {0}" xml:space="preserve"><value>复制以 {0} 为单位的数值</value></data>
+  <data name="FuelEconomy" xml:space="preserve"><value>燃油消耗率</value></data>
+  <data name="Miles per gallon requires a US or UK gallon." xml:space="preserve"><value>每加仑英里数需要指定美制或英制加仑。</value></data>
+  <data name="The value is not valid for this unit." xml:space="preserve"><value>该数值不适用于此单位。</value></data>
+  <data name="Mixed quantities must use compatible units and dimensions. Absolute temperatures and fuel economy cannot be added." xml:space="preserve"><value>混合数量必须使用兼容的单位和量纲。绝对温度和燃油消耗率不能相加。</value></data>
+  <data name="An unexpected error occurred. Please try again." xml:space="preserve"><value>发生意外错误，请重试。</value></data>
+  <data name="Choose the gallon, quart, pint, and fluid ounce used when US or Imperial is not specified." xml:space="preserve"><value>未指定美制或英制时，选择加仑、夸脱、品脱和液量盎司的定义。</value></data>
+  <data name="Sets number formatting and the input language. Default follows Windows regional settings." xml:space="preserve"><value>设置数字格式和输入语言。默认使用 Windows 区域设置。</value></data>
+  <data name="Automatic query languages" xml:space="preserve"><value>界面语言、输入语言和英语</value></data>
+  <data name="English only" xml:space="preserve"><value>仅英语</value></data>
+  <data name="US customary" xml:space="preserve"><value>美制</value></data>
+  <data name="Imperial (UK)" xml:space="preserve"><value>英制（英国）</value></data>
+</root>

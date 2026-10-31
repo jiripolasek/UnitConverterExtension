@@ -1,0 +1,25 @@
+<Project>
+  <PropertyGroup>
+    <CmdPalPackagingTemplateVersion>6</CmdPalPackagingTemplateVersion>
+    <CmdPalRepositoryRoot>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\'))</CmdPalRepositoryRoot>
+
+    <CmdPalExtensionProject>$(CmdPalRepositoryRoot)src\UnitConverterExtension\JPSoftworks.UnitConverterExtension.csproj</CmdPalExtensionProject>
+    <CmdPalExtensionProjectReference>..\UnitConverterExtension\JPSoftworks.UnitConverterExtension.csproj</CmdPalExtensionProjectReference>
+    <CmdPalExtensionAssemblyName>JPSoftworks.UnitConverterExtension</CmdPalExtensionAssemblyName>
+
+    <CmdPalPackageProject>$(CmdPalRepositoryRoot)src\UnitConverterExtension.Package\JPSoftworks.UnitConverterExtension.Package.wapproj</CmdPalPackageProject>
+    <CmdPalPackageManifest>$(CmdPalRepositoryRoot)src\UnitConverterExtension.Package\Package.appxmanifest</CmdPalPackageManifest>
+    <CmdPalPackageExecutable>JPSoftworks.UnitConverterExtension\JPSoftworks.UnitConverterExtension.exe</CmdPalPackageExecutable>
+    <CmdPalPackageProjectGuid>c77e686c-0a8e-45f6-bef2-a428d6283702</CmdPalPackageProjectGuid>
+
+    <CmdPalTargetFramework>net10.0-windows10.0.22621.0</CmdPalTargetFramework>
+    <CmdPalTargetPlatformVersion>10.0.22621.0</CmdPalTargetPlatformVersion>
+    <CmdPalTargetPlatformMinVersion>10.0.19041.0</CmdPalTargetPlatformMinVersion>
+    <CmdPalRuntimeIdentifiers>win-x64;win-arm64</CmdPalRuntimeIdentifiers>
+    <CmdPalDefaultLanguage>en-US</CmdPalDefaultLanguage>
+
+    <CmdPalArtifactsPath>$(CmdPalRepositoryRoot)artifacts\</CmdPalArtifactsPath>
+    <CmdPalSupportsNativeAot>true</CmdPalSupportsNativeAot>
+    <CmdPalWindowsSdkBuildToolsVersion>10.0.22621.2428</CmdPalWindowsSdkBuildToolsVersion>
+  </PropertyGroup>
+</Project>
