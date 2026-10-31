@@ -1,9 +1,5 @@
 {
   "profiles": {
-    "UnitConverterExtension (Package)": {
-      "commandName": "MsixPackage",
-      "doNotLaunchApp": true
-    },
     "UnitConverterExtension (Unpackaged)": {
       "commandName": "Project"
     }

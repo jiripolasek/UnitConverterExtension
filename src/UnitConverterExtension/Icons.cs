@@ -41,13 +41,37 @@ internal static class Icons
 
         public static IconInfo Temperature { get; } = Duo("FluentTemperature20Regular");
 
-        public static IconInfo Mass { get; } = Duo("FluentScales20Regular");
+        public static IconInfo TemperatureDelta { get; } = Duo("FluentTemperature20Regular.Delta");
+
+        public static IconInfo Mass { get; } = Duo("CalculatorWeight20Regular");
 
         public static IconInfo Energy { get; } = Duo("FluentFire20Regular");
 
         public static IconInfo Data { get; } = Duo("FluentStorage20Regular");
 
+        public static IconInfo DataRate { get; } = Duo("FluentArrowBidirectionalUpDown20Regular");
+
+        public static IconInfo FuelEconomy { get; } = Duo("FluentGasPump20Regular");
+
         public static IconInfo Pressure { get; } = Duo("FluentGauge20Regular");
+
+        public static IconInfo Angle { get; } = Duo("CalculatorAngle20Regular");
+
+        public static IconInfo Frequency { get; } = Duo("FluentDeviceEq20Regular");
+
+        public static IconInfo Force { get; } = Duo("FluentArrowSwap20Regular");
+
+        public static IconInfo Torque { get; } = Duo("FluentArrowSync20Regular");
+
+        public static IconInfo Acceleration { get; } = Duo("FluentTopSpeed20Regular");
+
+        public static IconInfo Density { get; } = Duo("FluentScales20Regular.Density");
+
+        public static IconInfo Voltage { get; } = Duo("FluentFlash20Regular.Voltage");
+
+        public static IconInfo Current { get; } = Duo("FluentFlash20Regular.Current");
+
+        public static IconInfo Resistance { get; } = Duo("FluentFlash20Regular.Resistance");
 
         public static IconInfo Currency { get; } = Duo("FluentMoney20Regular");
 

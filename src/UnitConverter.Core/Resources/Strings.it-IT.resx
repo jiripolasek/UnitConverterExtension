@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="UnitNames" xml:space="preserve"><value>Length|angstrom|ångström|angstrom
+Length|au|unità astronomica|unità astronomiche
+Length|cm|centimetro|centimetri
+Length|ch|catena di Gunter|catene di Gunter
+Length|dmi|miglio dati|miglia dati
+Length|dam|decametro|decametri
+Length|dm|decimetro|decimetri
+Length|dtp pica|pica DTP
+Length|dtp pt|punto DTP|punti DTP
+Length|fathom|braccio inglese|braccia inglesi
+Length|ft|piede|piedi
+Length|hand|mano|mani
+Length|hm|ettometro|ettometri
+Length|in|pollice|pollici
+Length|kly|chiloanno luce|chiloanni luce
+Length|km|chilometro|chilometri
+Length|kpc|chiloparsec
+Length|ly|anno luce|anni luce
+Length|Mly|megaanno luce|megaanni luce
+Length|Mpc|megaparsec
+Length|m|metro|metri
+Length|microinch|micropollice|micropollici
+Length|um|micrometro|micrometri
+Length|mil|millesimo di pollice|millesimi di pollice
+Length|mi|miglio terrestre|miglia terrestri
+Length|mm|millimetro|millimetri
+Length|nm|nanometro|nanometri
+Length|nmi|miglio nautico|miglia nautiche
+Length|pc|parsec
+Length|printer pica|pica tipografica|pica tipografiche
+Length|printer pt|punto tipografico|punti tipografici
+Length|shackle|lunghezza di catena|lunghezze di catena
+Length|R⊙|raggio solare|raggi solari
+Length|twip|twip
+Length|px|pixel CSS
+Length|Q|quarto di millimetro|quarti di millimetro
+Length|us survey ft|piede topografico statunitense|piedi topografici statunitensi
+Length|yd|iarda|iarde
+Length|kyd|chiloiarda|chiloiarde
+Length|Mm|megametro|megametri
+Length|pm|picometro|picometri
+Length|Gm|gigametro|gigametri
+Length|kft|chilopiede|chilopiedi
+Length|fm|femtometro|femtometri
+Length|ls|secondo luce
+Length|lmin|minuto luce
+Length|lh|ora luce
+Length|ld|giorno luce
+Length|lw|settimana luce
+Temperature|°C|grado Celsius|gradi Celsius
+Temperature|°F|grado Fahrenheit|gradi Fahrenheit
+Temperature|K|kelvin
+Temperature|°R|grado Rankine|gradi Rankine
+TemperatureDelta|Δ°C|grado Celsius (differenza)|gradi Celsius (differenza)
+TemperatureDelta|Δ°F|grado Fahrenheit (differenza)|gradi Fahrenheit (differenza)
+TemperatureDelta|ΔK|kelvin (differenza)
+TemperatureDelta|Δ°R|grado Rankine (differenza)|gradi Rankine (differenza)
+Frequency|Hz|hertz
+Frequency|kHz|chilohertz
+Frequency|MHz|megahertz
+Frequency|GHz|gigahertz
+Frequency|THz|terahertz
+Frequency|mHz|millihertz
+Frequency|µHz|microhertz
+Frequency|rpm|giro al minuto|giri al minuto
+Frequency|bpm|battito al minuto|battiti al minuto
+Frequency|rad/s|radiante al secondo|radianti al secondo
+Force|N|newton
+Force|kN|chilonewton
+Force|MN|meganewton
+Force|mN|millinewton
+Force|µN|micronewton
+Force|lbf|libbra-forza|libbre-forza
+Force|kgf|chilogrammo-forza|chilogrammi-forza
+Force|dyn|dina|dine
+Torque|Nm|newton·metro
+Torque|kNm|chilonewton·metro
+Torque|Ncm|newton·centimetro
+Torque|Nmm|newton·millimetro
+Torque|lbf·ft|libbra-forza·piede|libbre-forza·piedi
+Torque|lbf·in|libbra-forza·pollice|libbre-forza·pollici
+Torque|kgf·m|chilogrammo-forza·metro|chilogrammi-forza·metri
+Acceleration|m/s²|metro al secondo quadrato|metri al secondo quadrato
+Acceleration|cm/s²|centimetro al secondo quadrato|centimetri al secondo quadrato
+Acceleration|mm/s²|millimetro al secondo quadrato|millimetri al secondo quadrato
+Acceleration|ft/s²|piede al secondo quadrato|piedi al secondo quadrato
+Acceleration|in/s²|pollice al secondo quadrato|pollici al secondo quadrato
+Acceleration|g0|gravità standard
+Density|kg/m³|chilogrammo/metro³|chilogrammi/metro³
+Density|g/cm³|grammo/centimetro³|grammi/centimetro³
+Density|g/mL|grammo/millilitro|grammi/millilitro
+Density|kg/L|chilogrammo/litro|chilogrammi/litro
+Density|lb/ft³|libbra/piede³|libbre/piede³
+Density|lb/in³|libbra/pollice³|libbre/pollice³
+Voltage|V|volt
+Voltage|mV|millivolt
+Voltage|µV|microvolt
+Voltage|kV|chilovolt
+Voltage|MV|megavolt
+Current|A|ampere
+Current|mA|milliampere
+Current|µA|microampere
+Current|kA|chiloampere
+Current|MA|megaampere
+Resistance|ohm|ohm
+Resistance|mohm|milliohm
+Resistance|uohm|microohm
+Resistance|kohm|chiloohm
+Resistance|Mohm|megaohm
+Time|ns|nanosecondo|nanosecondi
+Time|μs|microsecondo|microsecondi
+Time|ms|millisecondo|millisecondi
+Time|s|secondo|secondi
+Time|min|minuto|minuti
+Time|h|ora|ore
+Time|d|giorno|giorni
+Time|w|settimana|settimane
+Time|mo|mese|mesi
+Time|y|anno|anni
+Volume|ml|millilitro|millilitri
+Volume|l|litro|litri
+Volume|tsp|cucchiaino statunitense|cucchiaini statunitensi
+Volume|tbsp|cucchiaio statunitense|cucchiai statunitensi
+Volume|us fl oz|oncia liquida statunitense|once liquide statunitensi
+Volume|us pt|pinta statunitense|pinte statunitensi
+Volume|us qt|quarto statunitense|quarti statunitensi
+Volume|us gal|gallone statunitense|galloni statunitensi
+Volume|cup|tazza statunitense|tazze statunitensi
+Volume|imp fl oz|oncia liquida imperiale|once liquide imperiali
+Volume|imp pt|pinta imperiale|pinte imperiali
+Volume|imp qt|quarto imperiale|quarti imperiali
+Volume|imp gal|gallone imperiale|galloni imperiali
+Volume|pint|pinta|pinte
+Volume|fluid ounce|oncia liquida|once liquide
+Mass|ct|carato|carati
+Mass|mg|milligrammo|milligrammi
+Mass|cg|centigrammo|centigrammi
+Mass|dg|decigrammo|decigrammi
+Mass|g|grammo|grammi
+Mass|dag|decagrammo|decagrammi
+Mass|hg|ettogrammo|ettogrammi
+Mass|kg|chilogrammo|chilogrammi
+Mass|t|tonnellata metrica|tonnellate metriche
+Mass|oz|oncia|once
+Mass|lb|libbra|libbre
+Mass|stone|stone
+Mass|short tn|tonnellata corta|tonnellate corte
+Speed|cm/s|centimetro al secondo|centimetri al secondo
+Speed|m/s|metro al secondo|metri al secondo
+Speed|km/h|chilometro all'ora|chilometri all'ora
+Speed|ft/s|piede al secondo|piedi al secondo
+Speed|mph|miglio terrestre all'ora|miglia terrestri all'ora
+Speed|min/km|minuto per chilometro|minuti per chilometro
+Speed|min/mi|minuto per miglio|minuti per miglio
+Speed|s/km|secondo per chilometro|secondi per chilometro
+Speed|s/mi|secondo per miglio|secondi per miglio
+Speed|kn|nodo|nodi
+Speed|Mach|numero di Mach|numeri di Mach
+Power|W|watt
+Power|kW|chilowatt
+Power|hp|cavallo vapore meccanico|cavalli vapore meccanici
+Power|ft·lb/min|piede·libbra al minuto|piedi·libbre al minuto
+Power|BTU/min|unità termica britannica al minuto|unità termiche britanniche al minuto
+Energy|eV|elettronvolt
+Energy|J|joule
+Energy|kJ|chilojoule
+Energy|cal|caloria termochimica|calorie termochimiche
+Energy|kcal|chilocaloria|chilocalorie
+Energy|ft·lb|piede·libbra|piedi·libbre
+Energy|BTU|unità termica britannica|unità termiche britanniche
+Energy|kWh|chilowattora
+Pressure|Pa|pascal
+Pressure|kPa|chilopascal
+Pressure|bar|bar
+Pressure|atm|atmosfera|atmosfere
+Pressure|psi|libbra-forza/pollice²|libbre-forza/pollice²
+Pressure|mmHg|millimetro di mercurio|millimetri di mercurio
+Pressure|inHg|pollice di mercurio|pollici di mercurio
+Angle|deg|grado|gradi
+Angle|rad|radiante|radianti
+Angle|grad|grado centesimale|gradi centesimali
+Angle|turn|giro|giri
+Data|b|bit
+Data|nibble|semibyte
+Data|B|byte
+Data|kb|chilobit
+Data|Mb|megabit
+Data|Gb|gigabit
+Data|Tb|terabit
+Data|Pb|petabit
+Data|Eb|exabit
+Data|Zb|zettabit
+Data|Yb|yottabit
+Data|Kib|kibibit
+Data|Mib|mebibit
+Data|Gib|gibibit
+Data|Tib|tebibit
+Data|Pib|pebibit
+Data|Eib|exbibit
+Data|kB|chilobyte
+Data|MB|megabyte
+Data|GB|gigabyte
+Data|TB|terabyte
+Data|PB|petabyte
+Data|EB|exabyte
+Data|ZB|zettabyte
+Data|YB|yottabyte
+Data|KiB|kibibyte
+Data|MiB|mebibyte
+Data|GiB|gibibyte
+Data|TiB|tebibyte
+Data|PiB|pebibyte
+Data|EiB|exbibyte
+Data|ZiB|zebibyte
+Data|YiB|yobibyte
+DataRate|b/s|bit al secondo
+DataRate|B/s|byte al secondo
+DataRate|kb/s|chilobit al secondo
+DataRate|kB/s|chilobyte al secondo
+DataRate|Mb/s|megabit al secondo
+DataRate|MB/s|megabyte al secondo
+DataRate|Gb/s|gigabit al secondo
+DataRate|GB/s|gigabyte al secondo
+DataRate|Tb/s|terabit al secondo
+DataRate|TB/s|terabyte al secondo
+DataRate|Kib/s|kibibit al secondo
+DataRate|KiB/s|kibibyte al secondo
+DataRate|Mib/s|mebibit al secondo
+DataRate|MiB/s|mebibyte al secondo
+DataRate|Gib/s|gibibit al secondo
+DataRate|GiB/s|gibibyte al secondo
+DataRate|Tib/s|tebibit al secondo
+DataRate|TiB/s|tebibyte al secondo
+FuelEconomy|L/100km|litro per 100 chilometri
+FuelEconomy|km/L|chilometro per litro|chilometri per litro
+FuelEconomy|mpg US|miglio terrestre per gallone statunitense
+FuelEconomy|mpg UK|miglio terrestre per gallone imperiale
+Area|mm2|millimetro quadrato|millimetri quadrati
+Area|cm2|centimetro quadrato|centimetri quadrati
+Area|m2|metro quadrato|metri quadrati
+Area|km2|chilometro quadrato|chilometri quadrati
+Area|in2|pollice quadrato|pollici quadrati
+Area|ft2|piede quadrato|piedi quadrati
+Area|yd2|iarda quadrata|iarde quadrate
+Area|mi2|miglio quadrato|miglia quadrate
+Area|ha|ettaro|ettari
+Area|acre|acro|acri
+Area|soccer field|campo da calcio|campi da calcio
+Area|manhattan block|isolato di Manhattan|isolati di Manhattan</value></data>
+  <data name="ConversionConnectorWords" xml:space="preserve"><value>in|a</value></data>
+  <data name="Conversion words" xml:space="preserve"><value>Lingue delle query</value></data>
+  <data name="Language of words such as to, in, or en" xml:space="preserve"><value>Lingue accettate per i nomi delle unità e parole come «in». Con il formato di input inglese, l’opzione predefinita accetta solo l’inglese.</value></data>
+  <data name="Input language only" xml:space="preserve"><value>Solo lingua di input</value></data>
+  <data name="Input language and English" xml:space="preserve"><value>Lingua di input e inglese</value></data>
+  <data name="Unit Converter" xml:space="preserve"><value>Convertitore di unità</value></data>
+  <data name="Convert units" xml:space="preserve"><value>Converti unità</value></data>
+  <data name="Unit Converter for Command Palette" xml:space="preserve"><value>Convertitore di unità per la tavolozza dei comandi</value></data>
+  <data name="Convert common units of length, volume, temperature, weight, time or speed" xml:space="preserve"><value>Converti unità comuni di lunghezza, volume, temperatura, massa, tempo o velocità</value></data>
+  <data name="Enter conversion (e.g., '{0}', '{1}', '{2}')" xml:space="preserve"><value>Inserisci una conversione (ad es. «{0}», «{1}», «{2}»)</value></data>
+  <data name="Show detailed help and examples" xml:space="preserve"><value>Mostra guida dettagliata ed esempi</value></data>
+  <data name="Help" xml:space="preserve"><value>Guida</value></data>
+  <data name="Overview of Supported Units" xml:space="preserve"><value>Panoramica delle unità supportate</value></data>
+  <data name="Suggested conversions" xml:space="preserve"><value>Conversioni suggerite</value></data>
+  <data name="More conversions" xml:space="preserve"><value>Altre conversioni</value></data>
+  <data name="Other interpretations" xml:space="preserve"><value>Altre interpretazioni</value></data>
+  <data name="Choose a unit interpretation." xml:space="preserve"><value>Scegli un'interpretazione dell'unità.</value></data>
+  <data name="Everyday conversions" xml:space="preserve"><value>Conversioni quotidiane</value></data>
+  <data name="Science and engineering" xml:space="preserve"><value>Scienza e ingegneria</value></data>
+  <data name="Data and computing" xml:space="preserve"><value>Dati e informatica</value></data>
+  <data name="Mixed units and expressions" xml:space="preserve"><value>Unità miste ed espressioni</value></data>
+  <data name="Conversion Error" xml:space="preserve"><value>Errore di conversione</value></data>
+  <data name="Unexpected Error" xml:space="preserve"><value>Errore imprevisto</value></data>
+  <data name="Try this conversion" xml:space="preserve"><value>Prova questa conversione</value></data>
+  <data name="Mixed quantities" xml:space="preserve"><value>Grandezze miste</value></data>
+  <data name="Calculations" xml:space="preserve"><value>Calcoli</value></data>
+  <data name="Volume system preference" xml:space="preserve"><value>Unità di volume</value></data>
+  <data name="Auto" xml:space="preserve"><value>In base all’area di input</value></data>
+  <data name="US" xml:space="preserve"><value>Statunitense</value></data>
+  <data name="Imperial" xml:space="preserve"><value>Imperiale</value></data>
+  <data name="Processing input" xml:space="preserve"><value>Formato di input</value></data>
+  <data name="Default" xml:space="preserve"><value>Predefinito</value></data>
+  <data name="Use current culture" xml:space="preserve"><value>Impostazioni locali di Windows</value></data>
+  <data name="Use English" xml:space="preserve"><value>Inglese (Stati Uniti)</value></data>
+  <data name="Accuracy" xml:space="preserve"><value>Precisione dei risultati</value></data>
+  <data name="Display precision of results" xml:space="preserve"><value>Scegli quante cifre mostrare nei risultati.</value></data>
+  <data name="Default ({0})" xml:space="preserve"><value>Predefinita ({0})</value></data>
+  <data name="Common use" xml:space="preserve"><value>Meno cifre</value></data>
+  <data name="Enhanced" xml:space="preserve"><value>Più cifre</value></data>
+  <data name="Extremely precise" xml:space="preserve"><value>Numero massimo di cifre</value></data>
+  <data name="Length" xml:space="preserve"><value>Lunghezza</value></data>
+  <data name="Temperature" xml:space="preserve"><value>Temperatura</value></data>
+  <data name="TemperatureDelta" xml:space="preserve"><value>Differenza di temperatura</value></data>
+  <data name="Frequency" xml:space="preserve"><value>Frequenza</value></data>
+  <data name="Force" xml:space="preserve"><value>Forza</value></data>
+  <data name="Torque" xml:space="preserve"><value>Momento torcente</value></data>
+  <data name="Acceleration" xml:space="preserve"><value>Accelerazione</value></data>
+  <data name="Density" xml:space="preserve"><value>Densità</value></data>
+  <data name="Voltage" xml:space="preserve"><value>Tensione</value></data>
+  <data name="Current" xml:space="preserve"><value>Corrente elettrica</value></data>
+  <data name="Resistance" xml:space="preserve"><value>Resistenza elettrica</value></data>
+  <data name="Time" xml:space="preserve"><value>Tempo</value></data>
+  <data name="Volume" xml:space="preserve"><value>Volume</value></data>
+  <data name="Mass" xml:space="preserve"><value>Massa</value></data>
+  <data name="Speed" xml:space="preserve"><value>Velocità</value></data>
+  <data name="Power" xml:space="preserve"><value>Potenza</value></data>
+  <data name="Energy" xml:space="preserve"><value>Energia</value></data>
+  <data name="Pressure" xml:space="preserve"><value>Pressione</value></data>
+  <data name="Angle" xml:space="preserve"><value>Angolo</value></data>
+  <data name="Data" xml:space="preserve"><value>Dati</value></data>
+  <data name="DataRate" xml:space="preserve"><value>Velocità dei dati</value></data>
+  <data name="Area" xml:space="preserve"><value>Area</value></data>
+  <data name="Unknown" xml:space="preserve"><value>Sconosciuto</value></data>
+  <data name="Metric" xml:space="preserve"><value>Metrico</value></data>
+  <data name="Astronomical" xml:space="preserve"><value>Astronomico</value></data>
+  <data name="Contextual" xml:space="preserve"><value>Contestuale</value></data>
+  <data name="Customary" xml:space="preserve"><value>Tradizionale</value></data>
+  <data name="Digital" xml:space="preserve"><value>Digitale</value></data>
+  <data name="Medical" xml:space="preserve"><value>Medico</value></data>
+  <data name="Nautical" xml:space="preserve"><value>Nautico</value></data>
+  <data name="Non-SI" xml:space="preserve"><value>Non SI</value></data>
+  <data name="Physics" xml:space="preserve"><value>Fisico</value></data>
+  <data name="Typographic" xml:space="preserve"><value>Tipografico</value></data>
+  <data name="Universal" xml:space="preserve"><value>Universale</value></data>
+  <data name="Could not parse the conversion query. Please use formats like '{0}' or '{1}'." xml:space="preserve"><value>Impossibile interpretare la conversione. Usa formati come «{0}» o «{1}».</value></data>
+  <data name="Failed to convert from {0} to {1}." xml:space="preserve"><value>Conversione da {0} a {1} non riuscita.</value></data>
+  <data name="Unknown unit: {0}" xml:space="preserve"><value>Unità sconosciuta: {0}</value></data>
+  <data name="Cannot convert between {0} and {1} - they are different unit types." xml:space="preserve"><value>Impossibile convertire tra {0} e {1}: sono tipi di grandezza diversi.</value></data>
+  <data name="{0} does not support {1} units." xml:space="preserve"><value>{0} non supporta unità di tipo {1}.</value></data>
+  <data name="squared" xml:space="preserve"><value>quadrate</value></data>
+  <data name="cubic" xml:space="preserve"><value>cubiche</value></data>
+  <data name="{0} Please specify '{1}'." xml:space="preserve"><value>{0} Specifica '{1}'.</value></data>
+  <data name="or" xml:space="preserve"><value>oppure</value></data>
+  <data name="1,000,000 square meters" xml:space="preserve"><value>1 000 000 m²</value></data>
+  <data name="1/16 of a pound" xml:space="preserve"><value>1/16 lb</value></data>
+  <data name="1/20 imperial pint" xml:space="preserve"><value>1/20 pt (UK)</value></data>
+  <data name="1/3 tablespoon (US)" xml:space="preserve"><value>1/3 tbsp (US)</value></data>
+  <data name="1/360 of a full rotation" xml:space="preserve"><value>1/360 × 360°</value></data>
+  <data name="1/400 of a full rotation" xml:space="preserve"><value>1/400 × 360°</value></data>
+  <data name="1/8 US cup" xml:space="preserve"><value>1/8 cup (US)</value></data>
+  <data name="10,000 square meters" xml:space="preserve"><value>10 000 m²</value></data>
+  <data name="100,000 pascals" xml:space="preserve"><value>100 000 Pa</value></data>
+  <data name="1000 calories, commonly used for food energy" xml:space="preserve"><value>1000 calorie, comunemente usate per l'energia alimentare</value></data>
+  <data name="1000 kilograms" xml:space="preserve"><value>1000 kg</value></data>
+  <data name="14 pounds (UK/Ireland)" xml:space="preserve"><value>14 lb (GB/IE)</value></data>
+  <data name="16 ounces" xml:space="preserve"><value>16 oz</value></data>
+  <data name="1e-4 square meters" xml:space="preserve"><value>10⁻⁴ m²</value></data>
+  <data name="1e-6 square meters" xml:space="preserve"><value>10⁻⁶ m²</value></data>
+  <data name="2 imperial pints" xml:space="preserve"><value>2 pt (UK)</value></data>
+  <data name="2 US cups" xml:space="preserve"><value>2 cup (US)</value></data>
+  <data name="2 US pints" xml:space="preserve"><value>2 pt (US)</value></data>
+  <data name="20 imperial fluid ounces" xml:space="preserve"><value>20 fl oz (UK)</value></data>
+  <data name="2000 pounds (US)" xml:space="preserve"><value>2000 lb (US)</value></data>
+  <data name="24 hours" xml:space="preserve"><value>24 h</value></data>
+  <data name="3 teaspoons (US)" xml:space="preserve"><value>3 tsp (US)</value></data>
+  <data name="365.25 days (Julian year)" xml:space="preserve"><value>365,25 d</value></data>
+  <data name="4 bits (half a byte)" xml:space="preserve"><value>4 b = 0,5 B</value></data>
+  <data name="4 imperial quarts" xml:space="preserve"><value>4 qt (UK)</value></data>
+  <data name="4 US quarts" xml:space="preserve"><value>4 qt (US)</value></data>
+  <data name="43,560 square feet (approx. 4046.8564224 m²)" xml:space="preserve"><value>43 560 ft² ≈ 4046,8564224 m²</value></data>
+  <data name="60 seconds" xml:space="preserve"><value>60 s</value></data>
+  <data name="7 days" xml:space="preserve"><value>7 d</value></data>
+  <data name="8 US fluid ounces" xml:space="preserve"><value>8 fl oz (US)</value></data>
+  <data name="Absolute temperature scale (SI base unit)" xml:space="preserve"><value>Scala di temperatura assoluta (unità di base SI)</value></data>
+  <data name="Absolute temperature scale based on Fahrenheit degrees" xml:space="preserve"><value>Scala di temperatura assoluta basata sui gradi Fahrenheit</value></data>
+  <data name="Approx. 264 ft × 900 ft = 237,600 ft² ≈ 22,076 m²" xml:space="preserve"><value>≈ 264 ft × 900 ft = 237 600 ft² ≈ 22 076 m²</value></data>
+  <data name="Approx. FIFA-recommended pitch 105 m × 68 m = 7,140 m²" xml:space="preserve"><value>FIFA: 105 m × 68 m = 7140 m²</value></data>
+  <data name="Approximately 30.44 days" xml:space="preserve"><value>≈ 30,44 d</value></data>
+  <data name="Area of a 1 ft by 1 ft square" xml:space="preserve"><value>1 ft × 1 ft</value></data>
+  <data name="Area of a 1 in by 1 in square" xml:space="preserve"><value>1 in × 1 in</value></data>
+  <data name="Area of a 1 mi by 1 mi square" xml:space="preserve"><value>1 mi × 1 mi</value></data>
+  <data name="Area of a 1 yd by 1 yd square" xml:space="preserve"><value>1 yd × 1 yd</value></data>
+  <data name="Base unit of mass in CGS system" xml:space="preserve"><value>Unità di base della massa nel sistema CGS</value></data>
+  <data name="Basic metric unit of volume" xml:space="preserve"><value>Unità metrica di base del volume</value></data>
+  <data name="Basic unit of information" xml:space="preserve"><value>Unità di base dell'informazione</value></data>
+  <data name="Distance light travels in one day" xml:space="preserve"><value>Distanza percorsa dalla luce in 1 d</value></data>
+  <data name="Distance light travels in one hour" xml:space="preserve"><value>Distanza percorsa dalla luce in 1 h</value></data>
+  <data name="Distance light travels in one minute" xml:space="preserve"><value>Distanza percorsa dalla luce in 1 min</value></data>
+  <data name="Distance light travels in one second" xml:space="preserve"><value>Distanza percorsa dalla luce in 1 s</value></data>
+  <data name="Distance light travels in one week" xml:space="preserve"><value>Distanza percorsa dalla luce in 1 w</value></data>
+  <data name="Elementary charge times one volt" xml:space="preserve"><value>Carica elementare moltiplicata per un volt</value></data>
+  <data name="Imperial unit of energy" xml:space="preserve"><value>Unità imperiale di energia</value></data>
+  <data name="Imperial unit of power" xml:space="preserve"><value>Unità imperiale di potenza</value></data>
+  <data name="Mechanical horsepower (745.7 watts)" xml:space="preserve"><value>745,7 W</value></data>
+  <data name="One billionth of a second" xml:space="preserve"><value>10⁻⁹ s</value></data>
+  <data name="One complete rotation (360°)" xml:space="preserve"><value>360°</value></data>
+  <data name="One hundred grams" xml:space="preserve"><value>100 g</value></data>
+  <data name="One hundredth of a gram" xml:space="preserve"><value>0,01 g</value></data>
+  <data name="One millionth of a second" xml:space="preserve"><value>10⁻⁶ s</value></data>
+  <data name="One tenth of a gram" xml:space="preserve"><value>0,1 g</value></data>
+  <data name="One thousandth of a gram" xml:space="preserve"><value>0,001 g</value></data>
+  <data name="One thousandth of a liter" xml:space="preserve"><value>0,001 L</value></data>
+  <data name="One thousandth of a second" xml:space="preserve"><value>0,001 s</value></data>
+  <data name="Pressure equivalent to 1 inch of mercury" xml:space="preserve"><value>Pressione equivalente a un pollice di mercurio</value></data>
+  <data name="Pressure equivalent to 1mm of mercury" xml:space="preserve"><value>Pressione equivalente a un millimetro di mercurio</value></data>
+  <data name="Pressure per square inch" xml:space="preserve"><value>1 lbf/in²</value></data>
+  <data name="SI base unit of area" xml:space="preserve"><value>Unità SI dell'area</value></data>
+  <data name="SI base unit of mass" xml:space="preserve"><value>Unità di base SI della massa</value></data>
+  <data name="SI base unit of time" xml:space="preserve"><value>Unità di base SI del tempo</value></data>
+  <data name="SI unit of angular measure" xml:space="preserve"><value>Unità SI dell'angolo piano</value></data>
+  <data name="SI unit of energy" xml:space="preserve"><value>Unità SI dell'energia</value></data>
+  <data name="SI unit of power" xml:space="preserve"><value>Unità SI della potenza</value></data>
+  <data name="SI unit of pressure" xml:space="preserve"><value>Unità SI della pressione</value></data>
+  <data name="Standard atmospheric pressure" xml:space="preserve"><value>101 325 Pa</value></data>
+  <data name="Temperature scale based on water's freezing and boiling points" xml:space="preserve"><value>Scala di temperatura basata sui punti di congelamento ed ebollizione dell'acqua</value></data>
+  <data name="Temperature scale commonly used in the United States" xml:space="preserve"><value>Scala di temperatura comunemente usata negli Stati Uniti</value></data>
+  <data name="Ten grams" xml:space="preserve"><value>10 g</value></data>
+  <data name="Thermal power unit" xml:space="preserve"><value>Unità di potenza termica</value></data>
+  <data name="Thermochemical calorie (4.184 J)" xml:space="preserve"><value>4,184 J</value></data>
+  <data name="Traditional unit of heat energy" xml:space="preserve"><value>Unità tradizionale di energia termica</value></data>
+  <data name="Unit for measuring precious stones and pearls (200 mg)" xml:space="preserve"><value>200 mg</value></data>
+  <data name="Unit of electrical energy consumption" xml:space="preserve"><value>Unità di consumo dell'energia elettrica</value></data>
+  <data name="1000 bits (decimal)" xml:space="preserve"><value>1000 b</value></data>
+  <data name="1000 bytes (decimal)" xml:space="preserve"><value>1000 B</value></data>
+  <data name="1000 kilobits (decimal)" xml:space="preserve"><value>1000 kb</value></data>
+  <data name="1000 kilobytes (decimal)" xml:space="preserve"><value>1000 kB</value></data>
+  <data name="1000 megabits (decimal)" xml:space="preserve"><value>1000 Mb</value></data>
+  <data name="1000 megabytes (decimal)" xml:space="preserve"><value>1000 MB</value></data>
+  <data name="1000 gigabits (decimal)" xml:space="preserve"><value>1000 Gb</value></data>
+  <data name="1000 gigabytes (decimal)" xml:space="preserve"><value>1000 GB</value></data>
+  <data name="1000 terabits (decimal)" xml:space="preserve"><value>1000 Tb</value></data>
+  <data name="1000 terabytes (decimal)" xml:space="preserve"><value>1000 TB</value></data>
+  <data name="1000 petabits (decimal)" xml:space="preserve"><value>1000 Pb</value></data>
+  <data name="1000 petabytes (decimal)" xml:space="preserve"><value>1000 PB</value></data>
+  <data name="1000 exabits (decimal)" xml:space="preserve"><value>1000 Eb</value></data>
+  <data name="1000 exabytes (decimal)" xml:space="preserve"><value>1000 EB</value></data>
+  <data name="1000 zettabits (decimal)" xml:space="preserve"><value>1000 Zb</value></data>
+  <data name="1000 zettabytes (decimal)" xml:space="preserve"><value>1000 ZB</value></data>
+  <data name="1024 bits (binary)" xml:space="preserve"><value>1024 b</value></data>
+  <data name="1024 bytes (binary)" xml:space="preserve"><value>1024 B</value></data>
+  <data name="1024 kibibits (binary)" xml:space="preserve"><value>1024 Kib</value></data>
+  <data name="1024 kibibytes (binary)" xml:space="preserve"><value>1024 KiB</value></data>
+  <data name="1024 mebibits (binary)" xml:space="preserve"><value>1024 Mib</value></data>
+  <data name="1024 mebibytes (binary)" xml:space="preserve"><value>1024 MiB</value></data>
+  <data name="1024 gibibits (binary)" xml:space="preserve"><value>1024 Gib</value></data>
+  <data name="1024 gibibytes (binary)" xml:space="preserve"><value>1024 GiB</value></data>
+  <data name="1024 tebibits (binary)" xml:space="preserve"><value>1024 Tib</value></data>
+  <data name="1024 tebibytes (binary)" xml:space="preserve"><value>1024 TiB</value></data>
+  <data name="1024 pebibits (binary)" xml:space="preserve"><value>1024 Pib</value></data>
+  <data name="1024 pebibytes (binary)" xml:space="preserve"><value>1024 PiB</value></data>
+  <data name="1024 exbibytes (binary)" xml:space="preserve"><value>1024 EiB</value></data>
+  <data name="1024 zebibytes (binary)" xml:space="preserve"><value>1024 ZiB</value></data>
+  <data name="Ambiguous unit token. It can mean kilocalorie (kcal) or calorie (cal)." xml:space="preserve"><value>Unità ambigua. Può indicare chilocaloria (kcal) o caloria (cal).</value></data>
+  <data name="Enter a value and a unit." xml:space="preserve"><value>Inserisci un valore e un'unità.</value></data>
+  <data name="Complete the calculation, then enter a unit." xml:space="preserve"><value>Completa il calcolo, quindi inserisci un'unità.</value></data>
+  <data name="Choose a source unit." xml:space="preserve"><value>Scegli un'unità di origine.</value></data>
+  <data name="Choose a compatible target unit." xml:space="preserve"><value>Scegli un'unità di destinazione compatibile.</value></data>
+  <data name="Complete the conversion" xml:space="preserve"><value>Completa la conversione</value></data>
+  <data name="Use this query" xml:space="preserve"><value>Usa questa query</value></data>
+  <data name="Open in Unit Converter" xml:space="preserve"><value>Apri nel convertitore di unità</value></data>
+  <data name="Copy result" xml:space="preserve"><value>Copia risultato</value></data>
+  <data name="Copy number" xml:space="preserve"><value>Copia numero</value></data>
+  <data name="Copy full precision" xml:space="preserve"><value>Copia con precisione completa</value></data>
+  <data name="The result is outside the supported numeric range." xml:space="preserve"><value>Il risultato è fuori dall'intervallo numerico supportato.</value></data>
+  <data name="Copy number in {0}" xml:space="preserve"><value>Copia il numero in {0}</value></data>
+  <data name="FuelEconomy" xml:space="preserve"><value>Consumo di carburante</value></data>
+  <data name="Miles per gallon requires a US or UK gallon." xml:space="preserve"><value>Le miglia per gallone richiedono un gallone statunitense o britannico.</value></data>
+  <data name="The value is not valid for this unit." xml:space="preserve"><value>Il valore non è valido per questa unità.</value></data>
+  <data name="Mixed quantities must use compatible units and dimensions. Absolute temperatures and fuel economy cannot be added." xml:space="preserve"><value>Le grandezze miste devono usare unità e dimensioni compatibili. Le temperature assolute e i consumi di carburante non possono essere sommati.</value></data>
+  <data name="An unexpected error occurred. Please try again." xml:space="preserve"><value>Si è verificato un errore imprevisto. Riprova.</value></data>
+  <data name="Choose the gallon, quart, pint, and fluid ounce used when US or Imperial is not specified." xml:space="preserve"><value>Scegli quale gallone, quarto, pinta e oncia liquida usare quando non è specificato il sistema statunitense o imperiale.</value></data>
+  <data name="Sets number formatting and the input language. Default follows Windows regional settings." xml:space="preserve"><value>Imposta il formato dei numeri e la lingua di input. L’opzione predefinita usa le impostazioni locali di Windows.</value></data>
+  <data name="Automatic query languages" xml:space="preserve"><value>Lingua dell’interfaccia, lingua di input e inglese</value></data>
+  <data name="English only" xml:space="preserve"><value>Solo inglese</value></data>
+  <data name="US customary" xml:space="preserve"><value>Statunitensi</value></data>
+  <data name="Imperial (UK)" xml:space="preserve"><value>Imperiali (Regno Unito)</value></data>
+</root>

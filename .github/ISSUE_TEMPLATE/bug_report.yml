@@ -1,0 +1,47 @@
+name: Bug report
+description: Report a problem with conversions, Command Palette behavior, or installation.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For security vulnerabilities, follow the [security policy](https://github.com/jiripolasek/UnitConverterExtension/security/policy) instead of opening a public issue.
+        Remove personal information and credentials from logs and attachments.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the problem and actual result. For conversion problems, include the exact query.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1.
+        2.
+        3.
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      description: What should happen? Include the expected conversion result if applicable.
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      value: |
+        - Unit Converter version:
+        - PowerToys version:
+        - Windows version and build:
+        - Architecture (x64 or ARM64):
+        - Installation method (Store, WinGet, MSIX, or development build):
+        - Display language and regional format:
+        - Relevant extension settings:
+  - type: upload
+    id: attachments
+    attributes:
+      label: Screenshots, logs, or other files
+      description: Drag and drop screenshots, recordings, logs, or ZIP archives, or click to browse.
+    validations:
+      required: false

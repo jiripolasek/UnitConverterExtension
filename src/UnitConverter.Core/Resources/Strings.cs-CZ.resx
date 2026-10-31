@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="UnitNames" xml:space="preserve"><value>Length|angstrom|ångström|ångströmy|angström
+Length|au|astronomická jednotka|astronomické jednotky
+Length|cm|centimetr|centimetry|centimetrů
+Length|ch|řetězec|řetězce
+Length|dmi|datová míle|datové míle
+Length|dam|dekametr|dekametry|dekametrů
+Length|dm|decimetr|decimetry|decimetrů
+Length|dtp pica|DTP pica|DTP piky
+Length|dtp pt|DTP bod|DTP body
+Length|fathom|anglický sáh|anglické sáhy
+Length|ft|stopa|stopy|stop
+Length|hand|dlaň|dlaně
+Length|hm|hektometr|hektometry|hektometrů
+Length|in|palec|palce|palců
+Length|kly|kilosvětelný rok|kilosvětelné roky
+Length|km|kilometr|kilometry|kilometrů
+Length|kpc|kiloparsek|kiloparseky
+Length|ly|světelný rok|světelné roky
+Length|Mly|megasvětelný rok|megasvětelné roky
+Length|Mpc|megaparsek|megaparseky
+Length|m|metr|metry|metrů
+Length|microinch|mikropalec|mikropalce|mikropalců
+Length|um|mikrometr|mikrometry|mikrometrů
+Length|mil|tisícina palce|tisíciny palce
+Length|mi|míle|míle pozemní
+Length|mm|milimetr|milimetry|milimetrů
+Length|nm|nanometr|nanometry|nanometrů
+Length|nmi|námořní míle
+Length|pc|parsek|parseky
+Length|printer pica|tiskařská pica|tiskařské piky
+Length|printer pt|tiskařský bod|tiskařské body
+Length|shackle|lodní řetězec|lodní řetězce
+Length|R⊙|sluneční poloměr|sluneční poloměry
+Length|twip|twip|twipy
+Length|px|pixel CSS|pixely CSS|pixelů CSS
+Length|Q|čtvrtmilimetr|čtvrtmilimetry|čtvrtmilimetrů
+Length|us survey ft|americká zeměměřická stopa|americké zeměměřické stopy
+Length|yd|yard|yardy
+Length|kyd|kiloyard|kiloyardy
+Length|Mm|megametr|megametry|megametrů
+Length|pm|pikometr|pikometry|pikometrů
+Length|Gm|gigametr|gigametry|gigametrů
+Length|kft|kilostopa|kilostopy|kilostop
+Length|fm|femtometr|femtometry|femtometrů
+Length|ls|světelná sekunda
+Length|lmin|světelná minuta
+Length|lh|světelná hodina
+Length|ld|světelný den
+Length|lw|světelný týden
+Temperature|°C|stupeň Celsia|stupně Celsia
+Temperature|°F|stupeň Fahrenheita|stupně Fahrenheita
+Temperature|K|kelvin|kelviny
+Temperature|°R|stupeň Rankina|stupně Rankina
+TemperatureDelta|Δ°C|stupeň Celsia (rozdíl)|stupně Celsia (rozdíl)
+TemperatureDelta|Δ°F|stupeň Fahrenheita (rozdíl)|stupně Fahrenheita (rozdíl)
+TemperatureDelta|ΔK|kelvin (rozdíl)|kelviny (rozdíl)
+TemperatureDelta|Δ°R|stupeň Rankina (rozdíl)|stupně Rankina (rozdíl)
+Frequency|Hz|hertz|hertzy|hertzů
+Frequency|kHz|kilohertz|kilohertzy|kilohertzů
+Frequency|MHz|megahertz|megahertzy|megahertzů
+Frequency|GHz|gigahertz|gigahertzy|gigahertzů
+Frequency|THz|terahertz|terahertzy|terahertzů
+Frequency|mHz|milihertz|milihertzy|milihertzů
+Frequency|µHz|mikrohertz|mikrohertzy|mikrohertzů
+Frequency|rpm|otáčka za minutu|otáčky za minutu
+Frequency|bpm|úder za minutu|údery za minutu
+Frequency|rad/s|radián za sekundu|radiány za sekundu|radiánů za sekundu
+Force|N|newton|newtony|newtonů
+Force|kN|kilonewton|kilonewtony|kilonewtonů
+Force|MN|meganewton|meganewtony|meganewtonů
+Force|mN|milinewton|milinewtony|milinewtonů
+Force|µN|mikronewton|mikronewtony|mikronewtonů
+Force|lbf|libra síly|libry síly
+Force|kgf|kilogram síly|kilogramy síly
+Force|dyn|dyn|dyny
+Torque|Nm|newton·metr|newtony·metry|newtonů·metrů
+Torque|kNm|kilonewton·metr|kilonewtony·metry|kilonewtonů·metrů
+Torque|Ncm|newton·centimetr|newtony·centimetry|newtonů·centimetrů
+Torque|Nmm|newton·milimetr|newtony·milimetry|newtonů·milimetrů
+Torque|lbf·ft|libra síly·stopa|libry síly·stopy
+Torque|lbf·in|libra síly·palec|libry síly·palce
+Torque|kgf·m|kilogram síly·metr|kilogramy síly·metry
+Acceleration|m/s²|metr za sekundu na druhou|metry za sekundu na druhou|metrů za sekundu na druhou
+Acceleration|cm/s²|centimetr za sekundu na druhou|centimetry za sekundu na druhou|centimetrů za sekundu na druhou
+Acceleration|mm/s²|milimetr za sekundu na druhou|milimetry za sekundu na druhou|milimetrů za sekundu na druhou
+Acceleration|ft/s²|stopa za sekundu na druhou|stopy za sekundu na druhou|stop za sekundu na druhou
+Acceleration|in/s²|palec za sekundu na druhou|palce za sekundu na druhou|palců za sekundu na druhou
+Acceleration|g0|standardní tíhové zrychlení
+Density|kg/m³|kilogram/metr³|kilogramy/metr³|kilogramů/metr³
+Density|g/cm³|gram/centimetr³|gramy/centimetr³|gramů/centimetr³
+Density|g/mL|gram/mililitr|gramy/mililitr|gramů/mililitr
+Density|kg/L|kilogram/litr|kilogramy/litr|kilogramů/litr
+Density|lb/ft³|libra/stopa³|libry/stopa³|liber/stopa³
+Density|lb/in³|libra/palec³|libry/palec³|liber/palec³
+Voltage|V|volt|volty|voltů
+Voltage|mV|milivolt|milivolty|milivoltů
+Voltage|µV|mikrovolt|mikrovolty|mikrovoltů
+Voltage|kV|kilovolt|kilovolty|kilovoltů
+Voltage|MV|megavolt|megavolty|megavoltů
+Current|A|ampér|ampéry|ampérů
+Current|mA|miliampér|miliampéry|miliampérů
+Current|µA|mikroampér|mikroampéry|mikroampérů
+Current|kA|kiloampér|kiloampéry|kiloampérů
+Current|MA|megaampér|megaampéry|megaampérů
+Resistance|ohm|ohm|ohmy|ohmů
+Resistance|mohm|miliohm|miliohmy|miliohmů
+Resistance|uohm|mikroohm|mikroohmy|mikroohmů
+Resistance|kohm|kiloohm|kiloohmy|kiloohmů
+Resistance|Mohm|megaohm|megaohmy|megaohmů
+Time|ns|nanosekunda|nanosekundy|nanosekund
+Time|μs|mikrosekunda|mikrosekundy|mikrosekund
+Time|ms|milisekunda|milisekundy|milisekund
+Time|s|sekunda|sekundy|sekund
+Time|min|minuta|minuty|minut
+Time|h|hodina|hodiny|hodin
+Time|d|den|dny|dnů
+Time|w|týden|týdny|týdnů
+Time|mo|měsíc|měsíce|měsíců
+Time|y|rok|roky|let
+Volume|ml|mililitr|mililitry|mililitrů
+Volume|l|litr|litry|litrů
+Volume|tsp|americká čajová lžička|americké čajové lžičky
+Volume|tbsp|americká polévková lžíce|americké polévkové lžíce
+Volume|us fl oz|americká tekutá unce|americké tekuté unce
+Volume|us pt|americká pinta|americké pinty
+Volume|us qt|americký kvart|americké kvarty
+Volume|us gal|americký galon|americké galony
+Volume|cup|americký šálek|americké šálky
+Volume|imp fl oz|imperiální tekutá unce|imperiální tekuté unce
+Volume|imp pt|imperiální pinta|imperiální pinty
+Volume|imp qt|imperiální kvart|imperiální kvarty
+Volume|imp gal|imperiální galon|imperiální galony
+Volume|pint|pinta|pinty
+Volume|fluid ounce|tekutá unce|tekuté unce
+Mass|ct|karát|karáty
+Mass|mg|miligram|miligramy|miligramů
+Mass|cg|centigram|centigramy|centigramů
+Mass|dg|decigram|decigramy|decigramů
+Mass|g|gram|gramy|gramů
+Mass|dag|dekagram|dekagramy|dekagramů
+Mass|hg|hektogram|hektogramy|hektogramů
+Mass|kg|kilogram|kilogramy|kilogramů
+Mass|t|tuna|tuny
+Mass|oz|unce
+Mass|lb|libra|libry|liber
+Mass|stone|kámen|kameny
+Mass|short tn|krátká tuna|krátké tuny
+Speed|cm/s|centimetr za sekundu|centimetry za sekundu|centimetrů za sekundu
+Speed|m/s|metr za sekundu|metry za sekundu|metrů za sekundu
+Speed|km/h|kilometr za hodinu|kilometry za hodinu|kilometrů za hodinu
+Speed|ft/s|stopa za sekundu|stopy za sekundu|stop za sekundu
+Speed|mph|míle za hodinu|míle pozemní za hodinu
+Speed|min/km|minuta na kilometr|minuty na kilometr|minut na kilometr
+Speed|min/mi|minuta na míli|minuty na míli|minut na míli
+Speed|s/km|sekunda na kilometr|sekundy na kilometr|sekund na kilometr
+Speed|s/mi|sekunda na míli|sekundy na míli|sekund na míli
+Speed|kn|uzel|uzly
+Speed|Mach|Machovo číslo|Machova čísla
+Power|W|watt|watty|wattů
+Power|kW|kilowatt|kilowatty|kilowattů
+Power|hp|mechanická koňská síla|mechanické koňské síly
+Power|ft·lb/min|stopa·libra za minutu|stopy·libry za minutu|stop·liber za minutu
+Power|BTU/min|britská tepelná jednotka za minutu|britské tepelné jednotky za minutu
+Energy|eV|elektronvolt|elektronvolty
+Energy|J|joule|jouly|joulů
+Energy|kJ|kilojoule|kilojouly|kilojoulů
+Energy|cal|termochemická kalorie|termochemické kalorie
+Energy|kcal|kilokalorie
+Energy|ft·lb|stopa·libra|stopy·libry|stop·liber
+Energy|BTU|britská tepelná jednotka|britské tepelné jednotky
+Energy|kWh|kilowatthodina|kilowatthodiny
+Pressure|Pa|pascal|pascaly|pascalů
+Pressure|kPa|kilopascal|kilopascaly|kilopascalů
+Pressure|bar|bar|bary
+Pressure|atm|atmosféra|atmosféry
+Pressure|psi|libra síly/palec²|libry síly/palec²
+Pressure|mmHg|milimetr rtuťového sloupce|milimetry rtuťového sloupce|milimetrů rtuťového sloupce
+Pressure|inHg|palec rtuťového sloupce|palce rtuťového sloupce|palců rtuťového sloupce
+Angle|deg|stupeň|stupně|stupňů
+Angle|rad|radián|radiány|radiánů
+Angle|grad|grad|grady|gradů
+Angle|turn|otáčka|otáčky|otáček
+Data|b|bit|bity|bitů
+Data|nibble|půlbajt|půlbajty
+Data|B|bajt|bajty|bajtů
+Data|kb|kilobit|kilobity|kilobitů
+Data|Mb|megabit|megabity|megabitů
+Data|Gb|gigabit|gigabity|gigabitů
+Data|Tb|terabit|terabity|terabitů
+Data|Pb|petabit|petabity|petabitů
+Data|Eb|exabit|exabity|exabitů
+Data|Zb|zettabit|zettabity|zettabitů
+Data|Yb|yottabit|yottabity|yottabitů
+Data|Kib|kibibit|kibibity|kibibitů
+Data|Mib|mebibit|mebibity|mebibitů
+Data|Gib|gibibit|gibibity|gibibitů
+Data|Tib|tebibit|tebibity|tebibitů
+Data|Pib|pebibit|pebibity|pebibitů
+Data|Eib|exbibit|exbibity|exbibitů
+Data|kB|kilobajt|kilobajty|kilobajtů
+Data|MB|megabajt|megabajty|megabajtů
+Data|GB|gigabajt|gigabajty|gigabajtů
+Data|TB|terabajt|terabajty|terabajtů
+Data|PB|petabajt|petabajty|petabajtů
+Data|EB|exabajt|exabajty|exabajtů
+Data|ZB|zettabajt|zettabajty|zettabajtů
+Data|YB|yottabajt|yottabajty|yottabajtů
+Data|KiB|kibibajt|kibibajty|kibibajtů
+Data|MiB|mebibajt|mebibajty|mebibajtů
+Data|GiB|gibibajt|gibibajty|gibibajtů
+Data|TiB|tebibajt|tebibajty|tebibajtů
+Data|PiB|pebibajt|pebibajty|pebibajtů
+Data|EiB|exbibajt|exbibajty|exbibajtů
+Data|ZiB|zebibajt|zebibajty|zebibajtů
+Data|YiB|yobibajt|yobibajty|yobibajtů
+DataRate|b/s|bit za sekundu|bity za sekundu|bitů za sekundu
+DataRate|B/s|bajt za sekundu|bajty za sekundu|bajtů za sekundu
+DataRate|kb/s|kilobit za sekundu|kilobity za sekundu|kilobitů za sekundu
+DataRate|kB/s|kilobajt za sekundu|kilobajty za sekundu|kilobajtů za sekundu
+DataRate|Mb/s|megabit za sekundu|megabity za sekundu|megabitů za sekundu
+DataRate|MB/s|megabajt za sekundu|megabajty za sekundu|megabajtů za sekundu
+DataRate|Gb/s|gigabit za sekundu|gigabity za sekundu|gigabitů za sekundu
+DataRate|GB/s|gigabajt za sekundu|gigabajty za sekundu|gigabajtů za sekundu
+DataRate|Tb/s|terabit za sekundu|terabity za sekundu|terabitů za sekundu
+DataRate|TB/s|terabajt za sekundu|terabajty za sekundu|terabajtů za sekundu
+DataRate|Kib/s|kibibit za sekundu|kibibity za sekundu|kibibitů za sekundu
+DataRate|KiB/s|kibibajt za sekundu|kibibajty za sekundu|kibibajtů za sekundu
+DataRate|Mib/s|mebibit za sekundu|mebibity za sekundu|mebibitů za sekundu
+DataRate|MiB/s|mebibajt za sekundu|mebibajty za sekundu|mebibajtů za sekundu
+DataRate|Gib/s|gibibit za sekundu|gibibity za sekundu|gibibitů za sekundu
+DataRate|GiB/s|gibibajt za sekundu|gibibajty za sekundu|gibibajtů za sekundu
+DataRate|Tib/s|tebibit za sekundu|tebibity za sekundu|tebibitů za sekundu
+DataRate|TiB/s|tebibajt za sekundu|tebibajty za sekundu|tebibajtů za sekundu
+FuelEconomy|L/100km|litr na 100 kilometrů
+FuelEconomy|km/L|kilometr na litr|kilometry na litr|kilometrů na litr
+FuelEconomy|mpg US|míle na americký galon
+FuelEconomy|mpg UK|míle na imperiální galon
+Area|mm2|čtvereční milimetr|čtvereční milimetry
+Area|cm2|čtvereční centimetr|čtvereční centimetry
+Area|m2|čtvereční metr|čtvereční metry
+Area|km2|čtvereční kilometr|čtvereční kilometry
+Area|in2|čtvereční palec|čtvereční palce
+Area|ft2|čtvereční stopa|čtvereční stopy
+Area|yd2|čtvereční yard|čtvereční yardy
+Area|mi2|čtvereční míle|čtvereční míle pozemní
+Area|ha|hektar|hektary
+Area|acre|akr|akry
+Area|soccer field|fotbalové hřiště|fotbalová hřiště
+Area|manhattan block|manhattanský blok|manhattanské bloky</value></data>
+  <data name="ConversionConnectorWords" xml:space="preserve"><value>na|v</value></data>
+  <data name="Conversion words" xml:space="preserve"><value>Jazyky dotazů</value></data>
+  <data name="Language of words such as to, in, or en" xml:space="preserve"><value>Jazyky přijímané pro názvy jednotek a slova jako „na“. Při anglickém formátu vstupu přijímá výchozí volba pouze angličtinu.</value></data>
+  <data name="Input language only" xml:space="preserve"><value>Pouze jazyk vstupu</value></data>
+  <data name="Input language and English" xml:space="preserve"><value>Jazyk vstupu a angličtina</value></data>
+  <data name="Unit Converter" xml:space="preserve"><value>Převodník jednotek</value></data>
+  <data name="Convert units" xml:space="preserve"><value>Převést jednotky</value></data>
+  <data name="Unit Converter for Command Palette" xml:space="preserve"><value>Převodník jednotek pro Paletu příkazů</value></data>
+  <data name="Convert common units of length, volume, temperature, weight, time or speed" xml:space="preserve"><value>Převádějte běžné jednotky délky, objemu, teploty, hmotnosti, času nebo rychlosti</value></data>
+  <data name="Enter conversion (e.g., '{0}', '{1}', '{2}')" xml:space="preserve"><value>Zadejte převod (např. „{0}“, „{1}“, „{2}“)</value></data>
+  <data name="Show detailed help and examples" xml:space="preserve"><value>Zobrazit podrobnou nápovědu a příklady</value></data>
+  <data name="Help" xml:space="preserve"><value>Nápověda</value></data>
+  <data name="Overview of Supported Units" xml:space="preserve"><value>Přehled podporovaných jednotek</value></data>
+  <data name="Suggested conversions" xml:space="preserve"><value>Navrhované převody</value></data>
+  <data name="More conversions" xml:space="preserve"><value>Další převody</value></data>
+  <data name="Other interpretations" xml:space="preserve"><value>Další interpretace</value></data>
+  <data name="Choose a unit interpretation." xml:space="preserve"><value>Vyberte význam jednotky.</value></data>
+  <data name="Everyday conversions" xml:space="preserve"><value>Běžné převody</value></data>
+  <data name="Science and engineering" xml:space="preserve"><value>Věda a technika</value></data>
+  <data name="Data and computing" xml:space="preserve"><value>Data a informatika</value></data>
+  <data name="Mixed units and expressions" xml:space="preserve"><value>Smíšené jednotky a výrazy</value></data>
+  <data name="Conversion Error" xml:space="preserve"><value>Chyba převodu</value></data>
+  <data name="Unexpected Error" xml:space="preserve"><value>Neočekávaná chyba</value></data>
+  <data name="Try this conversion" xml:space="preserve"><value>Vyzkoušet tento převod</value></data>
+  <data name="Mixed quantities" xml:space="preserve"><value>Smíšené veličiny</value></data>
+  <data name="Calculations" xml:space="preserve"><value>Výpočty</value></data>
+  <data name="Volume system preference" xml:space="preserve"><value>Objemové jednotky</value></data>
+  <data name="Auto" xml:space="preserve"><value>Podle oblasti vstupu</value></data>
+  <data name="US" xml:space="preserve"><value>Americká</value></data>
+  <data name="Imperial" xml:space="preserve"><value>Imperiální</value></data>
+  <data name="Processing input" xml:space="preserve"><value>Formát vstupu</value></data>
+  <data name="Default" xml:space="preserve"><value>Výchozí</value></data>
+  <data name="Use current culture" xml:space="preserve"><value>Místní nastavení Windows</value></data>
+  <data name="Use English" xml:space="preserve"><value>Angličtina (Spojené státy)</value></data>
+  <data name="Accuracy" xml:space="preserve"><value>Přesnost výsledků</value></data>
+  <data name="Display precision of results" xml:space="preserve"><value>Vyberte, kolik číslic se zobrazí ve výsledcích.</value></data>
+  <data name="Default ({0})" xml:space="preserve"><value>Výchozí ({0})</value></data>
+  <data name="Common use" xml:space="preserve"><value>Méně číslic</value></data>
+  <data name="Enhanced" xml:space="preserve"><value>Více číslic</value></data>
+  <data name="Extremely precise" xml:space="preserve"><value>Nejvíce číslic</value></data>
+  <data name="Length" xml:space="preserve"><value>Délka</value></data>
+  <data name="Temperature" xml:space="preserve"><value>Teplota</value></data>
+  <data name="TemperatureDelta" xml:space="preserve"><value>Teplotní rozdíl</value></data>
+  <data name="Frequency" xml:space="preserve"><value>Frekvence</value></data>
+  <data name="Force" xml:space="preserve"><value>Síla</value></data>
+  <data name="Torque" xml:space="preserve"><value>Moment síly</value></data>
+  <data name="Acceleration" xml:space="preserve"><value>Zrychlení</value></data>
+  <data name="Density" xml:space="preserve"><value>Hustota</value></data>
+  <data name="Voltage" xml:space="preserve"><value>Napětí</value></data>
+  <data name="Current" xml:space="preserve"><value>Elektrický proud</value></data>
+  <data name="Resistance" xml:space="preserve"><value>Elektrický odpor</value></data>
+  <data name="Time" xml:space="preserve"><value>Čas</value></data>
+  <data name="Volume" xml:space="preserve"><value>Objem</value></data>
+  <data name="Mass" xml:space="preserve"><value>Hmotnost</value></data>
+  <data name="Speed" xml:space="preserve"><value>Rychlost</value></data>
+  <data name="Power" xml:space="preserve"><value>Výkon</value></data>
+  <data name="Energy" xml:space="preserve"><value>Energie</value></data>
+  <data name="Pressure" xml:space="preserve"><value>Tlak</value></data>
+  <data name="Angle" xml:space="preserve"><value>Úhel</value></data>
+  <data name="Data" xml:space="preserve"><value>Data</value></data>
+  <data name="DataRate" xml:space="preserve"><value>Datový tok</value></data>
+  <data name="Area" xml:space="preserve"><value>Plocha</value></data>
+  <data name="Unknown" xml:space="preserve"><value>Neznámé</value></data>
+  <data name="Metric" xml:space="preserve"><value>Metrická</value></data>
+  <data name="Astronomical" xml:space="preserve"><value>Astronomická</value></data>
+  <data name="Contextual" xml:space="preserve"><value>Kontextová</value></data>
+  <data name="Customary" xml:space="preserve"><value>Tradiční</value></data>
+  <data name="Digital" xml:space="preserve"><value>Digitální</value></data>
+  <data name="Medical" xml:space="preserve"><value>Lékařská</value></data>
+  <data name="Nautical" xml:space="preserve"><value>Námořní</value></data>
+  <data name="Non-SI" xml:space="preserve"><value>Mimo SI</value></data>
+  <data name="Physics" xml:space="preserve"><value>Fyzikální</value></data>
+  <data name="Typographic" xml:space="preserve"><value>Typografická</value></data>
+  <data name="Universal" xml:space="preserve"><value>Univerzální</value></data>
+  <data name="Could not parse the conversion query. Please use formats like '{0}' or '{1}'." xml:space="preserve"><value>Převod nelze zpracovat. Použijte například „{0}“ nebo „{1}“.</value></data>
+  <data name="Failed to convert from {0} to {1}." xml:space="preserve"><value>Převod z {0} na {1} se nezdařil.</value></data>
+  <data name="Unknown unit: {0}" xml:space="preserve"><value>Neznámá jednotka: {0}</value></data>
+  <data name="Cannot convert between {0} and {1} - they are different unit types." xml:space="preserve"><value>Nelze převádět mezi {0} a {1}: jde o různé druhy veličin.</value></data>
+  <data name="{0} does not support {1} units." xml:space="preserve"><value>{0} nepodporuje jednotky typu {1}.</value></data>
+  <data name="squared" xml:space="preserve"><value>čtvereční</value></data>
+  <data name="cubic" xml:space="preserve"><value>krychlové</value></data>
+  <data name="{0} Please specify '{1}'." xml:space="preserve"><value>{0} Upřesněte '{1}'.</value></data>
+  <data name="or" xml:space="preserve"><value>nebo</value></data>
+  <data name="1,000,000 square meters" xml:space="preserve"><value>1 000 000 m²</value></data>
+  <data name="1/16 of a pound" xml:space="preserve"><value>1/16 lb</value></data>
+  <data name="1/20 imperial pint" xml:space="preserve"><value>1/20 pt (UK)</value></data>
+  <data name="1/3 tablespoon (US)" xml:space="preserve"><value>1/3 tbsp (US)</value></data>
+  <data name="1/360 of a full rotation" xml:space="preserve"><value>1/360 × 360°</value></data>
+  <data name="1/400 of a full rotation" xml:space="preserve"><value>1/400 × 360°</value></data>
+  <data name="1/8 US cup" xml:space="preserve"><value>1/8 cup (US)</value></data>
+  <data name="10,000 square meters" xml:space="preserve"><value>10 000 m²</value></data>
+  <data name="100,000 pascals" xml:space="preserve"><value>100 000 Pa</value></data>
+  <data name="1000 calories, commonly used for food energy" xml:space="preserve"><value>1000 kalorií, běžně používaných pro energii potravin</value></data>
+  <data name="1000 kilograms" xml:space="preserve"><value>1000 kg</value></data>
+  <data name="14 pounds (UK/Ireland)" xml:space="preserve"><value>14 lb (GB/IE)</value></data>
+  <data name="16 ounces" xml:space="preserve"><value>16 oz</value></data>
+  <data name="1e-4 square meters" xml:space="preserve"><value>10⁻⁴ m²</value></data>
+  <data name="1e-6 square meters" xml:space="preserve"><value>10⁻⁶ m²</value></data>
+  <data name="2 imperial pints" xml:space="preserve"><value>2 pt (UK)</value></data>
+  <data name="2 US cups" xml:space="preserve"><value>2 cup (US)</value></data>
+  <data name="2 US pints" xml:space="preserve"><value>2 pt (US)</value></data>
+  <data name="20 imperial fluid ounces" xml:space="preserve"><value>20 fl oz (UK)</value></data>
+  <data name="2000 pounds (US)" xml:space="preserve"><value>2000 lb (US)</value></data>
+  <data name="24 hours" xml:space="preserve"><value>24 h</value></data>
+  <data name="3 teaspoons (US)" xml:space="preserve"><value>3 tsp (US)</value></data>
+  <data name="365.25 days (Julian year)" xml:space="preserve"><value>365,25 d</value></data>
+  <data name="4 bits (half a byte)" xml:space="preserve"><value>4 b = 0,5 B</value></data>
+  <data name="4 imperial quarts" xml:space="preserve"><value>4 qt (UK)</value></data>
+  <data name="4 US quarts" xml:space="preserve"><value>4 qt (US)</value></data>
+  <data name="43,560 square feet (approx. 4046.8564224 m²)" xml:space="preserve"><value>43 560 ft² ≈ 4046,8564224 m²</value></data>
+  <data name="60 seconds" xml:space="preserve"><value>60 s</value></data>
+  <data name="7 days" xml:space="preserve"><value>7 d</value></data>
+  <data name="8 US fluid ounces" xml:space="preserve"><value>8 fl oz (US)</value></data>
+  <data name="Absolute temperature scale (SI base unit)" xml:space="preserve"><value>Absolutní teplotní stupnice (základní jednotka SI)</value></data>
+  <data name="Absolute temperature scale based on Fahrenheit degrees" xml:space="preserve"><value>Absolutní teplotní stupnice odvozená od Fahrenheitovy stupnice</value></data>
+  <data name="Approx. 264 ft × 900 ft = 237,600 ft² ≈ 22,076 m²" xml:space="preserve"><value>≈ 264 ft × 900 ft = 237 600 ft² ≈ 22 076 m²</value></data>
+  <data name="Approx. FIFA-recommended pitch 105 m × 68 m = 7,140 m²" xml:space="preserve"><value>FIFA: 105 m × 68 m = 7140 m²</value></data>
+  <data name="Approximately 30.44 days" xml:space="preserve"><value>≈ 30,44 d</value></data>
+  <data name="Area of a 1 ft by 1 ft square" xml:space="preserve"><value>1 ft × 1 ft</value></data>
+  <data name="Area of a 1 in by 1 in square" xml:space="preserve"><value>1 in × 1 in</value></data>
+  <data name="Area of a 1 mi by 1 mi square" xml:space="preserve"><value>1 mi × 1 mi</value></data>
+  <data name="Area of a 1 yd by 1 yd square" xml:space="preserve"><value>1 yd × 1 yd</value></data>
+  <data name="Base unit of mass in CGS system" xml:space="preserve"><value>Základní jednotka hmotnosti v soustavě CGS</value></data>
+  <data name="Basic metric unit of volume" xml:space="preserve"><value>Základní metrická jednotka objemu</value></data>
+  <data name="Basic unit of information" xml:space="preserve"><value>Základní jednotka informace</value></data>
+  <data name="Distance light travels in one day" xml:space="preserve"><value>Dráha světla za 1 d</value></data>
+  <data name="Distance light travels in one hour" xml:space="preserve"><value>Dráha světla za 1 h</value></data>
+  <data name="Distance light travels in one minute" xml:space="preserve"><value>Dráha světla za 1 min</value></data>
+  <data name="Distance light travels in one second" xml:space="preserve"><value>Dráha světla za 1 s</value></data>
+  <data name="Distance light travels in one week" xml:space="preserve"><value>Dráha světla za 1 w</value></data>
+  <data name="Elementary charge times one volt" xml:space="preserve"><value>Elementární náboj násobený jedním voltem</value></data>
+  <data name="Imperial unit of energy" xml:space="preserve"><value>Imperiální jednotka energie</value></data>
+  <data name="Imperial unit of power" xml:space="preserve"><value>Imperiální jednotka výkonu</value></data>
+  <data name="Mechanical horsepower (745.7 watts)" xml:space="preserve"><value>745,7 W</value></data>
+  <data name="One billionth of a second" xml:space="preserve"><value>10⁻⁹ s</value></data>
+  <data name="One complete rotation (360°)" xml:space="preserve"><value>360°</value></data>
+  <data name="One hundred grams" xml:space="preserve"><value>100 g</value></data>
+  <data name="One hundredth of a gram" xml:space="preserve"><value>0,01 g</value></data>
+  <data name="One millionth of a second" xml:space="preserve"><value>10⁻⁶ s</value></data>
+  <data name="One tenth of a gram" xml:space="preserve"><value>0,1 g</value></data>
+  <data name="One thousandth of a gram" xml:space="preserve"><value>0,001 g</value></data>
+  <data name="One thousandth of a liter" xml:space="preserve"><value>0,001 L</value></data>
+  <data name="One thousandth of a second" xml:space="preserve"><value>0,001 s</value></data>
+  <data name="Pressure equivalent to 1 inch of mercury" xml:space="preserve"><value>Tlak odpovídající jednomu palci rtuťového sloupce</value></data>
+  <data name="Pressure equivalent to 1mm of mercury" xml:space="preserve"><value>Tlak odpovídající jednomu milimetru rtuťového sloupce</value></data>
+  <data name="Pressure per square inch" xml:space="preserve"><value>1 lbf/in²</value></data>
+  <data name="SI base unit of area" xml:space="preserve"><value>Základní jednotka plochy v SI</value></data>
+  <data name="SI base unit of mass" xml:space="preserve"><value>Základní jednotka hmotnosti v SI</value></data>
+  <data name="SI base unit of time" xml:space="preserve"><value>Základní jednotka času v SI</value></data>
+  <data name="SI unit of angular measure" xml:space="preserve"><value>Jednotka rovinného úhlu v SI</value></data>
+  <data name="SI unit of energy" xml:space="preserve"><value>Jednotka energie v SI</value></data>
+  <data name="SI unit of power" xml:space="preserve"><value>Jednotka výkonu v SI</value></data>
+  <data name="SI unit of pressure" xml:space="preserve"><value>Jednotka tlaku v SI</value></data>
+  <data name="Standard atmospheric pressure" xml:space="preserve"><value>101 325 Pa</value></data>
+  <data name="Temperature scale based on water's freezing and boiling points" xml:space="preserve"><value>Teplotní stupnice založená na bodech tuhnutí a varu vody</value></data>
+  <data name="Temperature scale commonly used in the United States" xml:space="preserve"><value>Teplotní stupnice běžně používaná v USA</value></data>
+  <data name="Ten grams" xml:space="preserve"><value>10 g</value></data>
+  <data name="Thermal power unit" xml:space="preserve"><value>Jednotka tepelného výkonu</value></data>
+  <data name="Thermochemical calorie (4.184 J)" xml:space="preserve"><value>4,184 J</value></data>
+  <data name="Traditional unit of heat energy" xml:space="preserve"><value>Tradiční jednotka tepelné energie</value></data>
+  <data name="Unit for measuring precious stones and pearls (200 mg)" xml:space="preserve"><value>200 mg</value></data>
+  <data name="Unit of electrical energy consumption" xml:space="preserve"><value>Jednotka spotřeby elektrické energie</value></data>
+  <data name="1000 bits (decimal)" xml:space="preserve"><value>1000 b</value></data>
+  <data name="1000 bytes (decimal)" xml:space="preserve"><value>1000 B</value></data>
+  <data name="1000 kilobits (decimal)" xml:space="preserve"><value>1000 kb</value></data>
+  <data name="1000 kilobytes (decimal)" xml:space="preserve"><value>1000 kB</value></data>
+  <data name="1000 megabits (decimal)" xml:space="preserve"><value>1000 Mb</value></data>
+  <data name="1000 megabytes (decimal)" xml:space="preserve"><value>1000 MB</value></data>
+  <data name="1000 gigabits (decimal)" xml:space="preserve"><value>1000 Gb</value></data>
+  <data name="1000 gigabytes (decimal)" xml:space="preserve"><value>1000 GB</value></data>
+  <data name="1000 terabits (decimal)" xml:space="preserve"><value>1000 Tb</value></data>
+  <data name="1000 terabytes (decimal)" xml:space="preserve"><value>1000 TB</value></data>
+  <data name="1000 petabits (decimal)" xml:space="preserve"><value>1000 Pb</value></data>
+  <data name="1000 petabytes (decimal)" xml:space="preserve"><value>1000 PB</value></data>
+  <data name="1000 exabits (decimal)" xml:space="preserve"><value>1000 Eb</value></data>
+  <data name="1000 exabytes (decimal)" xml:space="preserve"><value>1000 EB</value></data>
+  <data name="1000 zettabits (decimal)" xml:space="preserve"><value>1000 Zb</value></data>
+  <data name="1000 zettabytes (decimal)" xml:space="preserve"><value>1000 ZB</value></data>
+  <data name="1024 bits (binary)" xml:space="preserve"><value>1024 b</value></data>
+  <data name="1024 bytes (binary)" xml:space="preserve"><value>1024 B</value></data>
+  <data name="1024 kibibits (binary)" xml:space="preserve"><value>1024 Kib</value></data>
+  <data name="1024 kibibytes (binary)" xml:space="preserve"><value>1024 KiB</value></data>
+  <data name="1024 mebibits (binary)" xml:space="preserve"><value>1024 Mib</value></data>
+  <data name="1024 mebibytes (binary)" xml:space="preserve"><value>1024 MiB</value></data>
+  <data name="1024 gibibits (binary)" xml:space="preserve"><value>1024 Gib</value></data>
+  <data name="1024 gibibytes (binary)" xml:space="preserve"><value>1024 GiB</value></data>
+  <data name="1024 tebibits (binary)" xml:space="preserve"><value>1024 Tib</value></data>
+  <data name="1024 tebibytes (binary)" xml:space="preserve"><value>1024 TiB</value></data>
+  <data name="1024 pebibits (binary)" xml:space="preserve"><value>1024 Pib</value></data>
+  <data name="1024 pebibytes (binary)" xml:space="preserve"><value>1024 PiB</value></data>
+  <data name="1024 exbibytes (binary)" xml:space="preserve"><value>1024 EiB</value></data>
+  <data name="1024 zebibytes (binary)" xml:space="preserve"><value>1024 ZiB</value></data>
+  <data name="Ambiguous unit token. It can mean kilocalorie (kcal) or calorie (cal)." xml:space="preserve"><value>Nejednoznačná jednotka. Může znamenat kilokalorii (kcal) nebo kalorii (cal).</value></data>
+  <data name="Enter a value and a unit." xml:space="preserve"><value>Zadejte hodnotu a jednotku.</value></data>
+  <data name="Complete the calculation, then enter a unit." xml:space="preserve"><value>Dokončete výpočet a poté zadejte jednotku.</value></data>
+  <data name="Choose a source unit." xml:space="preserve"><value>Vyberte výchozí jednotku.</value></data>
+  <data name="Choose a compatible target unit." xml:space="preserve"><value>Vyberte kompatibilní cílovou jednotku.</value></data>
+  <data name="Complete the conversion" xml:space="preserve"><value>Dokončete převod</value></data>
+  <data name="Use this query" xml:space="preserve"><value>Použít tento dotaz</value></data>
+  <data name="Open in Unit Converter" xml:space="preserve"><value>Otevřít v Převodníku jednotek</value></data>
+  <data name="Copy result" xml:space="preserve"><value>Zkopírovat výsledek</value></data>
+  <data name="Copy number" xml:space="preserve"><value>Zkopírovat číslo</value></data>
+  <data name="Copy full precision" xml:space="preserve"><value>Zkopírovat s plnou přesností</value></data>
+  <data name="The result is outside the supported numeric range." xml:space="preserve"><value>Výsledek je mimo podporovaný číselný rozsah.</value></data>
+  <data name="Copy number in {0}" xml:space="preserve"><value>Zkopírovat číslo v {0}</value></data>
+  <data name="FuelEconomy" xml:space="preserve"><value>Spotřeba paliva</value></data>
+  <data name="Miles per gallon requires a US or UK gallon." xml:space="preserve"><value>Míle na galon vyžadují americký nebo britský galon.</value></data>
+  <data name="The value is not valid for this unit." xml:space="preserve"><value>Hodnota není pro tuto jednotku platná.</value></data>
+  <data name="Mixed quantities must use compatible units and dimensions. Absolute temperatures and fuel economy cannot be added." xml:space="preserve"><value>Smíšené veličiny musí mít kompatibilní jednotky a rozměry. Absolutní teploty a spotřebu paliva nelze sčítat.</value></data>
+  <data name="An unexpected error occurred. Please try again." xml:space="preserve"><value>Došlo k neočekávané chybě. Zkuste to znovu.</value></data>
+  <data name="Choose the gallon, quart, pint, and fluid ounce used when US or Imperial is not specified." xml:space="preserve"><value>Vyberte, který galon, kvart, pinta a tekutá unce se použijí, pokud dotaz neurčuje americkou nebo britskou soustavu.</value></data>
+  <data name="Sets number formatting and the input language. Default follows Windows regional settings." xml:space="preserve"><value>Určuje formát čísel a jazyk vstupu. Výchozí volba používá místní nastavení Windows.</value></data>
+  <data name="Automatic query languages" xml:space="preserve"><value>Jazyk rozhraní, jazyk vstupu a angličtina</value></data>
+  <data name="English only" xml:space="preserve"><value>Pouze angličtina</value></data>
+  <data name="US customary" xml:space="preserve"><value>Americké</value></data>
+  <data name="Imperial (UK)" xml:space="preserve"><value>Britské imperiální</value></data>
+</root>

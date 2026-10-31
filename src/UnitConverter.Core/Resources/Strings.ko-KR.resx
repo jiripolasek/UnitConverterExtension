@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="UnitNames" xml:space="preserve"><value>Length|angstrom|옹스트롬
+Length|au|천문단위
+Length|cm|센티미터
+Length|ch|체인
+Length|dmi|데이터 마일
+Length|dam|데카미터
+Length|dm|데시미터
+Length|dtp pica|DTP 파이카
+Length|dtp pt|DTP 포인트
+Length|fathom|패덤
+Length|ft|피트
+Length|hand|핸드
+Length|hm|헥토미터
+Length|in|인치
+Length|kly|킬로광년
+Length|km|킬로미터
+Length|kpc|킬로파섹
+Length|ly|광년
+Length|Mly|메가광년
+Length|Mpc|메가파섹
+Length|m|미터
+Length|microinch|마이크로인치
+Length|um|마이크로미터
+Length|mil|밀
+Length|mi|육상 마일
+Length|mm|밀리미터
+Length|nm|나노미터
+Length|nmi|해리
+Length|pc|파섹
+Length|printer pica|인쇄 파이카
+Length|printer pt|인쇄 포인트
+Length|shackle|샤클
+Length|R⊙|태양 반지름
+Length|twip|트윕
+Length|px|CSS 픽셀
+Length|Q|4분의 1 밀리미터
+Length|us survey ft|미국 측량 피트
+Length|yd|야드
+Length|kyd|킬로야드
+Length|Mm|메가미터
+Length|pm|피코미터
+Length|Gm|기가미터
+Length|kft|킬로피트
+Length|fm|펨토미터
+Length|ls|광초
+Length|lmin|광분
+Length|lh|광시
+Length|ld|광일
+Length|lw|광주
+Temperature|°C|섭씨도
+Temperature|°F|화씨도
+Temperature|K|켈빈
+Temperature|°R|랭킨도
+TemperatureDelta|Δ°C|섭씨도(온도 차이)
+TemperatureDelta|Δ°F|화씨도(온도 차이)
+TemperatureDelta|ΔK|켈빈(온도 차이)
+TemperatureDelta|Δ°R|랭킨도(온도 차이)
+Frequency|Hz|헤르츠
+Frequency|kHz|킬로헤르츠
+Frequency|MHz|메가헤르츠
+Frequency|GHz|기가헤르츠
+Frequency|THz|테라헤르츠
+Frequency|mHz|밀리헤르츠
+Frequency|µHz|마이크로헤르츠
+Frequency|rpm|분당 회전
+Frequency|bpm|분당 박동
+Frequency|rad/s|초당 라디안
+Force|N|뉴턴
+Force|kN|킬로뉴턴
+Force|MN|메가뉴턴
+Force|mN|밀리뉴턴
+Force|µN|마이크로뉴턴
+Force|lbf|파운드힘
+Force|kgf|킬로그램힘
+Force|dyn|다인
+Torque|Nm|뉴턴·미터
+Torque|kNm|킬로뉴턴·미터
+Torque|Ncm|뉴턴·센티미터
+Torque|Nmm|뉴턴·밀리미터
+Torque|lbf·ft|파운드힘·피트
+Torque|lbf·in|파운드힘·인치
+Torque|kgf·m|킬로그램힘·미터
+Acceleration|m/s²|제곱초당 미터
+Acceleration|cm/s²|제곱초당 센티미터
+Acceleration|mm/s²|제곱초당 밀리미터
+Acceleration|ft/s²|제곱초당 피트
+Acceleration|in/s²|제곱초당 인치
+Acceleration|g0|표준 중력 가속도
+Density|kg/m³|킬로그램/미터³
+Density|g/cm³|그램/센티미터³
+Density|g/mL|그램/밀리리터
+Density|kg/L|킬로그램/리터
+Density|lb/ft³|파운드/피트³
+Density|lb/in³|파운드/인치³
+Voltage|V|볼트
+Voltage|mV|밀리볼트
+Voltage|µV|마이크로볼트
+Voltage|kV|킬로볼트
+Voltage|MV|메가볼트
+Current|A|암페어
+Current|mA|밀리암페어
+Current|µA|마이크로암페어
+Current|kA|킬로암페어
+Current|MA|메가암페어
+Resistance|ohm|옴
+Resistance|mohm|밀리옴
+Resistance|uohm|마이크로옴
+Resistance|kohm|킬로옴
+Resistance|Mohm|메가옴
+Time|ns|나노초
+Time|μs|마이크로초
+Time|ms|밀리초
+Time|s|초
+Time|min|분
+Time|h|시간
+Time|d|일
+Time|w|주
+Time|mo|개월
+Time|y|년
+Volume|ml|밀리리터
+Volume|l|리터
+Volume|tsp|미국 티스푼
+Volume|tbsp|미국 테이블스푼
+Volume|us fl oz|미국 액량 온스
+Volume|us pt|미국 파인트
+Volume|us qt|미국 쿼트
+Volume|us gal|미국 갤런
+Volume|cup|미국 컵
+Volume|imp fl oz|영국 액량 온스
+Volume|imp pt|영국 파인트
+Volume|imp qt|영국 쿼트
+Volume|imp gal|영국 갤런
+Volume|pint|파인트
+Volume|fluid ounce|액량 온스
+Mass|ct|캐럿
+Mass|mg|밀리그램
+Mass|cg|센티그램
+Mass|dg|데시그램
+Mass|g|그램
+Mass|dag|데카그램
+Mass|hg|헥토그램
+Mass|kg|킬로그램
+Mass|t|미터톤
+Mass|oz|상용 온스
+Mass|lb|파운드
+Mass|stone|스톤
+Mass|short tn|쇼트톤
+Speed|cm/s|초당 센티미터
+Speed|m/s|초당 미터
+Speed|km/h|시간당 킬로미터
+Speed|ft/s|초당 피트
+Speed|mph|시간당 육상 마일
+Speed|min/km|킬로미터당 분
+Speed|min/mi|마일당 분
+Speed|s/km|킬로미터당 초
+Speed|s/mi|마일당 초
+Speed|kn|노트
+Speed|Mach|마하수
+Power|W|와트
+Power|kW|킬로와트
+Power|hp|기계 마력
+Power|ft·lb/min|분당 피트·파운드
+Power|BTU/min|분당 영국 열량 단위
+Energy|eV|전자볼트
+Energy|J|줄
+Energy|kJ|킬로줄
+Energy|cal|열화학 칼로리
+Energy|kcal|킬로칼로리
+Energy|ft·lb|피트·파운드
+Energy|BTU|영국 열량 단위
+Energy|kWh|킬로와트시
+Pressure|Pa|파스칼
+Pressure|kPa|킬로파스칼
+Pressure|bar|바
+Pressure|atm|표준 대기압
+Pressure|psi|파운드힘/인치²
+Pressure|mmHg|수은주 밀리미터
+Pressure|inHg|수은주 인치
+Angle|deg|도
+Angle|rad|라디안
+Angle|grad|그라디안
+Angle|turn|회전
+Data|b|비트
+Data|nibble|니블
+Data|B|바이트
+Data|kb|킬로비트
+Data|Mb|메가비트
+Data|Gb|기가비트
+Data|Tb|테라비트
+Data|Pb|페타비트
+Data|Eb|엑사비트
+Data|Zb|제타비트
+Data|Yb|요타비트
+Data|Kib|키비비트
+Data|Mib|메비비트
+Data|Gib|기비비트
+Data|Tib|테비비트
+Data|Pib|페비비트
+Data|Eib|엑스비비트
+Data|kB|킬로바이트
+Data|MB|메가바이트
+Data|GB|기가바이트
+Data|TB|테라바이트
+Data|PB|페타바이트
+Data|EB|엑사바이트
+Data|ZB|제타바이트
+Data|YB|요타바이트
+Data|KiB|키비바이트
+Data|MiB|메비바이트
+Data|GiB|기비바이트
+Data|TiB|테비바이트
+Data|PiB|페비바이트
+Data|EiB|엑스비바이트
+Data|ZiB|제비바이트
+Data|YiB|요비바이트
+DataRate|b/s|초당 비트
+DataRate|B/s|초당 바이트
+DataRate|kb/s|초당 킬로비트
+DataRate|kB/s|초당 킬로바이트
+DataRate|Mb/s|초당 메가비트
+DataRate|MB/s|초당 메가바이트
+DataRate|Gb/s|초당 기가비트
+DataRate|GB/s|초당 기가바이트
+DataRate|Tb/s|초당 테라비트
+DataRate|TB/s|초당 테라바이트
+DataRate|Kib/s|초당 키비비트
+DataRate|KiB/s|초당 키비바이트
+DataRate|Mib/s|초당 메비비트
+DataRate|MiB/s|초당 메비바이트
+DataRate|Gib/s|초당 기비비트
+DataRate|GiB/s|초당 기비바이트
+DataRate|Tib/s|초당 테비비트
+DataRate|TiB/s|초당 테비바이트
+FuelEconomy|L/100km|리터/100킬로미터
+FuelEconomy|km/L|리터당 킬로미터
+FuelEconomy|mpg US|미국 갤런당 육상 마일
+FuelEconomy|mpg UK|영국 갤런당 육상 마일
+Area|mm2|제곱밀리미터
+Area|cm2|제곱센티미터
+Area|m2|제곱미터
+Area|km2|제곱킬로미터
+Area|in2|제곱인치
+Area|ft2|제곱피트
+Area|yd2|제곱야드
+Area|mi2|제곱육상 마일
+Area|ha|헥타르
+Area|acre|에이커
+Area|soccer field|축구장
+Area|manhattan block|맨해튼 블록</value></data>
+  <data name="ConversionConnectorWords" xml:space="preserve"><value>를|을|에서</value></data>
+  <data name="Conversion words" xml:space="preserve"><value>쿼리 언어</value></data>
+  <data name="Language of words such as to, in, or en" xml:space="preserve"><value>단위 이름과 'to' 같은 단어에 사용할 수 있는 언어입니다. 입력 형식이 영어이면 기본값은 영어만 허용합니다.</value></data>
+  <data name="Input language only" xml:space="preserve"><value>입력 언어만</value></data>
+  <data name="Input language and English" xml:space="preserve"><value>입력 언어와 영어</value></data>
+  <data name="Unit Converter" xml:space="preserve"><value>단위 변환기</value></data>
+  <data name="Convert units" xml:space="preserve"><value>단위 변환</value></data>
+  <data name="Unit Converter for Command Palette" xml:space="preserve"><value>Command Palette용 단위 변환기</value></data>
+  <data name="Convert common units of length, volume, temperature, weight, time or speed" xml:space="preserve"><value>길이, 부피, 온도, 질량, 시간, 속도 등의 일반적인 단위 변환</value></data>
+  <data name="Enter conversion (e.g., '{0}', '{1}', '{2}')" xml:space="preserve"><value>변환 입력(예: '{0}', '{1}', '{2}')</value></data>
+  <data name="Show detailed help and examples" xml:space="preserve"><value>자세한 도움말 및 예제 표시</value></data>
+  <data name="Help" xml:space="preserve"><value>도움말</value></data>
+  <data name="Overview of Supported Units" xml:space="preserve"><value>지원하는 단위 목록</value></data>
+  <data name="Suggested conversions" xml:space="preserve"><value>추천 변환</value></data>
+  <data name="More conversions" xml:space="preserve"><value>다른 변환</value></data>
+  <data name="Other interpretations" xml:space="preserve"><value>다른 해석</value></data>
+  <data name="Choose a unit interpretation." xml:space="preserve"><value>단위의 의미를 선택하세요.</value></data>
+  <data name="Everyday conversions" xml:space="preserve"><value>일상적인 변환</value></data>
+  <data name="Science and engineering" xml:space="preserve"><value>과학 및 공학</value></data>
+  <data name="Data and computing" xml:space="preserve"><value>데이터 및 정보 처리</value></data>
+  <data name="Mixed units and expressions" xml:space="preserve"><value>복합 단위 및 수식</value></data>
+  <data name="Conversion Error" xml:space="preserve"><value>변환 오류</value></data>
+  <data name="Unexpected Error" xml:space="preserve"><value>예기치 않은 오류</value></data>
+  <data name="Try this conversion" xml:space="preserve"><value>이 변환 사용해 보기</value></data>
+  <data name="Mixed quantities" xml:space="preserve"><value>복합 수량</value></data>
+  <data name="Calculations" xml:space="preserve"><value>계산</value></data>
+  <data name="Volume system preference" xml:space="preserve"><value>부피 단위</value></data>
+  <data name="Auto" xml:space="preserve"><value>입력 지역에 따름</value></data>
+  <data name="US" xml:space="preserve"><value>미국식</value></data>
+  <data name="Imperial" xml:space="preserve"><value>영국식</value></data>
+  <data name="Processing input" xml:space="preserve"><value>입력 형식</value></data>
+  <data name="Default" xml:space="preserve"><value>기본값</value></data>
+  <data name="Use current culture" xml:space="preserve"><value>Windows 지역 설정</value></data>
+  <data name="Use English" xml:space="preserve"><value>영어(미국)</value></data>
+  <data name="Accuracy" xml:space="preserve"><value>결과 표시 자릿수</value></data>
+  <data name="Display precision of results" xml:space="preserve"><value>결과에 표시할 자릿수를 선택합니다.</value></data>
+  <data name="Default ({0})" xml:space="preserve"><value>기본값({0})</value></data>
+  <data name="Common use" xml:space="preserve"><value>적은 자릿수</value></data>
+  <data name="Enhanced" xml:space="preserve"><value>더 많은 자릿수</value></data>
+  <data name="Extremely precise" xml:space="preserve"><value>가장 많은 자릿수</value></data>
+  <data name="Length" xml:space="preserve"><value>길이</value></data>
+  <data name="Temperature" xml:space="preserve"><value>온도</value></data>
+  <data name="TemperatureDelta" xml:space="preserve"><value>온도 차이</value></data>
+  <data name="Frequency" xml:space="preserve"><value>주파수</value></data>
+  <data name="Force" xml:space="preserve"><value>힘</value></data>
+  <data name="Torque" xml:space="preserve"><value>토크</value></data>
+  <data name="Acceleration" xml:space="preserve"><value>가속도</value></data>
+  <data name="Density" xml:space="preserve"><value>밀도</value></data>
+  <data name="Voltage" xml:space="preserve"><value>전압</value></data>
+  <data name="Current" xml:space="preserve"><value>전류</value></data>
+  <data name="Resistance" xml:space="preserve"><value>전기 저항</value></data>
+  <data name="Time" xml:space="preserve"><value>시간</value></data>
+  <data name="Volume" xml:space="preserve"><value>부피</value></data>
+  <data name="Mass" xml:space="preserve"><value>질량</value></data>
+  <data name="Speed" xml:space="preserve"><value>속도</value></data>
+  <data name="Power" xml:space="preserve"><value>일률</value></data>
+  <data name="Energy" xml:space="preserve"><value>에너지</value></data>
+  <data name="Pressure" xml:space="preserve"><value>압력</value></data>
+  <data name="Angle" xml:space="preserve"><value>각도</value></data>
+  <data name="Data" xml:space="preserve"><value>데이터</value></data>
+  <data name="DataRate" xml:space="preserve"><value>데이터 전송률</value></data>
+  <data name="Area" xml:space="preserve"><value>면적</value></data>
+  <data name="Unknown" xml:space="preserve"><value>알 수 없음</value></data>
+  <data name="Metric" xml:space="preserve"><value>미터법</value></data>
+  <data name="Astronomical" xml:space="preserve"><value>천문학</value></data>
+  <data name="Contextual" xml:space="preserve"><value>상황별</value></data>
+  <data name="Customary" xml:space="preserve"><value>관용 단위</value></data>
+  <data name="Digital" xml:space="preserve"><value>디지털</value></data>
+  <data name="Medical" xml:space="preserve"><value>의료</value></data>
+  <data name="Nautical" xml:space="preserve"><value>해양</value></data>
+  <data name="Non-SI" xml:space="preserve"><value>비SI</value></data>
+  <data name="Physics" xml:space="preserve"><value>물리학</value></data>
+  <data name="Typographic" xml:space="preserve"><value>인쇄</value></data>
+  <data name="Universal" xml:space="preserve"><value>공통</value></data>
+  <data name="Could not parse the conversion query. Please use formats like '{0}' or '{1}'." xml:space="preserve"><value>변환을 해석할 수 없습니다. '{0}' 또는 '{1}' 형식을 사용하세요.</value></data>
+  <data name="Failed to convert from {0} to {1}." xml:space="preserve"><value>{0}에서 {1}(으)로 변환하지 못했습니다.</value></data>
+  <data name="Unknown unit: {0}" xml:space="preserve"><value>알 수 없는 단위: {0}</value></data>
+  <data name="Cannot convert between {0} and {1} - they are different unit types." xml:space="preserve"><value>{0} 및 {1}은(는) 서로 다른 종류의 물리량이므로 변환할 수 없습니다.</value></data>
+  <data name="{0} does not support {1} units." xml:space="preserve"><value>{0}은(는) {1} 단위를 지원하지 않습니다.</value></data>
+  <data name="squared" xml:space="preserve"><value>제곱</value></data>
+  <data name="cubic" xml:space="preserve"><value>세제곱</value></data>
+  <data name="{0} Please specify '{1}'." xml:space="preserve"><value>{0} '{1}'을(를) 지정하세요.</value></data>
+  <data name="or" xml:space="preserve"><value>또는</value></data>
+  <data name="1,000,000 square meters" xml:space="preserve"><value>1 000 000 m²</value></data>
+  <data name="1/16 of a pound" xml:space="preserve"><value>1/16 lb</value></data>
+  <data name="1/20 imperial pint" xml:space="preserve"><value>1/20 pt (UK)</value></data>
+  <data name="1/3 tablespoon (US)" xml:space="preserve"><value>1/3 tbsp (US)</value></data>
+  <data name="1/360 of a full rotation" xml:space="preserve"><value>1/360 × 360°</value></data>
+  <data name="1/400 of a full rotation" xml:space="preserve"><value>1/400 × 360°</value></data>
+  <data name="1/8 US cup" xml:space="preserve"><value>1/8 cup (US)</value></data>
+  <data name="10,000 square meters" xml:space="preserve"><value>10 000 m²</value></data>
+  <data name="100,000 pascals" xml:space="preserve"><value>100 000 Pa</value></data>
+  <data name="1000 calories, commonly used for food energy" xml:space="preserve"><value>식품의 에너지를 나타내는 데 주로 사용하는 1000칼로리</value></data>
+  <data name="1000 kilograms" xml:space="preserve"><value>1000 kg</value></data>
+  <data name="14 pounds (UK/Ireland)" xml:space="preserve"><value>14 lb (GB/IE)</value></data>
+  <data name="16 ounces" xml:space="preserve"><value>16 oz</value></data>
+  <data name="1e-4 square meters" xml:space="preserve"><value>10⁻⁴ m²</value></data>
+  <data name="1e-6 square meters" xml:space="preserve"><value>10⁻⁶ m²</value></data>
+  <data name="2 imperial pints" xml:space="preserve"><value>2 pt (UK)</value></data>
+  <data name="2 US cups" xml:space="preserve"><value>2 cup (US)</value></data>
+  <data name="2 US pints" xml:space="preserve"><value>2 pt (US)</value></data>
+  <data name="20 imperial fluid ounces" xml:space="preserve"><value>20 fl oz (UK)</value></data>
+  <data name="2000 pounds (US)" xml:space="preserve"><value>2000 lb (US)</value></data>
+  <data name="24 hours" xml:space="preserve"><value>24 h</value></data>
+  <data name="3 teaspoons (US)" xml:space="preserve"><value>3 tsp (US)</value></data>
+  <data name="365.25 days (Julian year)" xml:space="preserve"><value>365.25 d</value></data>
+  <data name="4 bits (half a byte)" xml:space="preserve"><value>4 b = 0.5 B</value></data>
+  <data name="4 imperial quarts" xml:space="preserve"><value>4 qt (UK)</value></data>
+  <data name="4 US quarts" xml:space="preserve"><value>4 qt (US)</value></data>
+  <data name="43,560 square feet (approx. 4046.8564224 m²)" xml:space="preserve"><value>43 560 ft² ≈ 4046.8564224 m²</value></data>
+  <data name="60 seconds" xml:space="preserve"><value>60 s</value></data>
+  <data name="7 days" xml:space="preserve"><value>7 d</value></data>
+  <data name="8 US fluid ounces" xml:space="preserve"><value>8 fl oz (US)</value></data>
+  <data name="Absolute temperature scale (SI base unit)" xml:space="preserve"><value>절대 온도 척도(SI 기본 단위)</value></data>
+  <data name="Absolute temperature scale based on Fahrenheit degrees" xml:space="preserve"><value>화씨 온도를 바탕으로 하는 절대 온도 척도</value></data>
+  <data name="Approx. 264 ft × 900 ft = 237,600 ft² ≈ 22,076 m²" xml:space="preserve"><value>≈ 264 ft × 900 ft = 237 600 ft² ≈ 22 076 m²</value></data>
+  <data name="Approx. FIFA-recommended pitch 105 m × 68 m = 7,140 m²" xml:space="preserve"><value>FIFA: 105 m × 68 m = 7140 m²</value></data>
+  <data name="Approximately 30.44 days" xml:space="preserve"><value>≈ 30.44 d</value></data>
+  <data name="Area of a 1 ft by 1 ft square" xml:space="preserve"><value>1 ft × 1 ft</value></data>
+  <data name="Area of a 1 in by 1 in square" xml:space="preserve"><value>1 in × 1 in</value></data>
+  <data name="Area of a 1 mi by 1 mi square" xml:space="preserve"><value>1 mi × 1 mi</value></data>
+  <data name="Area of a 1 yd by 1 yd square" xml:space="preserve"><value>1 yd × 1 yd</value></data>
+  <data name="Base unit of mass in CGS system" xml:space="preserve"><value>CGS 단위계의 질량 기본 단위</value></data>
+  <data name="Basic metric unit of volume" xml:space="preserve"><value>미터법의 부피 기본 단위</value></data>
+  <data name="Basic unit of information" xml:space="preserve"><value>정보의 기본 단위</value></data>
+  <data name="Distance light travels in one day" xml:space="preserve"><value>빛이 1 d 동안 이동하는 거리</value></data>
+  <data name="Distance light travels in one hour" xml:space="preserve"><value>빛이 1 h 동안 이동하는 거리</value></data>
+  <data name="Distance light travels in one minute" xml:space="preserve"><value>빛이 1 min 동안 이동하는 거리</value></data>
+  <data name="Distance light travels in one second" xml:space="preserve"><value>빛이 1 s 동안 이동하는 거리</value></data>
+  <data name="Distance light travels in one week" xml:space="preserve"><value>빛이 1 w 동안 이동하는 거리</value></data>
+  <data name="Elementary charge times one volt" xml:space="preserve"><value>기본 전하와 1볼트의 곱</value></data>
+  <data name="Imperial unit of energy" xml:space="preserve"><value>영국식 에너지 단위</value></data>
+  <data name="Imperial unit of power" xml:space="preserve"><value>영국식 일률 단위</value></data>
+  <data name="Mechanical horsepower (745.7 watts)" xml:space="preserve"><value>745.7 W</value></data>
+  <data name="One billionth of a second" xml:space="preserve"><value>10⁻⁹ s</value></data>
+  <data name="One complete rotation (360°)" xml:space="preserve"><value>360°</value></data>
+  <data name="One hundred grams" xml:space="preserve"><value>100 g</value></data>
+  <data name="One hundredth of a gram" xml:space="preserve"><value>0.01 g</value></data>
+  <data name="One millionth of a second" xml:space="preserve"><value>10⁻⁶ s</value></data>
+  <data name="One tenth of a gram" xml:space="preserve"><value>0.1 g</value></data>
+  <data name="One thousandth of a gram" xml:space="preserve"><value>0.001 g</value></data>
+  <data name="One thousandth of a liter" xml:space="preserve"><value>0.001 L</value></data>
+  <data name="One thousandth of a second" xml:space="preserve"><value>0.001 s</value></data>
+  <data name="Pressure equivalent to 1 inch of mercury" xml:space="preserve"><value>수은주 1인치에 해당하는 압력</value></data>
+  <data name="Pressure equivalent to 1mm of mercury" xml:space="preserve"><value>수은주 1밀리미터에 해당하는 압력</value></data>
+  <data name="Pressure per square inch" xml:space="preserve"><value>1 lbf/in²</value></data>
+  <data name="SI base unit of area" xml:space="preserve"><value>SI 면적 단위</value></data>
+  <data name="SI base unit of mass" xml:space="preserve"><value>SI 질량 기본 단위</value></data>
+  <data name="SI base unit of time" xml:space="preserve"><value>SI 시간 기본 단위</value></data>
+  <data name="SI unit of angular measure" xml:space="preserve"><value>SI 평면각 단위</value></data>
+  <data name="SI unit of energy" xml:space="preserve"><value>SI 에너지 단위</value></data>
+  <data name="SI unit of power" xml:space="preserve"><value>SI 일률 단위</value></data>
+  <data name="SI unit of pressure" xml:space="preserve"><value>SI 압력 단위</value></data>
+  <data name="Standard atmospheric pressure" xml:space="preserve"><value>101 325 Pa</value></data>
+  <data name="Temperature scale based on water's freezing and boiling points" xml:space="preserve"><value>물의 어는점과 끓는점을 기준으로 하는 온도 척도</value></data>
+  <data name="Temperature scale commonly used in the United States" xml:space="preserve"><value>미국에서 일반적으로 사용하는 온도 척도</value></data>
+  <data name="Ten grams" xml:space="preserve"><value>10 g</value></data>
+  <data name="Thermal power unit" xml:space="preserve"><value>열출력 단위</value></data>
+  <data name="Thermochemical calorie (4.184 J)" xml:space="preserve"><value>4.184 J</value></data>
+  <data name="Traditional unit of heat energy" xml:space="preserve"><value>전통적인 열에너지 단위</value></data>
+  <data name="Unit for measuring precious stones and pearls (200 mg)" xml:space="preserve"><value>200 mg</value></data>
+  <data name="Unit of electrical energy consumption" xml:space="preserve"><value>전력 소비량 단위</value></data>
+  <data name="1000 bits (decimal)" xml:space="preserve"><value>1000 b</value></data>
+  <data name="1000 bytes (decimal)" xml:space="preserve"><value>1000 B</value></data>
+  <data name="1000 kilobits (decimal)" xml:space="preserve"><value>1000 kb</value></data>
+  <data name="1000 kilobytes (decimal)" xml:space="preserve"><value>1000 kB</value></data>
+  <data name="1000 megabits (decimal)" xml:space="preserve"><value>1000 Mb</value></data>
+  <data name="1000 megabytes (decimal)" xml:space="preserve"><value>1000 MB</value></data>
+  <data name="1000 gigabits (decimal)" xml:space="preserve"><value>1000 Gb</value></data>
+  <data name="1000 gigabytes (decimal)" xml:space="preserve"><value>1000 GB</value></data>
+  <data name="1000 terabits (decimal)" xml:space="preserve"><value>1000 Tb</value></data>
+  <data name="1000 terabytes (decimal)" xml:space="preserve"><value>1000 TB</value></data>
+  <data name="1000 petabits (decimal)" xml:space="preserve"><value>1000 Pb</value></data>
+  <data name="1000 petabytes (decimal)" xml:space="preserve"><value>1000 PB</value></data>
+  <data name="1000 exabits (decimal)" xml:space="preserve"><value>1000 Eb</value></data>
+  <data name="1000 exabytes (decimal)" xml:space="preserve"><value>1000 EB</value></data>
+  <data name="1000 zettabits (decimal)" xml:space="preserve"><value>1000 Zb</value></data>
+  <data name="1000 zettabytes (decimal)" xml:space="preserve"><value>1000 ZB</value></data>
+  <data name="1024 bits (binary)" xml:space="preserve"><value>1024 b</value></data>
+  <data name="1024 bytes (binary)" xml:space="preserve"><value>1024 B</value></data>
+  <data name="1024 kibibits (binary)" xml:space="preserve"><value>1024 Kib</value></data>
+  <data name="1024 kibibytes (binary)" xml:space="preserve"><value>1024 KiB</value></data>
+  <data name="1024 mebibits (binary)" xml:space="preserve"><value>1024 Mib</value></data>
+  <data name="1024 mebibytes (binary)" xml:space="preserve"><value>1024 MiB</value></data>
+  <data name="1024 gibibits (binary)" xml:space="preserve"><value>1024 Gib</value></data>
+  <data name="1024 gibibytes (binary)" xml:space="preserve"><value>1024 GiB</value></data>
+  <data name="1024 tebibits (binary)" xml:space="preserve"><value>1024 Tib</value></data>
+  <data name="1024 tebibytes (binary)" xml:space="preserve"><value>1024 TiB</value></data>
+  <data name="1024 pebibits (binary)" xml:space="preserve"><value>1024 Pib</value></data>
+  <data name="1024 pebibytes (binary)" xml:space="preserve"><value>1024 PiB</value></data>
+  <data name="1024 exbibytes (binary)" xml:space="preserve"><value>1024 EiB</value></data>
+  <data name="1024 zebibytes (binary)" xml:space="preserve"><value>1024 ZiB</value></data>
+  <data name="Ambiguous unit token. It can mean kilocalorie (kcal) or calorie (cal)." xml:space="preserve"><value>모호한 단위입니다. 킬로칼로리(kcal) 또는 칼로리(cal)일 수 있습니다.</value></data>
+  <data name="Enter a value and a unit." xml:space="preserve"><value>값과 단위를 입력하세요.</value></data>
+  <data name="Complete the calculation, then enter a unit." xml:space="preserve"><value>계산을 완성한 다음 단위를 입력하세요.</value></data>
+  <data name="Choose a source unit." xml:space="preserve"><value>원본 단위를 선택하세요.</value></data>
+  <data name="Choose a compatible target unit." xml:space="preserve"><value>호환되는 대상 단위를 선택하세요.</value></data>
+  <data name="Complete the conversion" xml:space="preserve"><value>변환 완성</value></data>
+  <data name="Use this query" xml:space="preserve"><value>이 쿼리 사용</value></data>
+  <data name="Open in Unit Converter" xml:space="preserve"><value>단위 변환기에서 열기</value></data>
+  <data name="Copy result" xml:space="preserve"><value>결과 복사</value></data>
+  <data name="Copy number" xml:space="preserve"><value>숫자 복사</value></data>
+  <data name="Copy full precision" xml:space="preserve"><value>전체 정밀도로 복사</value></data>
+  <data name="The result is outside the supported numeric range." xml:space="preserve"><value>결과가 지원되는 숫자 범위를 벗어났습니다.</value></data>
+  <data name="Copy number in {0}" xml:space="preserve"><value>{0} 단위의 숫자 복사</value></data>
+  <data name="FuelEconomy" xml:space="preserve"><value>연료 소비량</value></data>
+  <data name="Miles per gallon requires a US or UK gallon." xml:space="preserve"><value>갤런당 마일에는 미국 갤런 또는 영국 갤런을 지정해야 합니다.</value></data>
+  <data name="The value is not valid for this unit." xml:space="preserve"><value>이 단위에 유효하지 않은 값입니다.</value></data>
+  <data name="Mixed quantities must use compatible units and dimensions. Absolute temperatures and fuel economy cannot be added." xml:space="preserve"><value>복합 수량은 호환되는 단위와 차원을 사용해야 합니다. 절대 온도와 연료 소비량은 더할 수 없습니다.</value></data>
+  <data name="An unexpected error occurred. Please try again." xml:space="preserve"><value>예기치 않은 오류가 발생했습니다. 다시 시도하세요.</value></data>
+  <data name="Choose the gallon, quart, pint, and fluid ounce used when US or Imperial is not specified." xml:space="preserve"><value>미국식 또는 영국식이 지정되지 않았을 때 사용할 갤런, 쿼트, 파인트 및 액량 온스를 선택합니다.</value></data>
+  <data name="Sets number formatting and the input language. Default follows Windows regional settings." xml:space="preserve"><value>숫자 형식과 입력 언어를 설정합니다. 기본값은 Windows 지역 설정을 따릅니다.</value></data>
+  <data name="Automatic query languages" xml:space="preserve"><value>인터페이스 언어, 입력 언어 및 영어</value></data>
+  <data name="English only" xml:space="preserve"><value>영어만</value></data>
+  <data name="US customary" xml:space="preserve"><value>미국식</value></data>
+  <data name="Imperial (UK)" xml:space="preserve"><value>영국식</value></data>
+</root>

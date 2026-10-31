@@ -1,11 +1,13 @@
-﻿// ------------------------------------------------------------
+// ------------------------------------------------------------
 //
 // Copyright (c) Jiří Polášek. All rights reserved.
 //
 // ------------------------------------------------------------
 
+using System.Globalization;
 using System.Text;
 using JPSoftworks.UnitConverter.Core;
+using JPSoftworks.UnitConverterExtension.Helpers;
 using Microsoft.CommandPalette.Extensions;
 using Microsoft.CommandPalette.Extensions.Toolkit;
 
@@ -13,101 +15,51 @@ namespace JPSoftworks.UnitConverterExtension.Pages;
 
 internal sealed partial class HelpPage : ContentPage
 {
-    private readonly MarkdownContent _content;
-    private readonly MarkdownContent _head;
+    private readonly ISettingsManager? _settings;
 
-    public HelpPage()
+    public HelpPage(ISettingsManager? settings = null)
     {
-        string listOfUnits = BuildSupportedUnitsMarkdown();
-
         this.Id = "com.jpsoftworks.cmdpal.unitconverter.help";
-        this.Title = "Help";
-        this.Name = "Help";
+        this.Title = ConverterText.Get("Help");
+        this.Name = this.Title;
         this.Icon = Icons.Help;
-
-        this._head = new MarkdownContent("""
-                                         # Help
-
-                                         ## Overview of Supported Units
-                                         """);
-        this._content = new MarkdownContent(listOfUnits);
+        this._settings = settings;
     }
 
-    public override IContent[] GetContent()
-    {
-        return [this._head, this._content];
-    }
+    public override IContent[] GetContent() => [new MarkdownContent(BuildSupportedUnitsMarkdown(this._settings))];
 
-    private static string BuildSupportedUnitsMarkdown()
+    private static string BuildSupportedUnitsMarkdown(ISettingsManager? settings)
     {
-        var service = new ConversionService();
-        var allUnits = service.GetAllSupportedUnits();
-        var sb = new StringBuilder();
-
-        foreach (var category in allUnits.OrderBy(kvp => kvp.Key))
+        var culture = CultureInfo.CurrentUICulture;
+        var input = UnitConverterExtensionPage.ResolveCulture(settings?.ParsingCulture ?? PreferredCulture.Default);
+        var includeUiLanguage = settings?.ParsingCulture != PreferredCulture.ForceEnglishCulture &&
+            (settings?.ConversionWordLanguage ?? ConversionWordLanguage.Default) is
+                ConversionWordLanguage.Default or ConversionWordLanguage.InterfaceInputAndEnglish;
+        CultureInfo[] aliasCultures = includeUiLanguage ? [input, culture] : [input];
+        var sb = new StringBuilder($"# {ConverterText.Get("Help")}\n\n## {ConverterText.Get("Overview of Supported Units")}\n\n");
+        foreach (var module in new ConversionService().Modules.OrderBy(module => ConverterText.Get(module.Category)))
         {
-            sb.AppendLine($"### {category.Key}");
+            sb.AppendLine(culture, $"### {ConverterText.Get(module.Category)}");
             sb.AppendLine();
-
-            var modules = service.Modules;
-
-            var categoryMetadata = new Dictionary<string, UnitMetadata>();
-            foreach (var module in modules)
+            foreach (var unit in module.GetSupportedUnits().OrderBy(unit => unit.Key, StringComparer.Ordinal))
             {
-                try
+                var metadata = module.GetUnitMetadata(unit.Key, culture);
+                var aliases = unit.Value.Concat(aliasCultures.SelectMany(language =>
+                    ConverterText.GetUnitNames(module.Category, unit.Key, language))).Distinct();
+                sb.AppendLine(culture, $"- **{unit.Key}** - {metadata?.DisplayName}");
+                sb.AppendLine(culture, $"    - {string.Join(", ", aliases.Select(alias => $"`{alias}`"))}");
+                if (!string.IsNullOrEmpty(metadata?.Description))
                 {
-                    var moduleMetadata = module.GetAllUnitMetadata();
-                    foreach (var kvp in moduleMetadata)
-                    {
-                        categoryMetadata[kvp.Key] = kvp.Value;
-                    }
+                    sb.AppendLine(culture, $"    - {metadata.Description}");
                 }
-                catch
+
+                if (!string.IsNullOrEmpty(metadata?.System))
                 {
-                    foreach (var unitKey in module.GetSupportedUnits().Keys)
-                    {
-                        var metadata = UnitMetadataProvider.GetMetadata(unitKey);
-                        if (metadata != null)
-                        {
-                            categoryMetadata[unitKey] = metadata;
-                        }
-                    }
+                    sb.AppendLine(culture, $"    - {metadata.System}");
                 }
             }
-
-            foreach (var unit in category.Value.OrderBy(kvp => kvp.Key))
-            {
-                var metadata = categoryMetadata.GetValueOrDefault(unit.Key);
-                var aliases = unit.Value.Length > 0 ? $" ({string.Join(", ", unit.Value.Select(v => "`" + v + "`"))})" : "";
-
-                if (metadata != null)
-                {
-                    var displayName = !string.IsNullOrEmpty(metadata.DisplayName) ? metadata.DisplayName : unit.Key;
-
-                    sb.AppendLine($"""
-                                   - **{unit.Key}** - {displayName}
-                                       - `{metadata.Symbol}`, {aliases}
-                                   """);
-
-                    if (!string.IsNullOrEmpty(metadata.Description))
-                    {
-                        sb.AppendLine($"    - {metadata.Description}");
-                    }
-                    if (!string.IsNullOrEmpty(metadata.System))
-                    {
-                        sb.AppendLine($"    - {metadata.System} system");
-                    }
-
-                }
-                else
-                {
-                    sb.AppendLine($"- **{unit.Key}**{aliases}");
-                }
-            }
-
             sb.AppendLine();
         }
-
         return sb.ToString();
     }
 }

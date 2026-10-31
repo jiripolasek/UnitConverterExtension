@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="UnitNames" xml:space="preserve"><value>Length|angstrom|オングストローム
+Length|au|天文単位
+Length|cm|センチメートル
+Length|ch|チェーン
+Length|dmi|データマイル
+Length|dam|デカメートル
+Length|dm|デシメートル
+Length|dtp pica|DTPパイカ
+Length|dtp pt|DTPポイント
+Length|fathom|ファゾム
+Length|ft|フィート
+Length|hand|ハンド
+Length|hm|ヘクトメートル
+Length|in|インチ
+Length|kly|キロ光年
+Length|km|キロメートル
+Length|kpc|キロパーセク
+Length|ly|光年
+Length|Mly|メガ光年
+Length|Mpc|メガパーセク
+Length|m|メートル
+Length|microinch|マイクロインチ
+Length|um|マイクロメートル
+Length|mil|ミル
+Length|mi|陸マイル
+Length|mm|ミリメートル
+Length|nm|ナノメートル
+Length|nmi|海里
+Length|pc|パーセク
+Length|printer pica|印刷パイカ
+Length|printer pt|印刷ポイント
+Length|shackle|シャックル
+Length|R⊙|太陽半径
+Length|twip|ツイップ
+Length|px|CSSピクセル
+Length|Q|四分の一ミリメートル
+Length|us survey ft|米国測量フィート
+Length|yd|ヤード
+Length|kyd|キロヤード
+Length|Mm|メガメートル
+Length|pm|ピコメートル
+Length|Gm|ギガメートル
+Length|kft|キロフィート
+Length|fm|フェムトメートル
+Length|ls|光秒
+Length|lmin|光分
+Length|lh|光時
+Length|ld|光日
+Length|lw|光週
+Temperature|°C|摂氏度
+Temperature|°F|華氏度
+Temperature|K|ケルビン
+Temperature|°R|ランキン度
+TemperatureDelta|Δ°C|摂氏度（温度差）
+TemperatureDelta|Δ°F|華氏度（温度差）
+TemperatureDelta|ΔK|ケルビン（温度差）
+TemperatureDelta|Δ°R|ランキン度（温度差）
+Frequency|Hz|ヘルツ
+Frequency|kHz|キロヘルツ
+Frequency|MHz|メガヘルツ
+Frequency|GHz|ギガヘルツ
+Frequency|THz|テラヘルツ
+Frequency|mHz|ミリヘルツ
+Frequency|µHz|マイクロヘルツ
+Frequency|rpm|回転毎分
+Frequency|bpm|拍毎分
+Frequency|rad/s|ラジアン毎秒
+Force|N|ニュートン
+Force|kN|キロニュートン
+Force|MN|メガニュートン
+Force|mN|ミリニュートン
+Force|µN|マイクロニュートン
+Force|lbf|ポンド重
+Force|kgf|キログラム重
+Force|dyn|ダイン
+Torque|Nm|ニュートン·メートル
+Torque|kNm|キロニュートン·メートル
+Torque|Ncm|ニュートン·センチメートル
+Torque|Nmm|ニュートン·ミリメートル
+Torque|lbf·ft|ポンド重·フィート
+Torque|lbf·in|ポンド重·インチ
+Torque|kgf·m|キログラム重·メートル
+Acceleration|m/s²|メートル毎秒毎秒
+Acceleration|cm/s²|センチメートル毎秒毎秒
+Acceleration|mm/s²|ミリメートル毎秒毎秒
+Acceleration|ft/s²|フィート毎秒毎秒
+Acceleration|in/s²|インチ毎秒毎秒
+Acceleration|g0|標準重力加速度
+Density|kg/m³|キログラム/メートル³
+Density|g/cm³|グラム/センチメートル³
+Density|g/mL|グラム/ミリリットル
+Density|kg/L|キログラム/リットル
+Density|lb/ft³|ポンド/フィート³
+Density|lb/in³|ポンド/インチ³
+Voltage|V|ボルト
+Voltage|mV|ミリボルト
+Voltage|µV|マイクロボルト
+Voltage|kV|キロボルト
+Voltage|MV|メガボルト
+Current|A|アンペア
+Current|mA|ミリアンペア
+Current|µA|マイクロアンペア
+Current|kA|キロアンペア
+Current|MA|メガアンペア
+Resistance|ohm|オーム
+Resistance|mohm|ミリオーム
+Resistance|uohm|マイクロオーム
+Resistance|kohm|キロオーム
+Resistance|Mohm|メガオーム
+Time|ns|ナノ秒
+Time|μs|マイクロ秒
+Time|ms|ミリ秒
+Time|s|秒
+Time|min|分
+Time|h|時間
+Time|d|日
+Time|w|週
+Time|mo|月
+Time|y|年
+Volume|ml|ミリリットル
+Volume|l|リットル
+Volume|tsp|ティースプーン（米国）
+Volume|tbsp|テーブルスプーン（米国）
+Volume|us fl oz|米液量オンス
+Volume|us pt|米パイント
+Volume|us qt|米クォート
+Volume|us gal|米ガロン
+Volume|cup|カップ（米国）
+Volume|imp fl oz|英液量オンス
+Volume|imp pt|英パイント
+Volume|imp qt|英クォート
+Volume|imp gal|英ガロン
+Volume|pint|パイント
+Volume|fluid ounce|液量オンス
+Mass|ct|カラット
+Mass|mg|ミリグラム
+Mass|cg|センチグラム
+Mass|dg|デシグラム
+Mass|g|グラム
+Mass|dag|デカグラム
+Mass|hg|ヘクトグラム
+Mass|kg|キログラム
+Mass|t|トン
+Mass|oz|常用オンス
+Mass|lb|ポンド
+Mass|stone|ストーン
+Mass|short tn|ショートトン
+Speed|cm/s|センチメートル毎秒
+Speed|m/s|メートル毎秒
+Speed|km/h|キロメートル毎時
+Speed|ft/s|フィート毎秒
+Speed|mph|陸マイル毎時
+Speed|min/km|分毎キロメートル
+Speed|min/mi|分毎マイル
+Speed|s/km|秒毎キロメートル
+Speed|s/mi|秒毎マイル
+Speed|kn|ノット
+Speed|Mach|マッハ数
+Power|W|ワット
+Power|kW|キロワット
+Power|hp|機械馬力
+Power|ft·lb/min|フィート·ポンド毎分
+Power|BTU/min|英国熱量単位毎分
+Energy|eV|電子ボルト
+Energy|J|ジュール
+Energy|kJ|キロジュール
+Energy|cal|熱化学カロリー
+Energy|kcal|キロカロリー
+Energy|ft·lb|フィート·ポンド
+Energy|BTU|英国熱量単位
+Energy|kWh|キロワット時
+Pressure|Pa|パスカル
+Pressure|kPa|キロパスカル
+Pressure|bar|バール
+Pressure|atm|標準大気圧
+Pressure|psi|ポンド重/インチ²
+Pressure|mmHg|水銀柱ミリメートル
+Pressure|inHg|水銀柱インチ
+Angle|deg|度
+Angle|rad|ラジアン
+Angle|grad|グラード
+Angle|turn|回転
+Data|b|ビット
+Data|nibble|ニブル
+Data|B|バイト
+Data|kb|キロビット
+Data|Mb|メガビット
+Data|Gb|ギガビット
+Data|Tb|テラビット
+Data|Pb|ペタビット
+Data|Eb|エクサビット
+Data|Zb|ゼタビット
+Data|Yb|ヨタビット
+Data|Kib|キビビット
+Data|Mib|メビビット
+Data|Gib|ギビビット
+Data|Tib|テビビット
+Data|Pib|ペビビット
+Data|Eib|エクスビビット
+Data|kB|キロバイト
+Data|MB|メガバイト
+Data|GB|ギガバイト
+Data|TB|テラバイト
+Data|PB|ペタバイト
+Data|EB|エクサバイト
+Data|ZB|ゼタバイト
+Data|YB|ヨタバイト
+Data|KiB|キビバイト
+Data|MiB|メビバイト
+Data|GiB|ギビバイト
+Data|TiB|テビバイト
+Data|PiB|ペビバイト
+Data|EiB|エクスビバイト
+Data|ZiB|ゼビバイト
+Data|YiB|ヨビバイト
+DataRate|b/s|ビット毎秒
+DataRate|B/s|バイト毎秒
+DataRate|kb/s|キロビット毎秒
+DataRate|kB/s|キロバイト毎秒
+DataRate|Mb/s|メガビット毎秒
+DataRate|MB/s|メガバイト毎秒
+DataRate|Gb/s|ギガビット毎秒
+DataRate|GB/s|ギガバイト毎秒
+DataRate|Tb/s|テラビット毎秒
+DataRate|TB/s|テラバイト毎秒
+DataRate|Kib/s|キビビット毎秒
+DataRate|KiB/s|キビバイト毎秒
+DataRate|Mib/s|メビビット毎秒
+DataRate|MiB/s|メビバイト毎秒
+DataRate|Gib/s|ギビビット毎秒
+DataRate|GiB/s|ギビバイト毎秒
+DataRate|Tib/s|テビビット毎秒
+DataRate|TiB/s|テビバイト毎秒
+FuelEconomy|L/100km|リットル/100キロメートル
+FuelEconomy|km/L|キロメートル毎リットル
+FuelEconomy|mpg US|陸マイル毎米ガロン
+FuelEconomy|mpg UK|陸マイル毎英ガロン
+Area|mm2|平方ミリメートル
+Area|cm2|平方センチメートル
+Area|m2|平方メートル
+Area|km2|平方キロメートル
+Area|in2|平方インチ
+Area|ft2|平方フィート
+Area|yd2|平方ヤード
+Area|mi2|平方陸マイル
+Area|ha|ヘクタール
+Area|acre|エーカー
+Area|soccer field|サッカー場
+Area|manhattan block|マンハッタンの街区</value></data>
+  <data name="ConversionConnectorWords" xml:space="preserve"><value>を|から|に</value></data>
+  <data name="Conversion words" xml:space="preserve"><value>クエリの言語</value></data>
+  <data name="Language of words such as to, in, or en" xml:space="preserve"><value>単位名や「から」などに使える言語です。入力形式が英語の場合、既定で使えるのは英語のみです。</value></data>
+  <data name="Input language only" xml:space="preserve"><value>入力言語のみ</value></data>
+  <data name="Input language and English" xml:space="preserve"><value>入力言語と英語</value></data>
+  <data name="Unit Converter" xml:space="preserve"><value>単位換算</value></data>
+  <data name="Convert units" xml:space="preserve"><value>単位を換算</value></data>
+  <data name="Unit Converter for Command Palette" xml:space="preserve"><value>コマンドパレット用単位換算</value></data>
+  <data name="Convert common units of length, volume, temperature, weight, time or speed" xml:space="preserve"><value>長さ、体積、温度、質量、時間、速度などの一般的な単位を換算</value></data>
+  <data name="Enter conversion (e.g., '{0}', '{1}', '{2}')" xml:space="preserve"><value>換算を入力（例:「{0}」「{1}」「{2}」）</value></data>
+  <data name="Show detailed help and examples" xml:space="preserve"><value>詳しいヘルプと使用例を表示</value></data>
+  <data name="Help" xml:space="preserve"><value>ヘルプ</value></data>
+  <data name="Overview of Supported Units" xml:space="preserve"><value>対応する単位の一覧</value></data>
+  <data name="Suggested conversions" xml:space="preserve"><value>おすすめの換算</value></data>
+  <data name="More conversions" xml:space="preserve"><value>その他の換算</value></data>
+  <data name="Other interpretations" xml:space="preserve"><value>他の解釈</value></data>
+  <data name="Choose a unit interpretation." xml:space="preserve"><value>単位の解釈を選択してください。</value></data>
+  <data name="Everyday conversions" xml:space="preserve"><value>日常の換算</value></data>
+  <data name="Science and engineering" xml:space="preserve"><value>科学と工学</value></data>
+  <data name="Data and computing" xml:space="preserve"><value>データと情報処理</value></data>
+  <data name="Mixed units and expressions" xml:space="preserve"><value>複合単位と数式</value></data>
+  <data name="Conversion Error" xml:space="preserve"><value>換算エラー</value></data>
+  <data name="Unexpected Error" xml:space="preserve"><value>予期しないエラー</value></data>
+  <data name="Try this conversion" xml:space="preserve"><value>この換算を試す</value></data>
+  <data name="Mixed quantities" xml:space="preserve"><value>複合数量</value></data>
+  <data name="Calculations" xml:space="preserve"><value>計算</value></data>
+  <data name="Volume system preference" xml:space="preserve"><value>体積の単位</value></data>
+  <data name="Auto" xml:space="preserve"><value>入力の地域に合わせる</value></data>
+  <data name="US" xml:space="preserve"><value>米国式</value></data>
+  <data name="Imperial" xml:space="preserve"><value>英国式</value></data>
+  <data name="Processing input" xml:space="preserve"><value>入力形式</value></data>
+  <data name="Default" xml:space="preserve"><value>既定</value></data>
+  <data name="Use current culture" xml:space="preserve"><value>Windows の地域設定</value></data>
+  <data name="Use English" xml:space="preserve"><value>英語（米国）</value></data>
+  <data name="Accuracy" xml:space="preserve"><value>結果の表示桁数</value></data>
+  <data name="Display precision of results" xml:space="preserve"><value>結果に表示する桁数を選びます。</value></data>
+  <data name="Default ({0})" xml:space="preserve"><value>既定（{0}）</value></data>
+  <data name="Common use" xml:space="preserve"><value>少なめの桁数</value></data>
+  <data name="Enhanced" xml:space="preserve"><value>多めの桁数</value></data>
+  <data name="Extremely precise" xml:space="preserve"><value>最も多い桁数</value></data>
+  <data name="Length" xml:space="preserve"><value>長さ</value></data>
+  <data name="Temperature" xml:space="preserve"><value>温度</value></data>
+  <data name="TemperatureDelta" xml:space="preserve"><value>温度差</value></data>
+  <data name="Frequency" xml:space="preserve"><value>周波数</value></data>
+  <data name="Force" xml:space="preserve"><value>力</value></data>
+  <data name="Torque" xml:space="preserve"><value>トルク</value></data>
+  <data name="Acceleration" xml:space="preserve"><value>加速度</value></data>
+  <data name="Density" xml:space="preserve"><value>密度</value></data>
+  <data name="Voltage" xml:space="preserve"><value>電圧</value></data>
+  <data name="Current" xml:space="preserve"><value>電流</value></data>
+  <data name="Resistance" xml:space="preserve"><value>電気抵抗</value></data>
+  <data name="Time" xml:space="preserve"><value>時間</value></data>
+  <data name="Volume" xml:space="preserve"><value>体積</value></data>
+  <data name="Mass" xml:space="preserve"><value>質量</value></data>
+  <data name="Speed" xml:space="preserve"><value>速度</value></data>
+  <data name="Power" xml:space="preserve"><value>仕事率</value></data>
+  <data name="Energy" xml:space="preserve"><value>エネルギー</value></data>
+  <data name="Pressure" xml:space="preserve"><value>圧力</value></data>
+  <data name="Angle" xml:space="preserve"><value>角度</value></data>
+  <data name="Data" xml:space="preserve"><value>データ</value></data>
+  <data name="DataRate" xml:space="preserve"><value>データ転送速度</value></data>
+  <data name="Area" xml:space="preserve"><value>面積</value></data>
+  <data name="Unknown" xml:space="preserve"><value>不明</value></data>
+  <data name="Metric" xml:space="preserve"><value>メートル法</value></data>
+  <data name="Astronomical" xml:space="preserve"><value>天文学</value></data>
+  <data name="Contextual" xml:space="preserve"><value>状況依存</value></data>
+  <data name="Customary" xml:space="preserve"><value>慣用単位</value></data>
+  <data name="Digital" xml:space="preserve"><value>デジタル</value></data>
+  <data name="Medical" xml:space="preserve"><value>医療</value></data>
+  <data name="Nautical" xml:space="preserve"><value>航海</value></data>
+  <data name="Non-SI" xml:space="preserve"><value>非SI</value></data>
+  <data name="Physics" xml:space="preserve"><value>物理学</value></data>
+  <data name="Typographic" xml:space="preserve"><value>組版</value></data>
+  <data name="Universal" xml:space="preserve"><value>共通</value></data>
+  <data name="Could not parse the conversion query. Please use formats like '{0}' or '{1}'." xml:space="preserve"><value>換算を読み取れません。「{0}」や「{1}」の形式で入力してください。</value></data>
+  <data name="Failed to convert from {0} to {1}." xml:space="preserve"><value>{0} から {1} に換算できませんでした。</value></data>
+  <data name="Unknown unit: {0}" xml:space="preserve"><value>不明な単位: {0}</value></data>
+  <data name="Cannot convert between {0} and {1} - they are different unit types." xml:space="preserve"><value>{0} と {1} は量の種類が異なるため換算できません。</value></data>
+  <data name="{0} does not support {1} units." xml:space="preserve"><value>{0} は {1} の単位に対応していません。</value></data>
+  <data name="squared" xml:space="preserve"><value>平方</value></data>
+  <data name="cubic" xml:space="preserve"><value>立方</value></data>
+  <data name="{0} Please specify '{1}'." xml:space="preserve"><value>{0} '{1}' を指定してください。</value></data>
+  <data name="or" xml:space="preserve"><value>または</value></data>
+  <data name="1,000,000 square meters" xml:space="preserve"><value>1 000 000 m²</value></data>
+  <data name="1/16 of a pound" xml:space="preserve"><value>1/16 lb</value></data>
+  <data name="1/20 imperial pint" xml:space="preserve"><value>1/20 pt (UK)</value></data>
+  <data name="1/3 tablespoon (US)" xml:space="preserve"><value>1/3 tbsp (US)</value></data>
+  <data name="1/360 of a full rotation" xml:space="preserve"><value>1/360 × 360°</value></data>
+  <data name="1/400 of a full rotation" xml:space="preserve"><value>1/400 × 360°</value></data>
+  <data name="1/8 US cup" xml:space="preserve"><value>1/8 cup (US)</value></data>
+  <data name="10,000 square meters" xml:space="preserve"><value>10 000 m²</value></data>
+  <data name="100,000 pascals" xml:space="preserve"><value>100 000 Pa</value></data>
+  <data name="1000 calories, commonly used for food energy" xml:space="preserve"><value>食品のエネルギー表示で一般的に使われる1000カロリー</value></data>
+  <data name="1000 kilograms" xml:space="preserve"><value>1000 kg</value></data>
+  <data name="14 pounds (UK/Ireland)" xml:space="preserve"><value>14 lb (GB/IE)</value></data>
+  <data name="16 ounces" xml:space="preserve"><value>16 oz</value></data>
+  <data name="1e-4 square meters" xml:space="preserve"><value>10⁻⁴ m²</value></data>
+  <data name="1e-6 square meters" xml:space="preserve"><value>10⁻⁶ m²</value></data>
+  <data name="2 imperial pints" xml:space="preserve"><value>2 pt (UK)</value></data>
+  <data name="2 US cups" xml:space="preserve"><value>2 cup (US)</value></data>
+  <data name="2 US pints" xml:space="preserve"><value>2 pt (US)</value></data>
+  <data name="20 imperial fluid ounces" xml:space="preserve"><value>20 fl oz (UK)</value></data>
+  <data name="2000 pounds (US)" xml:space="preserve"><value>2000 lb (US)</value></data>
+  <data name="24 hours" xml:space="preserve"><value>24 h</value></data>
+  <data name="3 teaspoons (US)" xml:space="preserve"><value>3 tsp (US)</value></data>
+  <data name="365.25 days (Julian year)" xml:space="preserve"><value>365.25 d</value></data>
+  <data name="4 bits (half a byte)" xml:space="preserve"><value>4 b = 0.5 B</value></data>
+  <data name="4 imperial quarts" xml:space="preserve"><value>4 qt (UK)</value></data>
+  <data name="4 US quarts" xml:space="preserve"><value>4 qt (US)</value></data>
+  <data name="43,560 square feet (approx. 4046.8564224 m²)" xml:space="preserve"><value>43 560 ft² ≈ 4046.8564224 m²</value></data>
+  <data name="60 seconds" xml:space="preserve"><value>60 s</value></data>
+  <data name="7 days" xml:space="preserve"><value>7 d</value></data>
+  <data name="8 US fluid ounces" xml:space="preserve"><value>8 fl oz (US)</value></data>
+  <data name="Absolute temperature scale (SI base unit)" xml:space="preserve"><value>絶対温度の尺度（SI基本単位）</value></data>
+  <data name="Absolute temperature scale based on Fahrenheit degrees" xml:space="preserve"><value>華氏温度に基づく絶対温度の尺度</value></data>
+  <data name="Approx. 264 ft × 900 ft = 237,600 ft² ≈ 22,076 m²" xml:space="preserve"><value>≈ 264 ft × 900 ft = 237 600 ft² ≈ 22 076 m²</value></data>
+  <data name="Approx. FIFA-recommended pitch 105 m × 68 m = 7,140 m²" xml:space="preserve"><value>FIFA: 105 m × 68 m = 7140 m²</value></data>
+  <data name="Approximately 30.44 days" xml:space="preserve"><value>≈ 30.44 d</value></data>
+  <data name="Area of a 1 ft by 1 ft square" xml:space="preserve"><value>1 ft × 1 ft</value></data>
+  <data name="Area of a 1 in by 1 in square" xml:space="preserve"><value>1 in × 1 in</value></data>
+  <data name="Area of a 1 mi by 1 mi square" xml:space="preserve"><value>1 mi × 1 mi</value></data>
+  <data name="Area of a 1 yd by 1 yd square" xml:space="preserve"><value>1 yd × 1 yd</value></data>
+  <data name="Base unit of mass in CGS system" xml:space="preserve"><value>CGS単位系の質量の基本単位</value></data>
+  <data name="Basic metric unit of volume" xml:space="preserve"><value>メートル法の体積の基本単位</value></data>
+  <data name="Basic unit of information" xml:space="preserve"><value>情報の基本単位</value></data>
+  <data name="Distance light travels in one day" xml:space="preserve"><value>光が1 dで進む距離</value></data>
+  <data name="Distance light travels in one hour" xml:space="preserve"><value>光が1 hで進む距離</value></data>
+  <data name="Distance light travels in one minute" xml:space="preserve"><value>光が1 minで進む距離</value></data>
+  <data name="Distance light travels in one second" xml:space="preserve"><value>光が1 sで進む距離</value></data>
+  <data name="Distance light travels in one week" xml:space="preserve"><value>光が1 wで進む距離</value></data>
+  <data name="Elementary charge times one volt" xml:space="preserve"><value>電気素量と1ボルトの積</value></data>
+  <data name="Imperial unit of energy" xml:space="preserve"><value>ヤード・ポンド法のエネルギー単位</value></data>
+  <data name="Imperial unit of power" xml:space="preserve"><value>ヤード・ポンド法の仕事率の単位</value></data>
+  <data name="Mechanical horsepower (745.7 watts)" xml:space="preserve"><value>745.7 W</value></data>
+  <data name="One billionth of a second" xml:space="preserve"><value>10⁻⁹ s</value></data>
+  <data name="One complete rotation (360°)" xml:space="preserve"><value>360°</value></data>
+  <data name="One hundred grams" xml:space="preserve"><value>100 g</value></data>
+  <data name="One hundredth of a gram" xml:space="preserve"><value>0.01 g</value></data>
+  <data name="One millionth of a second" xml:space="preserve"><value>10⁻⁶ s</value></data>
+  <data name="One tenth of a gram" xml:space="preserve"><value>0.1 g</value></data>
+  <data name="One thousandth of a gram" xml:space="preserve"><value>0.001 g</value></data>
+  <data name="One thousandth of a liter" xml:space="preserve"><value>0.001 L</value></data>
+  <data name="One thousandth of a second" xml:space="preserve"><value>0.001 s</value></data>
+  <data name="Pressure equivalent to 1 inch of mercury" xml:space="preserve"><value>1インチの水銀柱に相当する圧力</value></data>
+  <data name="Pressure equivalent to 1mm of mercury" xml:space="preserve"><value>1ミリメートルの水銀柱に相当する圧力</value></data>
+  <data name="Pressure per square inch" xml:space="preserve"><value>1 lbf/in²</value></data>
+  <data name="SI base unit of area" xml:space="preserve"><value>SIの面積の単位</value></data>
+  <data name="SI base unit of mass" xml:space="preserve"><value>SIの質量の基本単位</value></data>
+  <data name="SI base unit of time" xml:space="preserve"><value>SIの時間の基本単位</value></data>
+  <data name="SI unit of angular measure" xml:space="preserve"><value>SIの平面角の単位</value></data>
+  <data name="SI unit of energy" xml:space="preserve"><value>SIのエネルギーの単位</value></data>
+  <data name="SI unit of power" xml:space="preserve"><value>SIの仕事率の単位</value></data>
+  <data name="SI unit of pressure" xml:space="preserve"><value>SIの圧力の単位</value></data>
+  <data name="Standard atmospheric pressure" xml:space="preserve"><value>101 325 Pa</value></data>
+  <data name="Temperature scale based on water's freezing and boiling points" xml:space="preserve"><value>水の凝固点と沸点に基づく温度尺度</value></data>
+  <data name="Temperature scale commonly used in the United States" xml:space="preserve"><value>米国で一般的に使われる温度尺度</value></data>
+  <data name="Ten grams" xml:space="preserve"><value>10 g</value></data>
+  <data name="Thermal power unit" xml:space="preserve"><value>熱出力の単位</value></data>
+  <data name="Thermochemical calorie (4.184 J)" xml:space="preserve"><value>4.184 J</value></data>
+  <data name="Traditional unit of heat energy" xml:space="preserve"><value>従来の熱エネルギーの単位</value></data>
+  <data name="Unit for measuring precious stones and pearls (200 mg)" xml:space="preserve"><value>200 mg</value></data>
+  <data name="Unit of electrical energy consumption" xml:space="preserve"><value>電力消費量の単位</value></data>
+  <data name="1000 bits (decimal)" xml:space="preserve"><value>1000 b</value></data>
+  <data name="1000 bytes (decimal)" xml:space="preserve"><value>1000 B</value></data>
+  <data name="1000 kilobits (decimal)" xml:space="preserve"><value>1000 kb</value></data>
+  <data name="1000 kilobytes (decimal)" xml:space="preserve"><value>1000 kB</value></data>
+  <data name="1000 megabits (decimal)" xml:space="preserve"><value>1000 Mb</value></data>
+  <data name="1000 megabytes (decimal)" xml:space="preserve"><value>1000 MB</value></data>
+  <data name="1000 gigabits (decimal)" xml:space="preserve"><value>1000 Gb</value></data>
+  <data name="1000 gigabytes (decimal)" xml:space="preserve"><value>1000 GB</value></data>
+  <data name="1000 terabits (decimal)" xml:space="preserve"><value>1000 Tb</value></data>
+  <data name="1000 terabytes (decimal)" xml:space="preserve"><value>1000 TB</value></data>
+  <data name="1000 petabits (decimal)" xml:space="preserve"><value>1000 Pb</value></data>
+  <data name="1000 petabytes (decimal)" xml:space="preserve"><value>1000 PB</value></data>
+  <data name="1000 exabits (decimal)" xml:space="preserve"><value>1000 Eb</value></data>
+  <data name="1000 exabytes (decimal)" xml:space="preserve"><value>1000 EB</value></data>
+  <data name="1000 zettabits (decimal)" xml:space="preserve"><value>1000 Zb</value></data>
+  <data name="1000 zettabytes (decimal)" xml:space="preserve"><value>1000 ZB</value></data>
+  <data name="1024 bits (binary)" xml:space="preserve"><value>1024 b</value></data>
+  <data name="1024 bytes (binary)" xml:space="preserve"><value>1024 B</value></data>
+  <data name="1024 kibibits (binary)" xml:space="preserve"><value>1024 Kib</value></data>
+  <data name="1024 kibibytes (binary)" xml:space="preserve"><value>1024 KiB</value></data>
+  <data name="1024 mebibits (binary)" xml:space="preserve"><value>1024 Mib</value></data>
+  <data name="1024 mebibytes (binary)" xml:space="preserve"><value>1024 MiB</value></data>
+  <data name="1024 gibibits (binary)" xml:space="preserve"><value>1024 Gib</value></data>
+  <data name="1024 gibibytes (binary)" xml:space="preserve"><value>1024 GiB</value></data>
+  <data name="1024 tebibits (binary)" xml:space="preserve"><value>1024 Tib</value></data>
+  <data name="1024 tebibytes (binary)" xml:space="preserve"><value>1024 TiB</value></data>
+  <data name="1024 pebibits (binary)" xml:space="preserve"><value>1024 Pib</value></data>
+  <data name="1024 pebibytes (binary)" xml:space="preserve"><value>1024 PiB</value></data>
+  <data name="1024 exbibytes (binary)" xml:space="preserve"><value>1024 EiB</value></data>
+  <data name="1024 zebibytes (binary)" xml:space="preserve"><value>1024 ZiB</value></data>
+  <data name="Ambiguous unit token. It can mean kilocalorie (kcal) or calorie (cal)." xml:space="preserve"><value>単位が曖昧です。キロカロリー（kcal）またはカロリー（cal）の可能性があります。</value></data>
+  <data name="Enter a value and a unit." xml:space="preserve"><value>値と単位を入力してください。</value></data>
+  <data name="Complete the calculation, then enter a unit." xml:space="preserve"><value>計算を完成させてから単位を入力してください。</value></data>
+  <data name="Choose a source unit." xml:space="preserve"><value>換算元の単位を選択してください。</value></data>
+  <data name="Choose a compatible target unit." xml:space="preserve"><value>換算可能な換算先の単位を選択してください。</value></data>
+  <data name="Complete the conversion" xml:space="preserve"><value>換算を完成させる</value></data>
+  <data name="Use this query" xml:space="preserve"><value>この入力を使用</value></data>
+  <data name="Open in Unit Converter" xml:space="preserve"><value>単位換算で開く</value></data>
+  <data name="Copy result" xml:space="preserve"><value>結果をコピー</value></data>
+  <data name="Copy number" xml:space="preserve"><value>数値をコピー</value></data>
+  <data name="Copy full precision" xml:space="preserve"><value>完全な精度でコピー</value></data>
+  <data name="The result is outside the supported numeric range." xml:space="preserve"><value>結果が対応する数値範囲を超えています。</value></data>
+  <data name="Copy number in {0}" xml:space="preserve"><value>{0} の数値をコピー</value></data>
+  <data name="FuelEconomy" xml:space="preserve"><value>燃料消費率</value></data>
+  <data name="Miles per gallon requires a US or UK gallon." xml:space="preserve"><value>ガロンあたりのマイルには米ガロンか英ガロンの指定が必要です。</value></data>
+  <data name="The value is not valid for this unit." xml:space="preserve"><value>この単位では無効な値です。</value></data>
+  <data name="Mixed quantities must use compatible units and dimensions. Absolute temperatures and fuel economy cannot be added." xml:space="preserve"><value>複合数量には互換性のある単位と次元が必要です。絶対温度や燃料消費率は加算できません。</value></data>
+  <data name="An unexpected error occurred. Please try again." xml:space="preserve"><value>予期しないエラーが発生しました。もう一度お試しください。</value></data>
+  <data name="Choose the gallon, quart, pint, and fluid ounce used when US or Imperial is not specified." xml:space="preserve"><value>米国式または英国式が指定されていない場合に使うガロン、クォート、パイント、液量オンスを選びます。</value></data>
+  <data name="Sets number formatting and the input language. Default follows Windows regional settings." xml:space="preserve"><value>数値の書式と入力言語を設定します。既定では Windows の地域設定を使います。</value></data>
+  <data name="Automatic query languages" xml:space="preserve"><value>UI 言語、入力言語、英語</value></data>
+  <data name="English only" xml:space="preserve"><value>英語のみ</value></data>
+  <data name="US customary" xml:space="preserve"><value>米国式</value></data>
+  <data name="Imperial (UK)" xml:space="preserve"><value>英国式（ヤード・ポンド法）</value></data>
+</root>
